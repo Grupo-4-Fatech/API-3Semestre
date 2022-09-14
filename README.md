@@ -51,7 +51,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 <ul> <li> <strong>Metodologia Ágil: SCRUM </strong> </li> </ul>
 </br>
 
-(anexar imagem)
+![METODOLOGIA](https://user-images.githubusercontent.com/89141910/190282709-8313ede3-7fc9-42dc-9262-a76d7a82d161.png)
+
 
 ## 🗒️ Backlog Priorizado
 
