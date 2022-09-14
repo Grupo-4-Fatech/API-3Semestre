@@ -29,7 +29,7 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
  ## 📅 Cronograma das Sprints 
 
  - - [X] **Kick-off:** 17/08/2022
- - - [ ] **1° Sprint:** 29/08/2022 a 18/09/2022
+ - - [ ] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint%201">**1° Sprint:** 29/08/2022 a 18/09/2022
  - - [ ] **2° Sprint:** 19/09/2022 a 09/10/2022
  - - [ ] **3° Sprint:** 13/10/2022 a 06/11/2022
  - - [ ] **4°Sprint:** 07/11/2022 a 27/11/2022
