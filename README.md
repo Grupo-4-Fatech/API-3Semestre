@@ -3,7 +3,8 @@ Projeto desenvolvido por alunos do terceiro semestre do curso de análise e dese
 
 ## 🎯 Objetivo
 O projeto visa criar uma interface para que um piloto de aeronave possa calcular a distância necessária para voar com base nos parâmetros considerados na <link>tabela</link> disponibilizada.
-(anexar imagem)
+
+![OBJETIVO](https://user-images.githubusercontent.com/89141910/190279088-66737cb2-178c-471e-919b-cd803429b3f6.png)
 
 > Status do Projeto: Em Desenvolvimento.
 
@@ -42,7 +43,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 - **Front-end:** HTML e CSS.
 - **Ferramentas:** Visual Studio Code, Canva, Git, Github, PowerPoint, MySQL, Microsoft Teams e Discord.
 
-(anexar imagem)
+![tecnologias1](https://user-images.githubusercontent.com/89141910/190279653-b5f94f54-0b5c-4d58-a517-4e501b87d351.png)
+
 
 ## 💡 Metodologia
 
@@ -53,7 +55,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 
 ## 🗒️ Backlog Priorizado
 
-(anexar imagem)
+![sprint backlog](https://user-images.githubusercontent.com/89141910/190280881-e8429cee-c064-4ed9-a293-7e75a451ec47.png)
+
 
 </br>
 
