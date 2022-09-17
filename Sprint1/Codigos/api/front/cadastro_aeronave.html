@@ -33,17 +33,17 @@
 
                 <div class="input-box">
                     <span class="details">Peso</span>
-                    <input type="text" placeholder="Peso da aeronave" required>
+                    <input type="text" placeholder="Peso da aeronave" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required>
                 </div>
 
                 <div class="input-box">
                     <span class="details">Overspeed</span>
-                    <input type="text" placeholder="Overspeed" required>
+                    <input type="text" placeholder="Overspeed" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required>
                 </div>
 
                 <div class="input-box">
                     <span class="details">Flap de pouso</span>
-                    <input type="text" placeholder="Flap de pouso" required>
+                    <input type="text" placeholder="Flap de pouso" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" required>
                 </div>
 
             </div>
