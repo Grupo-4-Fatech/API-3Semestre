@@ -28,8 +28,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
     
  ## 📅 Cronograma das Sprints 
 
- - - [X] **Kick-off:** 17/08/2022
- - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint%201">**1° Sprint:**</a> 29/08/2022 a 18/09/2022<br>
+ - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint1/Documentacao/Kick-off.pdf">**Kick-off:**</a> 17/08/2022
+ - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint1">**1° Sprint:**</a> 29/08/2022 a 18/09/2022<br>
  - - [ ] **2° Sprint:** 19/09/2022 a 09/10/2022
  - - [ ] **3° Sprint:** 13/10/2022 a 06/11/2022
  - - [ ] **4°Sprint:** 07/11/2022 a 27/11/2022
@@ -63,7 +63,7 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 
 ## 📉 Gráfico Burndown
 
-- <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint%201/Documenta%C3%A7%C3%A3o/Burndown%20Geral%20-%20burndown%20sprint%201.pdf">**Sprint 1**</a>
+- <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint1/Documentacao/Burndown%20Geral%20-%20burndown%20sprint%201.pdf">**Sprint 1**</a>
  
 ## 👥 Equipe
 
