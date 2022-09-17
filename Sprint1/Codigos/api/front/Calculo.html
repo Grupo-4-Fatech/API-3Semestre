@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de pouso</title>
+    <link rel="stylesheet" href="css/calculo.css">
+    
+    <script src="https://kit.fontawesome.com/e0e56381f3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">    
+        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>          
+        <div class="title">Cálculo de pouso</div>
+        <i class="fa-solid fa-plane-arrival"></i>
+        <form action="#">
+            <div class="detalhes-aeronave">
+                <div class="input-box">
+                    <span class="details">Modelo da aeronave</span>
+                    <input type="text" placeholder="Modelo da aeronave" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Motor</span>
+                    <input type="text" placeholder="Motor da aeronave" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Certificação</span>
+                    <input type="text" placeholder="Certificação da aeronave" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Peso</span>
+                    <input type="text" placeholder="Peso da aeronave" required>
+                </div>
+
+                 <div class="input-box">
+                    <span class="details">Altitude da pista de pouso</span>
+                    <input type="text" placeholder="Altitude da pista de pouso" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Temperatura</span>
+                    <input type="text" placeholder="Temperatura" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Vento</span>
+                    <input type="text" placeholder="Vento" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Slope(inclinação da pista)</span>
+                    <input type="text" placeholder="Slope" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Overspeed</span>
+                    <input type="text" placeholder="Overspeed" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Flap de pouso</span>
+                    <input type="text" placeholder="Flap de pouso" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Acúmulo de gelo</span>
+                    <input type="text" placeholder="Acúmulo de gelo" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Aplicação de freio</span>
+                    <input type="text" placeholder="Aplicação de freio" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Condição de pista</span>
+                    <input type="text" placeholder="Condição de pista" required>
+                </div> 
+
+            </div>
+
+            <div class="Reversor-details">
+                <input type="radio" name="Reversor" id="dot-1">
+                <input type="radio" name="Reversor" id="dot-2">
+                <span class="Reversor-title">Reversor</span>
+
+                <div class="category">
+
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="reversor">Usa reversor</span>
+                    </label>
+
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="reversor">Não usa reversor</span>
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="button">
+                <input type="submit" value="Calcular">
+            </div>
+            <div class="input_box">
+                <span class="details">Pista necessária</span>
+                <input type="text" placeholder="Resultado">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

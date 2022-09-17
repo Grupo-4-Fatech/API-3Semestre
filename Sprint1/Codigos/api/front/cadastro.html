@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro ADM</title>
+    <link rel="stylesheet" href="css/cadastro_usuario.css">
+    <script src="https://kit.fontawesome.com/e0e56381f3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--form cadastro-->
+    <div id="form">
+        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>      
+        <form action="">
+            <h2 class="title">Cadastrar Usuários</h2>
+
+
+            <label for="username">Nome </label>
+
+            <div class="input">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                <input id="username" name="username" placeholder="Username" type="text">
+            </div>
+
+
+            <label for="">Email</label>
+
+            <div class="input">
+                <i class="fa-solid fa-envelope"></i>
+                <input id="email" name="email" placeholder="Email" type="text">
+            </div>
+
+
+            <label for="">Senha</label>
+
+            <div class="input">
+                <i class="fa-solid fa-lock"></i>
+                <input id="senha" name="senha" placeholder="Password" type="password">
+            </div>
+            <div class="Reversor-details">
+                <input type="radio" name="Reversor" id="dot-1">
+                <input type="radio" name="Reversor" id="dot-2">
+                <span class="Reversor-title">Tipo</span>
+
+                <div class="category">
+
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="reversor">Cliente</span>
+                    </label>
+
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="reversor">Administrador</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div id="btn">
+                <button type="submit">Cadastrar</button>
+
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>

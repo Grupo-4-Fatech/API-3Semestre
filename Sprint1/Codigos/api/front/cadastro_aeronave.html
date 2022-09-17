@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/cadastro_aeronave.css">
+    <script src="https://kit.fontawesome.com/e0e56381f3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">  
+        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>      
+        <div class="title">Cadastro de aeronaves</div>
+        <i class="fa fa-plane" aria-hidden="true"></i>
+        <form action="#">
+            <div class="detalhes-aeronave">
+                <div class="input-box">
+                    <span class="details">Modelo da aeronave</span>
+                    <input type="text" placeholder="Modelo da aeronave" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Motor</span>
+                    <input type="text" placeholder="Motor da aeronave" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Certificação</span>
+                    <input type="text" placeholder="Certificação da aeronave" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Peso</span>
+                    <input type="text" placeholder="Peso da aeronave" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Overspeed</span>
+                    <input type="text" placeholder="Overspeed" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Flap de pouso</span>
+                    <input type="text" placeholder="Flap de pouso" required>
+                </div>
+
+            </div>
+
+            <div class="Reversor-details">
+                <input type="radio" name="Reversor" id="dot-1">
+                <input type="radio" name="Reversor" id="dot-2">
+                <span class="Reversor-title">Reversor</span>
+
+                <div class="category">
+
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="reversor">Usa reversor</span>
+                    </label>
+
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="reversor">Não usa reversor</span>
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="button">
+                <input type="submit" value="Cadastrar">
+            </div>
+        </form>
+        <template>
+            <div>
+                <b-table :itens="items"></b-table>
+            </div>
+        </template>
+
+    </div>
+
+
+</body>
+
+</html>

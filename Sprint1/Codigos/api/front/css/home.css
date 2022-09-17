@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container .barra ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.container .barra li {
+    float: left;
+}
+
+.container .barra li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.container .barra li a:hover {
+    background-color: rgb(87, 85, 85);
+}
+.container img {
+    background-color: #0a1a5c;
+}
+
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(-45deg, #0a1a5c, #0a1a5c);
+
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 25px;
+    border-radius: 5px;
+
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: 500;
+    pointer-events: all;
+    position: relative;
+}
+
+.container .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(-45deg, #0a1a5c, #0a1a5c);
+
+}
+
+.container form .cadastro-aeronave {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .cadastro-aeronave .button {
+
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.cadastro-aeronave .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+
+}
+
+
+.cadastro-aeronave .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+form .button {
+    height: 100px;
+    margin: 45px 0;
+
+}
+
+.container form .cadastro-aeronave .button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(-45deg, #0a1a5c, #1f274f, #282f55);
+}
+
+.container form .cadastro-aeronave .button button:hover {
+    background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
+}
+
+@media(max-width: 584px) {
+    .container {
+        max-width: 80%;
+    }
+
+    form .cadastro-aeronave .button {
+        margin-bottom: 15px;
+        width: 80%;
+    }
+
+    .container form .cadastro-aeronave {
+        max-height: 180;
+        overflow-y: scroll;
+    }
+    .container .barra ul {
+        width: 100%;
+    }
+
+    /*.detalhes-aeronave::-webkit-scrollbar { 
+        width: 0;
+    }*/
+
+    /* @media(max-width: 670px) {
+        .container {
+            max-width: 100%;
+        }
+
+        form .cadastro-aeronave .button {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .container form .cadastro-aeronave {
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+
+
+        @media(max-width: 830px) {
+            .container {
+                max-width: 100%;
+            }
+
+            form .cadastro-aeronave .button {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            .container form .cadastro-aeronave {
+                max-height: 200px;
+                overflow-y: scroll;
+            } */
+
+
+
+
+        }

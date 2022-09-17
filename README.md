@@ -17,7 +17,7 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 
 - [ ] Cadastros de modelos de aeronaves;
 - [ ] Perfis diferentes (administrador, usuário);
-- [ ] Interface responsiva para que possa ser utilizada via tablet, desktop ou celular;
+- [X] Interface responsiva para que possa ser utilizada via tablet, desktop ou celular;
 - [ ] Gerar cálculo do comprimento mínimo da pista de pouso;
 - [ ] Gerar histórico dos cálculos realizados;
 
