@@ -9,15 +9,15 @@ const CadastroAeronave = () => {
 
         <div className="container">  
         <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>      
-        <div className="titulo">Cadastro de aeronaves</div>
+        <div className="titulo">Aircraft registration</div>
         <FontAwesomeIcon icon={faPlane}/>
         <form action="#">
             <div className="detalhes-aeronave">
                 <InputCadastros id="Modelo-de-aeronave" type="text" placeholder="Enter the Model">Aircraft Model</InputCadastros>
                 <InputCadastros id="Motor" type="text" placeholder="Enter the engine">Motor</InputCadastros>
                 <InputCadastros id="Certificaçao" type="text" placeholder="Enter the certification">Certification</InputCadastros>
-                <InputCadastros id="Peso" type="number" placeholder="Enter the weight">Reference weight</InputCadastros>
-                <InputCadastros id="Reversor" type="number" placeholder="Enter the reverser" >Reverser</InputCadastros>
+                <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Reference weight</InputCadastros>
+                <InputCadastros min="0" id="Reversor" type="number" placeholder="Enter the reverser" >Reverser</InputCadastros>
 
             </div>
 

@@ -30,7 +30,7 @@ const Calculo = () => {
                     <NativeSelectDemo></NativeSelectDemo>
                     {func('bk')}
                     <SelectCondicao></SelectCondicao>
-                    <InputCadastros id="Peso" type="number" placeholder="Enter the weight">Weight</InputCadastros>
+                    <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Weight</InputCadastros>
                     <InputCadastros id="Altitude-pista-Pouso" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
                     <InputCadastros id="Temperatura" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
                     <InputCadastros id="Ventos" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
@@ -38,7 +38,7 @@ const Calculo = () => {
                     <InputCadastros id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros>
                     {func('flap')}
                     <SelectIce></SelectIce>
-                    <InputCadastros id="Reversor" type="number" placeholder="Enter the reverser">Reverser</InputCadastros>
+                    <InputCadastros qtd="10" min="0" id="Reversor" type="number" placeholder="Enter the reverser">Reverser</InputCadastros>
 
             </div>
 
