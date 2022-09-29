@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.content {
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;  /* define os itens, como seria as posiçoes das caixas */
+  align-items: center; /* alinha na vertical */
+  justify-content: center;  /* alinha na horizontal */
+}
+
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: #333;
+}
