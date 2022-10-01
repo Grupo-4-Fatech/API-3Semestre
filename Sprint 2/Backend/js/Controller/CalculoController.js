@@ -36,8 +36,12 @@ CalculoController.get("/calcular", (req, res) => __awaiter(void 0, void 0, void 
     });
 }));
 var calcular = function (dados, valores) {
-    console.log(dados);
-    console.log(valores);
+    //PESO TONELADAS
+    //ALTURA FEET
+    //TEMPERATURA GRAUS
+    //WIND KT (NÓS)
+    //SLOPE PORCENTAGEM
+    //REVERSOR UN
     var valorReferencia = dados.Ref;
     var peso = 0;
     var altura = 0;
@@ -45,13 +49,16 @@ var calcular = function (dados, valores) {
     var wind = 0;
     var slope = 0;
     var rev = 0;
+    //VALORES DE PESO
     if (valores.Peso > 18) {
         peso = peso + (valores.Peso - 18) * dados.AboveWeight;
     }
     else if (valores.Peso < 18) {
         peso = peso + (18 - valores.Peso) * dados.BelowWeight;
     }
+    //ALTURA
     altura = (dados.Alt / 1000) * valores.Alt;
+    //TEMPERATURA
     if (valores.Temp > 15) {
         temp = (dados.AboveISA / 5) * valores.Temp;
     }
@@ -66,13 +73,17 @@ var calcular = function (dados, valores) {
     else if (valores.LikeWind == 2) {
         wind = (dados.TallWind / 5) * valores.Wind;
     }
+    //1 == UPHILL
+    //2 == DOWNHILL
     if (valores.LikeSlope == 1) {
         slope = dados.UpHill * valores.Slope;
     }
     else if (valores.LikeSlope == 2) {
         slope = dados.DownHill * valores.Slope;
     }
+    //REVERSOR
     rev = dados.Rev * valores.Rev;
+    //RESPOTA EM METROS
     return (valorReferencia + peso + altura + temp + wind + slope + rev);
 };
 exports.default = CalculoController;
