@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const conexao_1 = __importDefault(require("./Conexao/conexao"));
 const UsuarioController_1 = __importDefault(require("./Controller/UsuarioController"));
 const LoginController_1 = __importDefault(require("./Controller/LoginController"));
+const CalculoController_1 = __importDefault(require("./Controller/CalculoController"));
 const app = (0, express_1.default)();
 const port = 5000;
 app.use(express_1.default.json());
@@ -22,6 +23,7 @@ app.get('/banco', (_req, _res) => {
 });
 app.use(UsuarioController_1.default);
 app.use(LoginController_1.default);
+app.use(CalculoController_1.default);
 app.listen(port, () => {
     console.log(`TypeScript with Express
          http://localhost:${port}/`);
