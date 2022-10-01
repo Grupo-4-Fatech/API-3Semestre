@@ -3,7 +3,8 @@ import "./select.css"
 const SelectCondicao = () => {
     return (
 
-        <><div className="medidas">
+        <>
+        <div className="medidas">
             <label htmlFor="" className="tituloS">Runway condition</label>
             <select className="medida" name="medidas" id="medida" defaultValue={'default'}>
                 <option value="default" disabled>Select Condition:</option>

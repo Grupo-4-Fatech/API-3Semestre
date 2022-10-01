@@ -8,6 +8,7 @@ import SelectFlap from "../../componentes/select/selectFlap";
 import SelectCondicao from "../../componentes/select/selectCondicao"
 import SelectIce from "../../componentes/select/selectIce";
 import SelectBk from "../../componentes/select/selectBk";
+import SelectWind from "../../componentes/select/selectWind";
 
 const func = (tipo)=>{
 
@@ -28,14 +29,16 @@ const Calculo = () => {
         <form action="#">
             <div className="detalhes-aeronave">
                     <NativeSelectDemo></NativeSelectDemo>
-                    {func('bk')}
+                    {/* {func('bk')} */}
                     <SelectCondicao></SelectCondicao>
                     <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Weight</InputCadastros>
-                    <InputCadastros id="Altitude-pista-Pouso" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
+                    <InputCadastros min="0" id="Altitude-pista-Pouso" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
                     <InputCadastros id="Temperatura" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
-                    <InputCadastros id="Ventos" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
+                    <SelectWind></SelectWind>
+                    <InputCadastros min="0" id="Ventos" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
                     <SelectSlope></SelectSlope>
-                    <InputCadastros id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros>
+                    <InputCadastros  id="InputSlope" type="number" placeholder="Enter slope">Slope</InputCadastros>
+                    <InputCadastros min="0" id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros>
                     {func('flap')}
                     <SelectIce></SelectIce>
                     <InputCadastros qtd="10" min="0" id="Reversor" type="number" placeholder="Enter the reverser">Reverser</InputCadastros>
@@ -67,7 +70,7 @@ const Calculo = () => {
             </div>
             <div className="input_box">
                 <span className="details">Necessary clue</span>
-                <input type="text" placeholder="Resultado" disabled="disabled"/>
+                <input type="text" placeholder="Result" disabled="disabled"/>
             </div>
         </form>
     </div>
