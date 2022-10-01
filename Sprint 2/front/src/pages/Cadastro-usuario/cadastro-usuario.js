@@ -34,7 +34,7 @@ const CadastroUsuario = () => {
         <div id="form">
         <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>      
         <form action="">
-            <h2 className="title">Register Users</h2>
+            <h2 className="titulo">Register Users</h2>
             <InputLogin text="Nome" id="username" placeholder="Enter username" type="text" icon={faUserCircle}/>
             <InputLogin text="Email" id="email" placeholder="Enter email" type="text" icon={faEnvelope}/>
             <InputLogin text="Senha" id="senha" placeholder="Enter password" type="password" icon={faLock}/>
@@ -61,7 +61,9 @@ const CadastroUsuario = () => {
             </div>
 
             <div id="btn">
-                <button type="submit" onClick={handleCadastroUsuario}>Register</button>
+                <button type="submit" onClick={handleCadastroUsuario} >Register</button>
+                <button type="submit" >Change</button>
+
 
             </div>
         </form>
