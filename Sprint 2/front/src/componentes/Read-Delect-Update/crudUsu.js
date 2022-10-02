@@ -36,16 +36,7 @@ const CrudUsu = ({ dados }) => {
                     <Table.Row>
                         <Table.HeaderCell />
                         <Table.HeaderCell colSpan=''>
-                            <Button
-                                floated='right'
-                                icon
-                                labelPosition='left'
-                                primary
-                                size='smal'
-                                className='button'
-                            >
-                                Consultar
-                            </Button>
+                            <Button icon primary size='smal' className='button'>Consultar</Button>
                             <Button size='small' className='button'>Deletar</Button>
                         </Table.HeaderCell>
                     </Table.Row>
