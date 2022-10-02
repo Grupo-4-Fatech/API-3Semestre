@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+Table {
+    font-family: 'Poppins', sans-serif;
+}
+
+#btnex {
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    background: linear-gradient(-45deg, #0a1a5c, #1f274f, #282f55);
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+
+}
+
+#btn::hover {
+    background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
+}

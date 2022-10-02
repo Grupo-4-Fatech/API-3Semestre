@@ -7,17 +7,20 @@ const ConsDelUsu = () => {
         {
           nome: "Denis Lima",
           email: "denislima@gmail.com",
-          senha: "denis123"
+          senha: "denis123",
+          
         },
         {
           nome: "Gabriel Coutinho",
           email: "gabrielcoutinho@gmail.com",
-          senha: "gabriel123"
+          senha: "gabriel123",
+         
         },
         {
           nome: "Carlos Henrique",
           email: "carloshenrique@gmail.com",
-          senha: "carloshenrique123"
+          senha: "carloshenrique123",
+          
         }
       ]
     return (  
