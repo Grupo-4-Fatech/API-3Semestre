@@ -2,12 +2,13 @@ import Router from "express";
 import ParametrosModel from "../Models/Parametros";
 const CalculoController = Router();
 
-CalculoController.get("/calcular" , async(req, res)=>{
+CalculoController.post("/calcular" , async(req, res)=>{
+    var dados = req.body
     await ParametrosModel.findOne( { raw: true,
         where:{
-        Flap:220,
-        Ice:false,
-        RunwayCondicion:3
+        Flap: dados.Flap,
+        Ice: dados.Ice,
+        RunwayCondicion: dados.RunwayCondicion
     }}).then((data)=>{
         var valor = {
             Peso: 20,
@@ -20,7 +21,7 @@ CalculoController.get("/calcular" , async(req, res)=>{
             Rev:1
 
         };
-        res.json({dados: data, valores:valor, calculo: calcular(data,valor)});
+        res.json( calcular(data,dados));
     })
     
     

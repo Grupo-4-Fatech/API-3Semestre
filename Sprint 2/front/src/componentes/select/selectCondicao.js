@@ -6,7 +6,7 @@ const SelectCondicao = () => {
         <>
         <div className="medidas">
             <label htmlFor="" className="tituloS">Runway condition</label>
-            <select className="medida" name="medidas" id="medida" defaultValue={'default'}>
+            <select className="medida" name="medidas" id="runway_condition" defaultValue={'default'}>
                 <option value="default" disabled>Select Condition:</option>
                 <option value="1">1 POOR </option>
                 <option value="2">2 MEDIUM TO POOR </option>

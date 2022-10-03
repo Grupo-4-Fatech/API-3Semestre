@@ -20,6 +20,37 @@ const func = (tipo) => {
     }
 }
 
+
+    var handleCalcular = function (e) {
+        e.preventDefault();
+      
+        var dados = {
+            Flap: parseInt(document.getElementById('slcFlap').value),
+            Ice:document.getElementById('slcIce').value ==1? false: true,
+            RunwayCondicion:parseInt(document.getElementById('runway_condition').value),
+            Peso: parseInt(document.getElementById('Peso').value),
+            Alt: parseInt(document.getElementById('Alt').value),
+            LikeWind:parseInt(document.getElementById('slcWind').value),
+            Wind:parseInt(document.getElementById('Wind').value),
+            Temp:parseInt(document.getElementById('Temp').value),
+            LikeSlope: Number(document.getElementById('slcSlope').value),
+            Slope:parseInt(document.getElementById('InputSlope').value),
+            Rev:parseInt(document.getElementById('Reversor').value)
+
+        };
+        
+        fetch("/calcular", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(dados)
+        }).then((resposta) => resposta.json()).then((data) => {
+            
+            document.getElementById('result').value = data + "m";
+        })
+    }
+
 const Calculo = () => {
     return (
         <div className="cont">
@@ -36,11 +67,11 @@ const Calculo = () => {
                     <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Weight</InputCadastros>
                     <SelectSlope></SelectSlope>
                     <InputCadastros id="InputSlope" type="number" placeholder="Enter slope">Slope</InputCadastros>                     
-                    <InputCadastros min="0" id="Altitude-pista-Pouso" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
-                    <InputCadastros id="Temperatura" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
+                    <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
+                    <InputCadastros id="Temp" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
                     <SelectWind></SelectWind>
-                    <InputCadastros min="0" id="Ventos" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
-                    <InputCadastros min="0" id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros>
+                    <InputCadastros min="0" id="Wind" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
+                    {/* <InputCadastros min="0" id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros> */}
                     <InputCadastros qtd="10" min="0" id="Reversor" type="number" placeholder="Enter the reverser">Reverser</InputCadastros>
 
                 </div>
@@ -66,11 +97,11 @@ const Calculo = () => {
 
             </div> */}
                 <div className="button">
-                    <input type="submit" value="Calculate" />
+                    <input type="submit" onClick={handleCalcular}  value="Calculate" id="calcular"/>
                 </div>
                 <div className="input_box">
                     <span className="details">Necessary clue</span>
-                    <input type="text" placeholder="Result" disabled="disabled" />
+                    <input type="text" placeholder="Result" disabled="disabled" id="result" />
                 </div>
             </form>
         </div>

@@ -15,12 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const Parametros_1 = __importDefault(require("../Models/Parametros"));
 const CalculoController = (0, express_1.default)();
-CalculoController.get("/calcular", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+CalculoController.post("/calcular", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(dados);
+    var dados = req.body;
     yield Parametros_1.default.findOne({ raw: true,
         where: {
-            Flap: 220,
-            Ice: false,
-            RunwayCondicion: 3
+            Flap: dados.Flap,
+            Ice: dados.Ice,
+            RunwayCondicion: dados.RunwayCondicion
         } }).then((data) => {
         var valor = {
             Peso: 20,
@@ -32,7 +34,7 @@ CalculoController.get("/calcular", (req, res) => __awaiter(void 0, void 0, void 
             Slope: 0.1,
             Rev: 1
         };
-        res.json({ dados: data, valores: valor, calculo: calcular(data, valor) });
+        res.json(calcular(data, dados));
     });
 }));
 var calcular = function (dados, valores) {
