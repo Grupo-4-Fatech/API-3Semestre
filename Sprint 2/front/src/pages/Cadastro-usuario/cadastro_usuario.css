@@ -24,6 +24,7 @@ body{
 .title{
     font-size: 1.0em;
     margin-bottom: 10%;
+    padding: 4px;
 }
 .input{
     min-width: 200px;

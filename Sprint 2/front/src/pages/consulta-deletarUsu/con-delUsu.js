@@ -5,19 +5,36 @@ import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 const ConsDelUsu = () => {
     const usuarios = [
         {
-          nome: "Denis Lima",
-          email: "denislima@gmail.com",
-          senha: "denis123"
+          Nome: "Denis Lima",
+          Email: "denislima@gmail.com",
+          Senha: "denis123"
+          
         },
         {
-          nome: "Gabriel Coutinho",
-          email: "gabrielcoutinho@gmail.com",
-          senha: "gabriel123"
+          Nome: "Gabriel Coutinho",
+          Email: "gabrielcoutinho@gmail.com",
+          Senha: "gabriel123"
+         
         },
         {
-          nome: "Carlos Henrique",
-          email: "carloshenrique@gmail.com",
-          senha: "carloshenrique123"
+          Nome: "Carlos Henrique",
+          Email: "carloshenrique@gmail.com",
+          Senha: "carloshenrique123"
+          
+        },
+        {
+          
+            Nome: "Carlos Henrique",
+            Email: "carloshenrique@gmail.com",
+            Senha: "carloshenrique123"
+            
+          
+        },
+        {
+          Nome: "Carlos Henrique",
+          Email: "carloshenrique@gmail.com",
+          Senha: "carloshenrique123"
+          
         }
       ]
     return (  

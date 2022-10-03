@@ -1,55 +1,53 @@
 import React from 'react'
-import { Button, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
+import './crudUsu.css'
+
 
 const CrudUsu = ({ dados }) => {
     const atributos = Object.keys(dados[0])
     return (
         <div className="cont">
-            <Table compact celled definition className='Tabela'>
-                <Table.Header >
-                    <Table.Row>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
                         {atributos.length && atributos.map((atributo) => {
                             return (
-                                <Table.HeaderCell>{atributo}</Table.HeaderCell>
+                                <th>{atributo}</th>
                             )
                         })}
-                    </Table.Row>
-                </Table.Header>
+                        <th>Ações</th>
+                    </tr>
 
-                <Table.Body>
+
+                </thead>
+                <tbody>
                     {dados.length && dados.map((dado) => {
                         return (
-                            <Table.Row>
+                            <tr>
                                 {atributos.length && atributos.map((atributo) => {
                                     return (
-                                        <Table.Cell>{dado[atributo]}</Table.Cell>
+                                        <td>{dado[atributo]}</td>
                                     )
                                 })}
+                                <td>
+                                    <button id='btnex' type="submit">Excluir</button>
+                                    <button id='btnex' type="submit">Editar</button>
+                                </td>
+                            </tr>
 
-                            </Table.Row>
                         )
                     })}
 
-                </Table.Body>
-
-                <Table.Footer fullWidth>
-                    <Table.Row>
-                        <Table.HeaderCell />
-                        <Table.HeaderCell colSpan=''>
-                            <Button
-                                floated='right'
-                                icon
-                                labelPosition='left'
-                                primary
-                                size='smal'
-                                className='button'
-                            >
-                                Consultar
-                            </Button>
+                </tbody>
+                {/* <Table.Footer fullWidth>
+                    <tr>
+                        <th />
+                        <th colSpan=''>
+                            <Button icon primary size='smal' className='button'>Consultar</Button>
                             <Button size='small' className='button'>Deletar</Button>
-                        </Table.HeaderCell>
-                    </Table.Row>
-                </Table.Footer>
+                        </th>
+                    </tr>
+                </Table.Footer> */}
             </Table>
         </div>
     )

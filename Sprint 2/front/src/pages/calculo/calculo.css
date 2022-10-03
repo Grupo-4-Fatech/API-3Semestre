@@ -33,6 +33,7 @@
     font-weight: 500;
     pointer-events: all;
     position: relative;
+    padding: 4px;
 }
 
 .cont .titulo::before {

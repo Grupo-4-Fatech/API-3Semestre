@@ -2,7 +2,7 @@ import "./select.css"
 const SelectWind = () => {
     return (  
         <><div className="medidas">
-        <label htmlFor="" className="tituloS">Wind</label>
+        <label htmlFor="" className="tituloS">Wind direction</label>
         <select className="medida" name="medidas" id="medida" defaultValue={'default'}>
             <option value="default" disabled>Select Wind:</option>
             <option value="1">Head Wind</option>
