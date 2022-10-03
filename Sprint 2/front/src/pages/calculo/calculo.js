@@ -32,10 +32,10 @@ const Calculo = () => {
                     {/* {func('bk')} */}
                     {func('flap')}
                     <SelectIce></SelectIce>
-                    <SelectSlope></SelectSlope>
-                    <InputCadastros id="InputSlope" type="number" placeholder="Enter slope">Slope</InputCadastros>
                     <SelectCondicao></SelectCondicao>
                     <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Weight</InputCadastros>
+                    <SelectSlope></SelectSlope>
+                    <InputCadastros id="InputSlope" type="number" placeholder="Enter slope">Slope</InputCadastros>                     
                     <InputCadastros min="0" id="Altitude-pista-Pouso" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
                     <InputCadastros id="Temperatura" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
                     <SelectWind></SelectWind>
