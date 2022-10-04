@@ -16,7 +16,6 @@ const express_1 = __importDefault(require("express"));
 const Parametros_1 = __importDefault(require("../Models/Parametros"));
 const CalculoController = (0, express_1.default)();
 CalculoController.post("/calcular", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(dados);
     var dados = req.body;
     yield Parametros_1.default.findOne({ raw: true,
         where: {
