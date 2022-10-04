@@ -10,12 +10,15 @@ const CrudUsu = ({ dados }) => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        {atributos.length && atributos.map((atributo) => {
+                        {/* atributos.length && atributos.map((atributo) => {
                             return (
                                 <th>{atributo}</th>
                             )
-                        })}
-                        <th>Ações</th>
+                        }) */}
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Action</th>
                     </tr>
 
 
@@ -30,8 +33,8 @@ const CrudUsu = ({ dados }) => {
                                     )
                                 })}
                                 <td>
-                                    <button id='btnex' type="submit">Excluir</button>
-                                    <button id='btnex' type="submit">Editar</button>
+                                    <button id='btnex' type="submit">Delete</button>
+                                    <button id='btnex' type="submit">Update</button>
                                 </td>
                             </tr>
 

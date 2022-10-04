@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
- const conexao = new Sequelize('api', 'root', 'Ton369811', {
+ const conexao = new Sequelize('api', 'root', 'fatec', {
      host: 'localhost',
      dialect: 'mysql',
      define: {

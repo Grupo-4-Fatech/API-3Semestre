@@ -10,7 +10,7 @@ LoginController.post('/Logar', async(req, res)=>{
                 res.json({
                     ok:false,
                     usuario : data,
-                    Mensagem:"Usuario ou Senha incorretos."
+                    Mensagem:"Usuário ou Senha incorretos."
                 })
             }else{
                 res.json({ok:true, usuario : data, Mensagem:"Sucesso"})

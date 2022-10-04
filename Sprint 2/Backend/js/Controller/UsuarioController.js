@@ -33,7 +33,7 @@ UsuarioController.post("/CadastrarUsuario", (req, res) => __awaiter(void 0, void
             });
             res.json({
                 ok: true,
-                mensagem: "Usuario cadastrado com sucesso."
+                mensagem: "Usuário cadastrado com sucesso."
             });
         }
         catch (error) {
@@ -72,19 +72,19 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
                     } });
                 res.json({
                     ok: true,
-                    mensagem: "Usuario atualizado com sucesso"
+                    mensagem: "Usuário atualizado com sucesso"
                 });
             }
             else {
                 res.json({
                     ok: false,
-                    mensagem: "Usuario não encontrado"
+                    mensagem: "Usuário não encontrado"
                 });
             }
         }));
     }
 }));
-UsuarioController.get("/BucarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UsuarioController.get("/BuscarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var email = req.query.email;
     UsuarioModel_1.default.findByPk(email === null || email === void 0 ? void 0 : email.toString()).then((data) => {
         res.json(data);
