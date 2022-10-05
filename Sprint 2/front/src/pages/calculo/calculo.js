@@ -86,10 +86,10 @@ var handleCalcular = function (e) {
             },
             body: JSON.stringify(dados)
         }).then((resposta) => resposta.json()).then((data) => {
-            document.getElementById('result').value = data + "m";
+            document.getElementById('result').value = data.toFixed(2) + "m";
             Swal.fire({
                 title: 'Calculation performed successfully',
-                text:"You need " + data + "m",
+                text:"You need " + data.toFixed(2) + "m",
                 icon: 'success',
             })
         })
