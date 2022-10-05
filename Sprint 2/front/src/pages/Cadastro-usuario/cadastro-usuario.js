@@ -44,25 +44,25 @@ const CadastroUsuario = () => {
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <form action="">
                 <h2 className="titulo">Register Users</h2>
-                <InputLogin text="Nome" id="username" placeholder="Enter username" type="text" icon={faUserCircle} />
+                <InputLogin text="Name" id="username" placeholder="Enter username" type="text" icon={faUserCircle} />
                 <InputLogin text="Email" id="email" placeholder="Enter email" type="text" icon={faEnvelope} />
-                <InputLogin text="Senha" id="senha" placeholder="Enter password" type="password" icon={faLock} />
+                <InputLogin text="Password" id="senha" placeholder="Enter password" type="password" icon={faLock} />
 
                 <div className="Reversor-details">
-                    <input type="radio" name="Reversor" id="dot-1" />
-                    <input type="radio" name="Reversor" id="dot-2" />
+                    <input type="radio" name="tipo-usuario" id="dot-1" />
+                    <input type="radio" name="tipo-usuario" id="dot-2" />
                     <span className="Reversor-title">Type</span>
 
                     <div className="category">
 
                         <label for="dot-1">
                             <span className="dot one" ></span>
-                            <span className="reversor">Client</span>
+                            <span className="reversor">Client&nbsp;&nbsp;</span>
                         </label>
 
                         <label for="dot-2">
                             <span className="dot two" ></span>
-                            <span className="reversor" >Administrator</span>
+                            <span className="reversor">Administrator</span>
                         </label>
 
                     </div>
@@ -71,9 +71,6 @@ const CadastroUsuario = () => {
 
                 <div id="btn">
                     <button type="submit" onClick={handleCadastroUsuario} >Register</button>
-                    <button type="submit" >Change</button>
-
-
                 </div>
             </form>
 

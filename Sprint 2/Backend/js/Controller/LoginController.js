@@ -22,7 +22,7 @@ LoginController.post('/Logar', (req, res) => __awaiter(void 0, void 0, void 0, f
             res.json({
                 ok: false,
                 usuario: data,
-                Mensagem: "Usuario ou Senha incorretos."
+                Mensagem: "Usuário ou Senha incorretos."
             });
         }
         else {

@@ -33,7 +33,11 @@ UsuarioController.post("/CadastrarUsuario", (req, res) => __awaiter(void 0, void
             });
             res.json({
                 ok: true,
+<<<<<<< HEAD
                 mensagem: "User successfully registered."
+=======
+                mensagem: "Usuário cadastrado com sucesso."
+>>>>>>> 087b2d5c0c82de82260debe0aec42b32ba3460a2
             });
         }
         catch (error) {
@@ -72,19 +76,27 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
                     } });
                 res.json({
                     ok: true,
+<<<<<<< HEAD
                     mensagem: "User successfully updated."
+=======
+                    mensagem: "Usuário atualizado com sucesso"
+>>>>>>> 087b2d5c0c82de82260debe0aec42b32ba3460a2
                 });
             }
             else {
                 res.json({
                     ok: false,
+<<<<<<< HEAD
                     mensagem: "User not found."
+=======
+                    mensagem: "Usuário não encontrado"
+>>>>>>> 087b2d5c0c82de82260debe0aec42b32ba3460a2
                 });
             }
         }));
     }
 }));
-UsuarioController.get("/BucarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UsuarioController.get("/BuscarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var email = req.query.email;
     UsuarioModel_1.default.findByPk(email === null || email === void 0 ? void 0 : email.toString()).then((data) => {
         res.json(data);

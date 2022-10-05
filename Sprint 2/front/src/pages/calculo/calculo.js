@@ -66,7 +66,7 @@ var handleCalcular = function (e) {
     if (valicacaoCampos) {
         var dados = {
             Flap: parseInt(document.getElementById('slcFlap').value),
-            Ice: document.getElementById('slcIce').value == 1 ? false : true,
+            Ice: document.getElementById('slcIce').value === 1 ? false : true,
             RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
             Peso: parseInt(document.getElementById('Peso').value),
             Alt: parseInt(document.getElementById('Alt').value),
@@ -149,15 +149,15 @@ const Calculo = () => {
                     {func('flap')}
                     <SelectIce></SelectIce>
                     <SelectCondicao></SelectCondicao>
-                    <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight" >Weight</InputCadastros>
+                    <InputCadastros min="0" id="Peso" type="number" placeholder="Ex.: 18" >Weight (T)</InputCadastros>
                     <SelectSlope></SelectSlope>
-                    <InputCadastros min="0" id="InputSlope" type="number" placeholder="Enter slope">Slope</InputCadastros>
-                    <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >Altitude</InputCadastros>
-                    <InputCadastros id="Temp" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
+                    <InputCadastros min="0" id="InputSlope" type="number" placeholder="Ex.: 0.2">Slope (%)</InputCadastros>
+                    <InputCadastros min="0" id="Alt" type="number" placeholder="Ex.: 1800" >Altitude (ft)</InputCadastros>
+                    <InputCadastros id="Temp" type="number" placeholder="Ex.: 20">Temperature (°C) </InputCadastros>
                     <SelectWind></SelectWind>
-                    <InputCadastros min="0" id="Wind" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
+                    <InputCadastros min="0" id="Wind" type="number" placeholder="Ex.: 2">Wind (KT)</InputCadastros>
                     {/* <InputCadastros min="0" id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros> */}
-                    <InputCadastros qtd="10" min="0" id="Reversor" type="number" placeholder="Enter the reverser">Reverser</InputCadastros>
+                    <InputCadastros qtd="10" min="0" id="Reversor" type="number" placeholder="Ex.: 1">Reverser (Un) </InputCadastros>
 
                 </div>
 

@@ -23,7 +23,11 @@ UsuarioController.post("/CadastrarUsuario", async (req, res)=>{
              });
              res.json({
                 ok: true, 
+<<<<<<< HEAD
                 mensagem:"User successfully registered."})
+=======
+                mensagem:"Usuário cadastrado com sucesso."})
+>>>>>>> 087b2d5c0c82de82260debe0aec42b32ba3460a2
  
          }catch(error){
             if(error == "SequelizeUniqueConstraintError: Validation error"){
@@ -61,18 +65,26 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
 
             res.json({
                 ok: true, 
+<<<<<<< HEAD
                 mensagem:"User successfully updated."})
           }else{
                 res.json({
                     ok: false, 
                     mensagem:"User not found."})
+=======
+                mensagem:"Usuário atualizado com sucesso"})
+          }else{
+                res.json({
+                    ok: false, 
+                    mensagem:"Usuário não encontrado"})
+>>>>>>> 087b2d5c0c82de82260debe0aec42b32ba3460a2
             }
         })
        
     }
 })
 
-UsuarioController.get("/BucarUsuario", async(req, res)=>{
+UsuarioController.get("/BuscarUsuario", async(req, res)=>{
     var email = req.query.email;
     UsuarioModel.findByPk(email?.toString()).then((data)=>{
         res.json(data);

@@ -6,7 +6,6 @@ import Botao from "../../componentes/botao/botao";
 
 const Login = () => {
     var handleLogin = function () {
-        console.log('oi')
         var dados = {}
         dados.email = document.getElementById('email').value;
         dados.senha = document.getElementById('senha').value
