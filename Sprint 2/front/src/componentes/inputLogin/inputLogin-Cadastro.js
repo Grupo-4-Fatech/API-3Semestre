@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./inputLogin-Cadastro.css"
+
+
 const InputLogin = ({id,placeholder,type,icon,text}) => {
     return ( 
         <>

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import "./cadastro_usuario.css"
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+const Swal = require('sweetalert2')
 
 const CadastroUsuario = () => {
     var handleCadastroUsuario = function (e) {
@@ -24,10 +25,18 @@ const CadastroUsuario = () => {
             },
             body: JSON.stringify(dados)
         }).then((resposta) => resposta.json()).then((data) => {
-            alert(data.mensagem)
-            if (data.ok) {
-                window.location.href = '/home';
-            }
+            // alert(data.mensagem)
+            Swal.fire({
+                title: data.ok?'User successfully registered': "E-mail already registered",
+                icon: data.ok?'success':"erro",
+            }).then((result)=>{
+                if(result.isConfirmed && data.ok){
+                    window.location.href = '/home';
+                }
+            })
+            // if (data.ok) {
+            //     window.location.href = '/home';
+            // }
         })
     }
     return (

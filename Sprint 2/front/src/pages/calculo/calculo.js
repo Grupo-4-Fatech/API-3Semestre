@@ -9,6 +9,44 @@ import SelectCondicao from "../../componentes/select/selectCondicao"
 import SelectIce from "../../componentes/select/selectIce";
 import SelectBk from "../../componentes/select/selectBk";
 import SelectWind from "../../componentes/select/selectWind";
+const Swal = require('sweetalert2')
+
+
+function validacao(e) {
+    var numAlt = document.getElementById("Alt").value;
+    var numPeso = document.getElementById("Peso").value;
+    var numWind = document.getElementById("Wind").value;
+    var numReversor = document.getElementById("Reversor").value;
+    var numSlope = document.getElementById("InputSlope").value;
+
+
+    // var teste = e.target.value
+
+    if (numAlt < 0) {
+        document.getElementById("Alt").value = 0
+        // alert ("a")
+        return false
+    }
+    if (numPeso < 0) {
+        document.getElementById("Peso").value = 0
+        return false
+    }
+    if (numWind < 0) {
+        document.getElementById("Wind").value = 0
+        return false
+    }
+    if (numReversor < 0) {
+        document.getElementById("Reversor").value = 0
+        return false
+    }
+    if (numSlope < 0) {
+        document.getElementById("InputSlope").value = 0
+        return false
+    }
+        return true
+    
+
+}
 
 const func = (tipo) => {
 
@@ -21,24 +59,26 @@ const func = (tipo) => {
 }
 
 
-    var handleCalcular = function (e) {
-        e.preventDefault();
-      
+var handleCalcular = function (e) {
+    e.preventDefault();
+    var valicacaoCampos = validacao();
+    console.log(valicacaoCampos)
+    if (valicacaoCampos) {
         var dados = {
             Flap: parseInt(document.getElementById('slcFlap').value),
-            Ice:document.getElementById('slcIce').value ==1? false: true,
-            RunwayCondicion:parseInt(document.getElementById('runway_condition').value),
+            Ice: document.getElementById('slcIce').value == 1 ? false : true,
+            RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
             Peso: parseInt(document.getElementById('Peso').value),
             Alt: parseInt(document.getElementById('Alt').value),
-            LikeWind:parseInt(document.getElementById('slcWind').value),
-            Wind:parseInt(document.getElementById('Wind').value),
-            Temp:parseInt(document.getElementById('Temp').value),
+            LikeWind: parseInt(document.getElementById('slcWind').value),
+            Wind: parseInt(document.getElementById('Wind').value),
+            Temp: parseInt(document.getElementById('Temp').value),
             LikeSlope: Number(document.getElementById('slcSlope').value),
-            Slope:parseInt(document.getElementById('InputSlope').value),
-            Rev:parseInt(document.getElementById('Reversor').value)
+            Slope: parseInt(document.getElementById('InputSlope').value),
+            Rev: parseInt(document.getElementById('Reversor').value)
 
         };
-        
+
         fetch("/calcular", {
             method: 'POST',
             headers: {
@@ -46,12 +86,57 @@ const func = (tipo) => {
             },
             body: JSON.stringify(dados)
         }).then((resposta) => resposta.json()).then((data) => {
-            
             document.getElementById('result').value = data + "m";
+            Swal.fire({
+                title: 'Calculation performed successfully',
+                text:"You need " + data + "m",
+                icon: 'success',
+            })
         })
+        
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid type',
+            text: 'Cannot enter negative numbers',
+        })
+        
     }
 
+
+
+    //     var dados = {
+    //         Flap: parseInt(document.getElementById('slcFlap').value),
+    //         Ice: document.getElementById('slcIce').value == 1 ? false : true,
+    //         RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
+    //         Peso: parseInt(document.getElementById('Peso').value),
+    //         Alt: parseInt(document.getElementById('Alt').value),
+    //         LikeWind: parseInt(document.getElementById('slcWind').value),
+    //         Wind: parseInt(document.getElementById('Wind').value),
+    //         Temp: parseInt(document.getElementById('Temp').value),
+    //         LikeSlope: Number(document.getElementById('slcSlope').value),
+    //         Slope: parseInt(document.getElementById('InputSlope').value),
+    //         Rev: parseInt(document.getElementById('Reversor').value)
+
+    //     };
+
+    //     fetch("/calcular", {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json;charset=utf-8'
+    //         },
+    //         body: JSON.stringify(dados)
+    //     }).then((resposta) => resposta.json()).then((data) => {
+
+    //         document.getElementById('result').value = data + "m";
+    //     })
+}
+
+
+
+
 const Calculo = () => {
+
     return (
         <div className="cont">
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
@@ -64,10 +149,10 @@ const Calculo = () => {
                     {func('flap')}
                     <SelectIce></SelectIce>
                     <SelectCondicao></SelectCondicao>
-                    <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Weight</InputCadastros>
+                    <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight" >Weight</InputCadastros>
                     <SelectSlope></SelectSlope>
-                    <InputCadastros id="InputSlope" type="number" placeholder="Enter slope">Slope</InputCadastros>                     
-                    <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude">Altitude</InputCadastros>
+                    <InputCadastros min="0" id="InputSlope" type="number" placeholder="Enter slope">Slope</InputCadastros>
+                    <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >Altitude</InputCadastros>
                     <InputCadastros id="Temp" type="number" placeholder="Enter the temperature">Temperature</InputCadastros>
                     <SelectWind></SelectWind>
                     <InputCadastros min="0" id="Wind" type="number" placeholder="Enter wind speed">Wind</InputCadastros>
@@ -97,7 +182,7 @@ const Calculo = () => {
 
             </div> */}
                 <div className="button">
-                    <input type="submit" onClick={handleCalcular}  value="Calculate" id="calcular"/>
+                    <input type="submit" onClick={handleCalcular} value="Calculate" id="calcular" />
                 </div>
                 <div className="input_box">
                     <span className="details">Necessary clue</span>
