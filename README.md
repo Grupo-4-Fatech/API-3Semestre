@@ -16,14 +16,14 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 > Requisitos Funcionais
 
 - [ ] Cadastros de modelos de aeronaves;
-- [ ] Perfis diferentes (administrador, usuário);
+- [X] Perfis diferentes (administrador, usuário);
 - [X] Interface responsiva para que possa ser utilizada via tablet, desktop ou celular;
-- [ ] Gerar cálculo do comprimento mínimo da pista de pouso;
+- [X] Gerar cálculo do comprimento mínimo da pista de pouso;
 - [ ] Gerar histórico dos cálculos realizados;
 
 > Requisitos Não Funcionais
 
-- [ ] Linguagem Typescript;
+- [X] Linguagem Typescript;
 - [ ] Documentações;
     
  ## 📅 Cronograma das Sprints 
