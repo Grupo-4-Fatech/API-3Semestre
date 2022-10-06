@@ -1,3 +1,4 @@
+import React from 'react';
 import "./calculo.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faPlaneArrival } from '@fortawesome/free-solid-svg-icons'

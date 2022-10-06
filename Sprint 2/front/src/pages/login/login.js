@@ -1,3 +1,4 @@
+import React from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import "./login.css";

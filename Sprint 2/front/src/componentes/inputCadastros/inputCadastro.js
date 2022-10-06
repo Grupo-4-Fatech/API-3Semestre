@@ -1,3 +1,4 @@
+import React from 'react';
 import "./inputCadastros.css"
 
 const InputCadastros = ({ id, placeholder, type, text, children, min, qtd, validacao}) => {

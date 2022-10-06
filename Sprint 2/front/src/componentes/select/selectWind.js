@@ -1,3 +1,4 @@
+import React from 'react';
 import "./select.css"
 const SelectWind = () => {
     return (  

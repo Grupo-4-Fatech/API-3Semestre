@@ -54,7 +54,8 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
           if(data!= null){
             await UsuarioModel.update({
                     nome: dados.nome,
-                    senha: dados.senha
+                    senha: dados.senha,
+                    TipoUsuario : dados.tipoUsuario
                 },{where:{
                 email : dados.email,
                 }});

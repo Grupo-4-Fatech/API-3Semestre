@@ -1,3 +1,4 @@
+import React from 'react';
 import BotaoHome from "./botaoHome";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlane} from '@fortawesome/free-solid-svg-icons'

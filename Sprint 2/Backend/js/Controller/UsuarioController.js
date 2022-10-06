@@ -66,7 +66,8 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
             if (data != null) {
                 yield UsuarioModel_1.default.update({
                     nome: dados.nome,
-                    senha: dados.senha
+                    senha: dados.senha,
+                    TipoUsuario: dados.tipoUsuario
                 }, { where: {
                         email: dados.email,
                     } });
