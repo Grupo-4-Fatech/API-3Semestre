@@ -20,7 +20,7 @@ function validacao(e) {
     var numSlope = document.getElementById("InputSlope").value;
 
 
-    // var teste = e.target.value
+    
 
     if (numAlt < 0) {
         document.getElementById("Alt").value = 0
@@ -103,8 +103,6 @@ var handleCalcular = function (e) {
         
     }
 
-
-
     //     var dados = {
     //         Flap: parseInt(document.getElementById('slcFlap').value),
     //         Ice: document.getElementById('slcIce').value == 1 ? false : true,
@@ -140,7 +138,7 @@ const Calculo = () => {
     return (
         <div className="cont">
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
-            <div className="titulo">Landing calculation</div>
+            <div className="tituloCal">Landing calculation</div>
             <FontAwesomeIcon icon={faPlaneArrival} />
             <form action="#">
                 <div className="detalhes-aeronave">

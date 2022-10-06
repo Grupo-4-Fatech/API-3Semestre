@@ -33,7 +33,7 @@ const Login = () => {
     return (
         <div id="formL" className="corpoL">
             <form action="">
-                <h2 className="title">Login</h2>
+                <h2 className="titleL">Login</h2>
                 <InputLogin text="Email " id="email" placeholder="Email" type="email" icon={faEnvelope} />
                 <InputLogin text="Password" id="senha" placeholder="Password" type="password" icon={faLock} />
                 <Botao acao={handleLogin}>Login</Botao>

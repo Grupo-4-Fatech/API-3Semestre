@@ -8,6 +8,7 @@ import Home from './pages/home/home';
 import Login from './pages/login/login'
 import 'semantic-ui-css/semantic.min.css'
 import ConsDelUsu from './pages/consulta-deletarUsu/con-delUsu';
+import AlterarUsu from './pages/Alterar-usuario/alterarUsu';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/Cadastro-usuario" element={<CadastroUsuario />} />
             <Route exact path="/Calculo" element={<Calculo />} />
             <Route exact path="/Consulta" element={<ConsDelUsu/>} />
+            <Route exact path="/Alterar-usuario" element={<AlterarUsu/>}/>
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </div>

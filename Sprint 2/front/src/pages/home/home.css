@@ -19,7 +19,7 @@
 
 }
 
-.container {
+.containerHome {
     max-width: 700px;
     width: 100%;
     background: #fff;
@@ -28,7 +28,7 @@
 
 }
 
-.container .titulo {
+.containerHome .tituloHome {
     font-size: 25px;
     font-weight: 500;
     pointer-events: all;
@@ -36,7 +36,7 @@
     padding: 4px;
 }
 
-.container .titulo::before {
+.containerHome .tituloHome::before {
     content: '';
     position: absolute;
     left: 0;
@@ -47,7 +47,7 @@
 
 }
 
-.container form .cadastro-aeronave {
+.containerHome form .Home {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -55,7 +55,7 @@
 }
 
 
-.cadastro-aeronave .input-box .details {
+.Home .input-box .details {
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
@@ -63,7 +63,7 @@
 }
 
 
-.cadastro-aeronave .input-box input {
+.Home .input-box input {
     height: 45px;
     width: 100%;
     outline: none;
@@ -77,20 +77,20 @@
 
 
 @media(max-width: 584px) {
-    .container {
+    .containerHome {
         max-width: 80%;
     }
 
-    form .cadastro-aeronave .button {
+    form .Home .button {
         margin-bottom: 15px;
         width: 80%;
     }
 
-    .container form .cadastro-aeronave {
+    .containerHome form .Home {
         max-height: 180;
         overflow-y: scroll;
     }
-    .container .barra ul {
+    .containerHome .barra ul {
         width: 100%;
     }
         }

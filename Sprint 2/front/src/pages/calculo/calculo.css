@@ -11,14 +11,14 @@
     }
 
 
-.corpo {
+/* .corpo {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     padding: 10px !important;
     background: linear-gradient(-45deg, #0a1a5c, #0a1a5c)!important;
 
-}
+} */
 
 .cont {
     max-width: 700px;
@@ -28,7 +28,7 @@
     border-radius: 5px;
 }
 
-.cont .titulo {
+.cont .tituloCal {
     font-size: 25px;
     font-weight: 500;
     pointer-events: all;
@@ -36,7 +36,7 @@
     padding: 4px;
 }
 
-.cont .titulo::before {
+.cont .tituloCal::before {
     content: '';
     position: absolute;
     left: 0;
@@ -85,7 +85,7 @@ form .detalhes-aeronave .input-box {
     border-color: #0a1a5c;
 }
 
-form .Reversor-details .Reversor-titulo {
+form .Reversor-details .Reversor-tituloCal {
     font-size: 20px;
     font-weight: 500;
 }

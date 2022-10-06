@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 import './crudUsu.css'
 
 
@@ -34,7 +35,7 @@ const CrudUsu = ({ dados }) => {
                                 })}
                                 <td>
                                     <button id='btnex' type="submit">Delete</button>
-                                    <button id='btnex' type="submit">Update</button>
+                                    <Link to="/Alterar-usuario"><button id='btnex' type="submit">update</button></Link>
                                 </td>
                             </tr>
 
