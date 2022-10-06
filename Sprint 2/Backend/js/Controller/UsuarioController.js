@@ -86,19 +86,23 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
 }));
 UsuarioController.get("/BucarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var email = req.query.email;
-    UsuarioModel_1.default.findByPk(email === null || email === void 0 ? void 0 : email.toString()).then((data) => {
+    yield UsuarioModel_1.default.findByPk(email === null || email === void 0 ? void 0 : email.toString()).then((data) => {
         res.json(data);
     });
 }));
 UsuarioController.get("/ListarUsuarios", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield UsuarioModel_1.default.findAll().then((data) => {
+    yield UsuarioModel_1.default.findAll({ attributes: { exclude: ['senha', 'tipoUsuario'] } }).then((data) => {
         res.json(data);
     });
 }));
-UsuarioController.delete("/DeletarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UsuarioController.post("/DeletarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var email = req.query.email;
-    yield UsuarioModel_1.default.destroy({ where: { email: email } }).then((data) => {
-        res.json(data);
-    });
+    try {
+        yield UsuarioModel_1.default.destroy({ where: { email: email } });
+        res.json(true);
+    }
+    catch (e) {
+        res.json(false);
+    }
 }));
 exports.default = UsuarioController;

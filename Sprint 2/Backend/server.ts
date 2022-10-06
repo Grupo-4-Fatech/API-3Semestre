@@ -3,6 +3,7 @@ import conexao from './Conexao/conexao';
 import UsuarioController from './Controller/UsuarioController';
 import LoginController from './Controller/LoginController';
 import CalculoController from './Controller/CalculoController';
+import AeronaveController from './Controller/AeronaveController';
 
 const app: express.Application = express();
 const port: number = 5000;
@@ -24,6 +25,7 @@ app.get('/banco', (_req, _res) => {
 app.use(UsuarioController);
 app.use(LoginController);
 app.use(CalculoController);
+app.use(AeronaveController);
 
 app.listen(port, () => {
     console.log(`TypeScript with Express

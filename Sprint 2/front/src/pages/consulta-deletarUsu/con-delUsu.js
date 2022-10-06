@@ -1,42 +1,46 @@
 import CrudUsu from "../../componentes/Read-Delect-Update/crudUsu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+debugger
+var usuarios = [
+  {nome:"",
+    email:"",}
+];
+fetch("/ListarUsuarios", {
+  method: 'GET',
+  headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+  },
+  
+}).then((resposta) => resposta.json()).then((data) => {
+
+  usuarios = data;
+  
+});
+var deletarUsuario = function (e){
+  e.preventDefault();
+
+  fetch("/DeletarUsuario" +"?email=" + e.target.closest('tr').id, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+    },
+    // body: JSON.stringify({email: e.target.closest('tr').id})
+    
+  }).then((resposta) => resposta.json()).then((data) => {
+  
+    if(data){
+      
+       return 'http://localhost:3000/Consulta'
+    }
+    
+  });
+
+
+}
 
 const ConsDelUsu = () => {
-    const usuarios = [
-        {
-          Nome: "Denis Lima",
-          Email: "denislima@gmail.com",
-          Senha: "denis123"
-          
-        },
-        {
-          Nome: "Gabriel Coutinho",
-          Email: "gabrielcoutinho@gmail.com",
-          Senha: "gabriel123"
-         
-        },
-        {
-          Nome: "Carlos Henrique",
-          Email: "carloshenrique@gmail.com",
-          Senha: "carloshenrique123"
-          
-        },
-        {
-          
-            Nome: "Carlos Henrique",
-            Email: "carloshenrique@gmail.com",
-            Senha: "carloshenrique123"
-            
-          
-        },
-        {
-          Nome: "Carlos Henrique",
-          Email: "carloshenrique@gmail.com",
-          Senha: "carloshenrique123"
-          
-        }
-      ]
+   
     return (  
 
         <div className=" container">
@@ -44,7 +48,7 @@ const ConsDelUsu = () => {
             <div className="titulo">Consult and Delete</div>
             <form action="#">
                 <div className="cadastro-aeronave">
-                    <CrudUsu dados={usuarios}></CrudUsu>
+                    <CrudUsu dados={usuarios} deletar={deletarUsuario}></CrudUsu>
                 </div>
 
             </form>

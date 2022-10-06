@@ -3,19 +3,31 @@ import { Table } from 'semantic-ui-react'
 import './crudUsu.css'
 
 
-const CrudUsu = ({ dados }) => {
+const CrudUsu = ({ dados, deletar, editar }) => {
     const atributos = Object.keys(dados[0])
+
+    
     return (
         <div className="cont">
             <Table striped bordered hover>
                 <thead>
                     <tr>
                         {atributos.length && atributos.map((atributo) => {
+                            if(atributo ==='nome'){
+                                atributo = 'NAME';
+                            }else if(atributo === 'email'){
+                                atributo = 'EMAIL';
+                            }else if(atributo === 'TipoUsuario'){
+                                atributo = "USER"
+                            }
+
+                           
+
                             return (
                                 <th>{atributo}</th>
                             )
                         })}
-                        <th>Ações</th>
+                        <th>ACTIONS</th>
                     </tr>
 
 
@@ -23,15 +35,26 @@ const CrudUsu = ({ dados }) => {
                 <tbody>
                     {dados.length && dados.map((dado) => {
                         return (
-                            <tr>
+                            <tr id={dado['email']}>
                                 {atributos.length && atributos.map((atributo) => {
+                                    
+                                    if(atributo === 'TipoUsuario'){
+                                        return (
+                                            
+                                            <td >{dado[atributo] === 2?"Admin":"Cliente"}</td>
+                                        )
+                                            
+                                    }
                                     return (
-                                        <td>{dado[atributo]}</td>
+                                    
+                                        <td >{dado[atributo]}</td>
                                     )
+                                    
+                                   
                                 })}
                                 <td>
-                                    <button id='btnex' type="submit">Excluir</button>
-                                    <button id='btnex' type="submit">Editar</button>
+                                    <button id='btnex' type="submit" onClick={deletar}>Excluir</button>
+                                    <button id='btnex' type="submit" onClick={editar}>Editar</button>
                                 </td>
                             </tr>
 

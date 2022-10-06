@@ -74,23 +74,32 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
 
 UsuarioController.get("/BucarUsuario", async(req, res)=>{
     var email = req.query.email;
-    UsuarioModel.findByPk(email?.toString()).then((data)=>{
-        res.json(data);
-    })
+    
+        await UsuarioModel.findByPk(email?.toString()).then((data)=>{
+            res.json(data);
+        })
+
+   
+    
    
 })
 
 UsuarioController.get("/ListarUsuarios", async(req,res)=>{
-     await UsuarioModel.findAll().then((data)=>{
+     await UsuarioModel.findAll({attributes: { exclude: ['senha', 'tipoUsuario'] }}).then((data)=>{
         res.json(data);
     });
    
 })
-UsuarioController.delete("/DeletarUsuario", async(req,res)=>{
+UsuarioController.post("/DeletarUsuario", async(req,res)=>{
     var email = req.query.email;
-    await UsuarioModel.destroy({where: {email:email}}).then((data)=>{
-        res.json(data)
-    });
+    try{
+        await UsuarioModel.destroy({where: {email:email}})
+        res.json(true)
+    }catch(e){
+        res.json(false)
+
+    }
+   
     
    
 })
