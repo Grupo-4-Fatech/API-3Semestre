@@ -56,7 +56,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 
 ## 🗒️ Backlog Priorizado
 
-![sprint backlog](https://user-images.githubusercontent.com/89141910/190280881-e8429cee-c064-4ed9-a293-7e75a451ec47.png)
+![sprint backlog](https://user-images.githubusercontent.com/89141910/194345653-4ad62b7c-5e53-4263-9abc-7060f2be571b.png)
+
 
 
 </br>
@@ -64,6 +65,7 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 ## 📉 Gráfico Burndown
 
 - <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint1/Documentacao/Burndown%20Geral%20-%20burndown%20sprint%201.pdf">**Sprint 1**</a>
+- <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint2/Documentacao/Burndown%20Geral%20-%20sprint%202.pdf">**Sprint 2**</a>
  
 ## 👥 Equipe
 
