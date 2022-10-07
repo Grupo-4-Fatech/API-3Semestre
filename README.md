@@ -16,21 +16,21 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 > Requisitos Funcionais
 
 - [ ] Cadastros de modelos de aeronaves;
-- [ ] Perfis diferentes (administrador, usuário);
+- [X] Perfis diferentes (administrador, usuário);
 - [X] Interface responsiva para que possa ser utilizada via tablet, desktop ou celular;
-- [ ] Gerar cálculo do comprimento mínimo da pista de pouso;
+- [X] Gerar cálculo do comprimento mínimo da pista de pouso;
 - [ ] Gerar histórico dos cálculos realizados;
 
 > Requisitos Não Funcionais
 
-- [ ] Linguagem Typescript;
+- [X] Linguagem Typescript;
 - [ ] Documentações;
     
  ## 📅 Cronograma das Sprints 
 
  - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint1/Documentacao/Kick-off.pdf">**Kick-off:**</a> 17/08/2022
  - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint1">**1° Sprint:**</a> 29/08/2022 a 18/09/2022<br>
- - - [ ] **2° Sprint:** 19/09/2022 a 09/10/2022
+ - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint2">**2° Sprint:**</a> 19/09/2022 a 09/10/2022
  - - [ ] **3° Sprint:** 13/10/2022 a 06/11/2022
  - - [ ] **4°Sprint:** 07/11/2022 a 27/11/2022
  - - [ ] **Feira de Soluções:** 08/12/2022
@@ -56,7 +56,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 
 ## 🗒️ Backlog Priorizado
 
-![sprint backlog](https://user-images.githubusercontent.com/89141910/190280881-e8429cee-c064-4ed9-a293-7e75a451ec47.png)
+![sprint backlog](https://user-images.githubusercontent.com/89141910/194345653-4ad62b7c-5e53-4263-9abc-7060f2be571b.png)
+
 
 
 </br>
@@ -64,6 +65,7 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 ## 📉 Gráfico Burndown
 
 - <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint1/Documentacao/Burndown%20Geral%20-%20burndown%20sprint%201.pdf">**Sprint 1**</a>
+- <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint2/Documentacao/Burndown%20Geral%20-%20sprint%202.pdf">**Sprint 2**</a>
  
 ## 👥 Equipe
 
