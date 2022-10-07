@@ -3,14 +3,16 @@ import { Table } from 'semantic-ui-react'
 import './crudUsu.css'
 
 
-const CrudUsu = ({ dados, deletar, editar }) => {
+  
+const CrudUsu = ({ dados, deletar, editar, load}) => {
+    
     const atributos = Object.keys(dados[0])
 
     
     return (
-        <div className="cont">
+        <div className="cont" >
             <Table striped bordered hover>
-                <thead>
+                <thead >
                     <tr>
                         {atributos.length && atributos.map((atributo) => {
                             if(atributo ==='nome'){

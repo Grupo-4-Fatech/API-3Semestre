@@ -1,23 +1,34 @@
 import CrudUsu from "../../componentes/Read-Delect-Update/crudUsu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
-debugger
-var usuarios = [
-  {nome:"",
-    email:"",}
-];
-fetch("/ListarUsuarios", {
-  method: 'GET',
-  headers: {
-      'Content-Type': 'application/json;charset=utf-8'
-  },
-  
-}).then((resposta) => resposta.json()).then((data) => {
+import { useState, useEffect } from "react";
 
-  usuarios = data;
+
+
+const ConsDelUsu =  () => {
   
+var dados = [{
+    NAME:"",
+    EMAIL:"",
+    USER:""
+  }];
+const [usuarios, setUsuarios] = useState(dados);
+useEffect(() => {
+  setTimeout(() => {
+    fetch("/ListarUsuarios", {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+      },
+      
+    }).then((resposta) => resposta.json()).then((data) => {
+     
+      setUsuarios(data)
+        
+      });
+  }, 1000);
 });
-var deletarUsuario = function (e){
+const deletarUsuario = function (e){
   e.preventDefault();
 
   fetch("/DeletarUsuario" +"?email=" + e.target.closest('tr').id, {
@@ -30,8 +41,8 @@ var deletarUsuario = function (e){
   }).then((resposta) => resposta.json()).then((data) => {
   
     if(data){
-      
-       return 'http://localhost:3000/Consulta'
+      Window.location.reload();
+  
     }
     
   });
@@ -39,16 +50,13 @@ var deletarUsuario = function (e){
 
 }
 
-const ConsDelUsu = () => {
-   
     return (  
-
-        <div className=" container">
+        <div className=" container" >
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>
             <div className="titulo">Consult and Delete</div>
             <form action="#">
                 <div className="cadastro-aeronave">
-                    <CrudUsu dados={usuarios} deletar={deletarUsuario}></CrudUsu>
+                    <CrudUsu dados={usuarios} deletar={deletarUsuario} ></CrudUsu>
                 </div>
 
             </form>
