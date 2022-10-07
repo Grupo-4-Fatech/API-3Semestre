@@ -11,7 +11,7 @@ UsuarioController.post("/CadastrarUsuario", async (req, res)=>{
     if (req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.json({
             ok: false, 
-            mensagem:"Por favor, preencha os dados para realizar o cadastro."})
+            mensagem:"Please fill in the details to complete the registration."})
         
     }else{
         try{
@@ -23,13 +23,13 @@ UsuarioController.post("/CadastrarUsuario", async (req, res)=>{
              });
              res.json({
                 ok: true, 
-                mensagem:"Usuario cadastrado com sucesso."})
+                mensagem:"User successfully registered."})
  
          }catch(error){
             if(error == "SequelizeUniqueConstraintError: Validation error"){
                 res.json({
                     ok: false, 
-                    mensagem:"Email já cadastrado."})
+                    mensagem:"E-mail already registered."})
             }else{
                 res.json({
                     ok: false, 
@@ -46,7 +46,7 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
     if (req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.json({
             ok: false, 
-            mensagem:"Por favor, preencha os dados para atualizar o cadastro."})
+            mensagem:"Please fill in the data to update the registration."})
         
     }else{
         var email = dados.email;
@@ -54,25 +54,28 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
           if(data!= null){
             await UsuarioModel.update({
                     nome: dados.nome,
-                    senha: dados.senha
+                    senha: dados.senha,
+                    TipoUsuario : dados.tipoUsuario
                 },{where:{
                 email : dados.email,
                 }});
 
             res.json({
                 ok: true, 
-                mensagem:"Usuario atualizado com sucesso"})
+
+                mensagem:"User successfully updated."})
           }else{
                 res.json({
                     ok: false, 
-                    mensagem:"Usuario não encontrado"})
+                    mensagem:"User not found."})
+
             }
         })
        
     }
 })
 
-UsuarioController.get("/BucarUsuario", async(req, res)=>{
+UsuarioController.get("/BuscarUsuario", async(req, res)=>{
     var email = req.query.email;
     
         await UsuarioModel.findByPk(email?.toString()).then((data)=>{
@@ -94,9 +97,9 @@ UsuarioController.post("/DeletarUsuario", async(req,res)=>{
     var email = req.query.email;
     try{
         await UsuarioModel.destroy({where: {email:email}})
-        res.json(true)
+        res.json({ok:true})
     }catch(e){
-        res.json(false)
+        res.json({ok:false})
 
     }
    

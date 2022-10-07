@@ -17,17 +17,26 @@ const UsuarioModel_1 = __importDefault(require("../Models/UsuarioModel"));
 const LoginController = (0, express_1.default)();
 LoginController.post('/Logar', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var dados = req.body;
-    UsuarioModel_1.default.findOne({ where: { email: dados.email, senha: dados.senha } }).then((data) => {
-        if (data == null) {
-            res.json({
-                ok: false,
-                usuario: data,
-                Mensagem: "Usuario ou Senha incorretos."
-            });
-        }
-        else {
-            res.json({ ok: true, usuario: data, Mensagem: "Sucesso" });
-        }
-    });
+    console.log(dados.emai);
+    if (dados.email == "" || dados.senha == "") {
+        res.json({
+            ok: false,
+            Mensagem: "Please, enter with email and password."
+        });
+    }
+    else {
+        yield UsuarioModel_1.default.findOne({ where: { email: dados.email, senha: dados.senha } }).then((data) => {
+            if (data == null) {
+                res.json({
+                    ok: false,
+                    usuario: data,
+                    Mensagem: "Usuário ou Senha incorretos."
+                });
+            }
+            else {
+                res.json({ ok: true, usuario: data, Mensagem: "Sucesso" });
+            }
+        });
+    }
 }));
 exports.default = LoginController;

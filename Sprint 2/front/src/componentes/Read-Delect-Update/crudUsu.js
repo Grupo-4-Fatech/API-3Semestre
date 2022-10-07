@@ -1,10 +1,12 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 import './crudUsu.css'
 
 
+
   
-const CrudUsu = ({ dados, deletar, editar, load}) => {
+const CrudUsu = ({ dados, deletar, editar, load, email}) => {
     
     const atributos = Object.keys(dados[0])
 
@@ -14,6 +16,7 @@ const CrudUsu = ({ dados, deletar, editar, load}) => {
             <Table striped bordered hover>
                 <thead >
                     <tr>
+
                         {atributos.length && atributos.map((atributo) => {
                             if(atributo ==='nome'){
                                 atributo = 'NAME';
@@ -30,6 +33,17 @@ const CrudUsu = ({ dados, deletar, editar, load}) => {
                             )
                         })}
                         <th>ACTIONS</th>
+
+                        {/* atributos.length && atributos.map((atributo) => {
+                            return (
+                                <th>{atributo}</th>
+                            )
+                        }) */}
+                        {/* <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Action</th> */}
+
                     </tr>
 
 
@@ -55,8 +69,10 @@ const CrudUsu = ({ dados, deletar, editar, load}) => {
                                    
                                 })}
                                 <td>
+
                                     <button id='btnex' type="submit" onClick={deletar}>Excluir</button>
-                                    <button id='btnex' type="submit" onClick={editar}>Editar</button>
+                                    <button id='btnex' type="submit" onClick={editar}>update</button>
+
                                 </td>
                             </tr>
 

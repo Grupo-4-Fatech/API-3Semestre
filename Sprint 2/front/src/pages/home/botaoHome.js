@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import "./botaoHome.css"
 const BotaoHome = ({children,home}) => {

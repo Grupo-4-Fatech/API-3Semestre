@@ -1,8 +1,9 @@
+import React from 'react';
 import CrudUsu from "../../componentes/Read-Delect-Update/crudUsu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from "react";
-
+const Swal = require('sweetalert2')
 
 
 const ConsDelUsu =  () => {
@@ -36,16 +37,23 @@ const deletarUsuario = function (e){
     headers: {
         'Content-Type': 'application/json;charset=utf-8'
     },
-    // body: JSON.stringify({email: e.target.closest('tr').id})
     
   }).then((resposta) => resposta.json()).then((data) => {
   
-    if(data){
-      Window.location.reload();
-  
-    }
+    
+      Swal.fire({
+        icon: data.ok? 'success': 'error',
+        title: data.ok? 'SUCCESS': 'ERROR',
+        text: data.ok? 'User deleted successfuly': 'Error deleting the user',
+    })
+    
     
   });
+}
+const editarUsuario = function (e){
+  e.preventDefault();
+ window.location.href = "/Alterar-usuario/:Email=" + e.target.closest('tr').id;
+
 }
 
     return (  
@@ -54,7 +62,7 @@ const deletarUsuario = function (e){
             <div className="titulo">Consult and Delete</div>
             <form action="#">
                 <div className="cadastro-aeronave">
-                    <CrudUsu dados={usuarios} deletar={deletarUsuario} ></CrudUsu>
+                    <CrudUsu dados={usuarios} deletar={deletarUsuario} editar={editarUsuario}></CrudUsu>
                 </div>
 
             </form>

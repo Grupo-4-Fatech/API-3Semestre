@@ -4,7 +4,7 @@ form .btn {
 
 }
 
-.container form .cadastro-aeronave .btn input {
+.containerHome form .Home .btn input {
     height: 100%;
     width: 100%; 
     outline: none;
@@ -18,10 +18,10 @@ form .btn {
     background: linear-gradient(-45deg, #0a1a5c, #1f274f, #282f55);
 }
 
-.container form .cadastro-aeronave .btn button:hover {
+.containerHome form .Home .btn button:hover {
     background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
 }
-form .cadastro-aeronave .btn {
+form .Home .btn {
 
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);

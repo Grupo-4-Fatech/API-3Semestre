@@ -20,7 +20,7 @@ UsuarioController.post("/CadastrarUsuario", (req, res) => __awaiter(void 0, void
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
-            mensagem: "Por favor, preencha os dados para realizar o cadastro."
+            mensagem: "Please fill in the details to complete the registration."
         });
     }
     else {
@@ -33,14 +33,14 @@ UsuarioController.post("/CadastrarUsuario", (req, res) => __awaiter(void 0, void
             });
             res.json({
                 ok: true,
-                mensagem: "Usuario cadastrado com sucesso."
+                mensagem: "User successfully registered."
             });
         }
         catch (error) {
             if (error == "SequelizeUniqueConstraintError: Validation error") {
                 res.json({
                     ok: false,
-                    mensagem: "Email já cadastrado."
+                    mensagem: "E-mail already registered."
                 });
             }
             else {
@@ -57,7 +57,7 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
-            mensagem: "Por favor, preencha os dados para atualizar o cadastro."
+            mensagem: "Please fill in the data to update the registration."
         });
     }
     else {
@@ -66,25 +66,26 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
             if (data != null) {
                 yield UsuarioModel_1.default.update({
                     nome: dados.nome,
-                    senha: dados.senha
+                    senha: dados.senha,
+                    TipoUsuario: dados.tipoUsuario
                 }, { where: {
                         email: dados.email,
                     } });
                 res.json({
                     ok: true,
-                    mensagem: "Usuario atualizado com sucesso"
+                    mensagem: "User successfully updated."
                 });
             }
             else {
                 res.json({
                     ok: false,
-                    mensagem: "Usuario não encontrado"
+                    mensagem: "User not found."
                 });
             }
         }));
     }
 }));
-UsuarioController.get("/BucarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UsuarioController.get("/BuscarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var email = req.query.email;
     yield UsuarioModel_1.default.findByPk(email === null || email === void 0 ? void 0 : email.toString()).then((data) => {
         res.json(data);
@@ -99,10 +100,10 @@ UsuarioController.post("/DeletarUsuario", (req, res) => __awaiter(void 0, void 0
     var email = req.query.email;
     try {
         yield UsuarioModel_1.default.destroy({ where: { email: email } });
-        res.json(true);
+        res.json({ ok: true });
     }
     catch (e) {
-        res.json(false);
+        res.json({ ok: false });
     }
 }));
 exports.default = UsuarioController;

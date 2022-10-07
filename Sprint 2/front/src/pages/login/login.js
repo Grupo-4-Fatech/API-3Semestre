@@ -1,3 +1,4 @@
+import React from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import "./login.css";
@@ -6,11 +7,10 @@ import Botao from "../../componentes/botao/botao";
 
 const Login = () => {
     var handleLogin = function () {
-        console.log('oi')
         var dados = {}
         dados.email = document.getElementById('email').value;
         dados.senha = document.getElementById('senha').value
-
+        console.log(dados)
         fetch("/Logar", {
             method: 'POST',
             headers: {
@@ -34,7 +34,7 @@ const Login = () => {
     return (
         <div id="formL" className="corpoL">
             <form action="">
-                <h2 className="title">Login</h2>
+                <h2 className="titleL">Login</h2>
                 <InputLogin text="Email " id="email" placeholder="Email" type="email" icon={faEnvelope} />
                 <InputLogin text="Password" id="senha" placeholder="Password" type="password" icon={faLock} />
                 <Botao acao={handleLogin}>Login</Botao>

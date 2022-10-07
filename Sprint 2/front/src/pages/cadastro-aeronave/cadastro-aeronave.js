@@ -1,3 +1,4 @@
+import React from 'react';
 import "./cadastro_aeronave.css"
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
