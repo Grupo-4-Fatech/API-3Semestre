@@ -1,7 +1,7 @@
 import React from 'react';
 import "./calculo.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
+import {faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 // import NativeSelectDemo from "../../componentes/select/select";
 import SelectSlope from "../../componentes/select/selectSlope";
@@ -19,10 +19,19 @@ function validacao(e) {
     var numWind = document.getElementById("Wind").value;
     var numReversor = document.getElementById("Reversor").value;
     var numSlope = document.getElementById("InputSlope").value;
+    // const campos = [numAlt,numPeso,numReversor,numSlope,numWind]
 
 
+    // console.log("campos" + campos);
+    // let Evalido = true 
+    // for(var campo of campos){
+    //     console.log(campo);
+    //     if (campo.value < 0 ){
+    //         campo.value = 0
+    //         Evalido = false
+    //     }
+    // } return Evalido
     
-
     if (numAlt < 0) {
         document.getElementById("Alt").value = 0
         // alert ("a")

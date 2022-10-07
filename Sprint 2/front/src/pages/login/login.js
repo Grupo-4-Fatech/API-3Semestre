@@ -3,6 +3,7 @@ import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import "./login.css";
 import Botao from "../../componentes/botao/botao";
+const Swal = require('sweetalert2')
 
 
 const Login = () => {
@@ -27,7 +28,12 @@ const Login = () => {
                 }
 
             } else {
-                alert(data.Mensagem)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Incorrect login',
+                    text: 'Does not match Login and Password',
+                })
+                // alert(data.Mensagem)
             }
         })
     }
