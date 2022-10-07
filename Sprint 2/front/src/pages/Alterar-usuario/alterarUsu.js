@@ -66,7 +66,7 @@ fetch("/BuscarUsuario" +"?email=" +string, {
 
     return (
         <div id="form">
-            <a href="./Consulta"><FontAwesomeIcon icon={faArrowLeft} /></a>
+            {/* <a href="./Consulta"><FontAwesomeIcon icon={faArrowLeft} /></a> */}
             <form action="">
                 <h2 className="titulo">Alter Users</h2>
                 <InputLogin text="Name" id="username" placeholder="Enter name" type="text" icon={faUserCircle} />

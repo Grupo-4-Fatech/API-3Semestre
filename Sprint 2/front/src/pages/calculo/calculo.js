@@ -138,7 +138,7 @@ const Calculo = () => {
 
     return (
         <div className="cont">
-            <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
+            {/* <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a> */}
             <div className="tituloCal">Landing calculation</div>
             <FontAwesomeIcon icon={faPlaneArrival} />
             <form action="#">
