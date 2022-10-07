@@ -46,8 +46,6 @@ const deletarUsuario = function (e){
     }
     
   });
-
-
 }
 
     return (  
