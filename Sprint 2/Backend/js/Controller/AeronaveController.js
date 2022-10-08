@@ -98,7 +98,7 @@ AeronaveController.get("/BuscarAeronave", (req, res) => __awaiter(void 0, void 0
         res.json(data);
     });
 }));
-AeronaveController.get("ListarAeronave", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+AeronaveController.get("/ListarAeronave", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield AeronaveModel_1.default.findAll().then((data) => {
         res.json(data);
     });

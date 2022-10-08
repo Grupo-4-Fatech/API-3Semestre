@@ -10,6 +10,8 @@ import Login from './pages/login/login'
 import 'semantic-ui-css/semantic.min.css'
 import ConsDelUsu from './pages/consulta-deletarUsu/con-delUsu';
 import AlterarUsu from './pages/Alterar-usuario/alterarUsu';
+import ConsdelAer from './pages/consulta-deletarAer/con-delAer';
+import AlterarAer from "./pages/Alterar-aeronave/alterarAer";
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
             <Route exact path="/Calculo" element={<Calculo />} />
             <Route exact path="/Consulta" element={<ConsDelUsu/>} />
             <Route exact path="/Alterar-usuario/:Email" element={<AlterarUsu/>}/>
+            <Route exact path="/Consulta-Aeronave" element={<ConsdelAer/>}/>
+            <Route exact path="/Alterar-aeronave/:Model_Aircraft" element={<AlterarAer/>}/>
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </div>

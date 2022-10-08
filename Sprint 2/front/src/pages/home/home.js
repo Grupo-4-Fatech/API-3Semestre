@@ -15,6 +15,7 @@ const Home = () => {
                     <BotaoHome home="/Calculo">Calculation</BotaoHome>
                     <BotaoHome home="/Cadastro-usuario">User registration</BotaoHome>                  
                     <BotaoHome home="/Consulta">Consult user</BotaoHome>
+                    <BotaoHome home="/Consulta-aeronave"> Consult Aircraft </BotaoHome>
                 </div>
 
             </form>

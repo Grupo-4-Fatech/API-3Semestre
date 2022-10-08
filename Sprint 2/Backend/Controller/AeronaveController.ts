@@ -82,7 +82,7 @@ AeronaveController.get("/BuscarAeronave", async(req,res)=>{
     })
 })
 
-AeronaveController.get("ListarAeronave",async (req,res) => {
+AeronaveController.get("/ListarAeronave",async (req,res) => {
     await AeronaveModel.findAll().then((data)=>{
         res.json(data)
     })
