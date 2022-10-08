@@ -52,11 +52,12 @@ fetch("/BuscarUsuario" +"?email=" +string, {
     
     document.getElementById('email').value = data.email
     document.getElementById('username').value = data.nome
-    if ( data.tipoUsuario == 1) {
-        document.getElementById('dot-1').checked = true;
+
+    if ( data.TipoUsuario == 2) {
+        document.getElementById("dot-2").checked = true;
         
-    } else if (  data.tipoUsuario = 2) {
-        document.getElementById('dot-2').checked = true;
+    } else if ( data.TipoUsuario == 1) {
+        document.getElementById("dot-1").checked = true;
     }
     
     });
