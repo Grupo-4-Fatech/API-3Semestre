@@ -2,7 +2,7 @@
 Projeto desenvolvido por alunos do terceiro semestre do curso de análise e desenvolvimento de sistemas da Fatec - SJC, durante o segundo semestre do ano de 2022.
 
 ## 🎯 Objetivo
-O projeto visa criar uma interface para que um piloto de aeronave possa calcular a distância necessária para voar com base nos parâmetros considerados na <link>tabela</link> disponibilizada.
+O projeto visa criar uma interface para que um piloto de aeronave possa calcular a distância necessária para voar com base nos parâmetros considerados na <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint%202/documentacao/tabela.png">tabela</a> disponibilizada.
 
 ![OBJETIVO](https://user-images.githubusercontent.com/89141910/190279088-66737cb2-178c-471e-919b-cd803429b3f6.png)
 
