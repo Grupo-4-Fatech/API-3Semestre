@@ -14,46 +14,46 @@ const Swal = require('sweetalert2')
 
 
 function validacao(e) {
-    var numAlt = document.getElementById("Alt").value;
-    var numPeso = document.getElementById("Peso").value;
-    var numWind = document.getElementById("Wind").value;
-    var numReversor = document.getElementById("Reversor").value;
-    var numSlope = document.getElementById("InputSlope").value;
-    // const campos = [numAlt,numPeso,numReversor,numSlope,numWind]
+    var numAlt = document.getElementById("Alt");
+    var numPeso = document.getElementById("Peso");
+    var numWind = document.getElementById("Wind");
+    var numReversor = document.getElementById("Reversor");
+    var numSlope = document.getElementById("InputSlope");
+    const campos = [numAlt,numPeso,numReversor,numSlope,numWind]
 
 
-    // console.log("campos" + campos);
-    // let Evalido = true 
-    // for(var campo of campos){
-    //     console.log(campo);
-    //     if (campo.value < 0 ){
-    //         campo.value = 0
-    //         Evalido = false
-    //     }
-    // } return Evalido
+    console.log("campos" + campos);
+    let Evalido = true 
+    for(var campo of campos){
+        console.log(campo);
+        if (campo.value < 0 ){
+            campo.value = 0
+            Evalido = false
+        }
+    } return Evalido
     
-    if (numAlt < 0) {
-        document.getElementById("Alt").value = 0
-        // alert ("a")
-        return false
-    }
-    if (numPeso < 0) {
-        document.getElementById("Peso").value = 0
-        return false
-    }
-    if (numWind < 0) {
-        document.getElementById("Wind").value = 0
-        return false
-    }
-    if (numReversor < 0) {
-        document.getElementById("Reversor").value = 0
-        return false
-    }
-    if (numSlope < 0) {
-        document.getElementById("InputSlope").value = 0
-        return false
-    }
-        return true
+    // if (numAlt < 0) {
+    //     document.getElementById("Alt").value = 0
+    //     // alert ("a")
+    //     return false
+    // }
+    // if (numPeso < 0) {
+    //     document.getElementById("Peso").value = 0
+    //     return false
+    // }
+    // if (numWind < 0) {
+    //     document.getElementById("Wind").value = 0
+    //     return false
+    // }
+    // if (numReversor < 0) {
+    //     document.getElementById("Reversor").value = 0
+    //     return false
+    // }
+    // if (numSlope < 0) {
+    //     document.getElementById("InputSlope").value = 0
+    //     return false
+    // }
+    //     return true
     
 
 }
