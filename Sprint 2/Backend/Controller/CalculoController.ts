@@ -1,9 +1,11 @@
 import Router from "express";
 import ParametrosModel from "../Models/Parametros";
+
 const CalculoController = Router();
 
 CalculoController.post("/calcular" , async(req, res)=>{
     var dados = req.body
+
     await ParametrosModel.findOne( { raw: true,
         where:{
         Flap: dados.Flap,

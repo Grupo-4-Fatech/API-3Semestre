@@ -14,8 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const UsuarioModel_1 = __importDefault(require("../Models/UsuarioModel"));
+const server_1 = __importDefault(require("../server"));
 const LoginController = (0, express_1.default)();
 LoginController.post('/Logar', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(": " + server_1.default.locals.email);
     var dados = req.body;
     console.log(dados.emai);
     if (dados.email == "" || dados.senha == "") {
@@ -34,9 +36,14 @@ LoginController.post('/Logar', (req, res) => __awaiter(void 0, void 0, void 0, f
                 });
             }
             else {
+                server_1.default.locals.email = dados.email;
                 res.json({ ok: true, usuario: data, Mensagem: "Sucesso" });
             }
         });
     }
 }));
+LoginController.get('/LogOut', (req, res) => {
+    server_1.default.locals.email = "";
+    res.json(true);
+});
 exports.default = LoginController;

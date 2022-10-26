@@ -5,10 +5,25 @@ import {faPlane} from '@fortawesome/free-solid-svg-icons'
 import "./home.css"
 
 const Home = () => {
+    var handleLogOut = function(){
+        fetch("/LogOut", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            
+          }).then((resposta) => resposta.json()).then((data) => {
+                if(data){
+                    window.location = '/'
+                }
+              
+            })
+    }
     return ( 
         <div className=" containerHome">
             <div className="tituloHome">Home</div>
             <FontAwesomeIcon icon={faPlane}/>
+            <button onClick={handleLogOut} id="LogOut">Teste Log Out</button>
             <form action="#">
                 <div className="Home">
                     <BotaoHome home="/Cadastro-Aeronave">Aircraft registration</BotaoHome>

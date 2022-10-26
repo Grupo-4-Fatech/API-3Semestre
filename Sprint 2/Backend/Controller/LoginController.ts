@@ -1,9 +1,11 @@
 import Router from "express";
 import UsuarioModel from "../Models/UsuarioModel";
+import app from "../server";
 
 const LoginController = Router();
 
 LoginController.post('/Logar', async(req, res)=>{
+    console.log( ": "+ app.locals.email)
     var dados = req.body;
     console.log(dados.emai)
     if(dados.email == "" || dados.senha==""){
@@ -21,6 +23,7 @@ LoginController.post('/Logar', async(req, res)=>{
                         Mensagem:"Usuário ou Senha incorretos."
                     })
                 }else{
+                    app.locals.email = dados.email
                     res.json({ok:true, usuario : data, Mensagem:"Sucesso"})
                 }
             });
@@ -31,6 +34,10 @@ LoginController.post('/Logar', async(req, res)=>{
         
             
         
+})
+LoginController.get('/LogOut', (req, res)=>{
+    app.locals.email = "";
+    res.json(true)
 })
 
 export default LoginController;

@@ -14,6 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const UsuarioModel_1 = __importDefault(require("../Models/UsuarioModel"));
+const server_1 = __importDefault(require("../server"));
+const { Op } = require("sequelize");
 const UsuarioController = (0, express_1.default)();
 UsuarioController.post("/CadastrarUsuario", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var dados = req.body;
@@ -92,7 +94,8 @@ UsuarioController.get("/BuscarUsuario", (req, res) => __awaiter(void 0, void 0, 
     });
 }));
 UsuarioController.get("/ListarUsuarios", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield UsuarioModel_1.default.findAll({ attributes: { exclude: ['senha', 'tipoUsuario'] } }).then((data) => {
+    console.log(server_1.default.locals.email);
+    yield UsuarioModel_1.default.findAll({ attributes: { exclude: ['senha', 'tipoUsuario'] }, where: { email: { [Op.not]: server_1.default.locals.email } } }).then((data) => {
         res.json(data);
     });
 }));

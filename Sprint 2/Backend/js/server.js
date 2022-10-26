@@ -11,6 +11,7 @@ const CalculoController_1 = __importDefault(require("./Controller/CalculoControl
 const AeronaveController_1 = __importDefault(require("./Controller/AeronaveController"));
 const app = (0, express_1.default)();
 const port = 5000;
+app.locals.email = "teste";
 app.use(express_1.default.json());
 app.get('/', (_req, _res) => {
     _res.send("TypeScript With Expresss");
@@ -30,3 +31,4 @@ app.listen(port, () => {
     console.log(`TypeScript with Express
          http://localhost:${port}/`);
 });
+exports.default = app;
