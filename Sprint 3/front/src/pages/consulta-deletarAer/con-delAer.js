@@ -8,10 +8,10 @@ const Swal = require('sweetalert2')
 const ConsDelAer = () => {
     var dados = [{
         MODEL:"",
-        ENGINE:"",
-        CERTIFICATION:"",
-        WEIGHT:"",
-        REVERSER:""
+        // ENGINE:"",
+        // CERTIFICATION:"",
+        // WEIGHT:"",
+        // REVERSER:""
       }];
     const [aeronaves, setAeronaves] = useState(dados);
     useEffect(() => {
@@ -75,3 +75,4 @@ const ConsDelAer = () => {
 }
 
 export default ConsDelAer;
+

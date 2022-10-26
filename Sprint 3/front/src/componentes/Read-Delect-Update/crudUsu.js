@@ -70,8 +70,8 @@ const CrudUsu = ({ dados, deletar, editar, load, email}) => {
                                 })}
                                 <td>
 
-                                    <button id='btnex' type="submit" onClick={deletar}>Excluir</button>
-                                    <button id='btnex' type="submit" onClick={editar}>update</button>
+                                    <button id='btnex' type="submit" onClick={deletar}>Deletar</button>
+                                    <button id='btnex' type="submit" onClick={editar}>Update</button>
 
                                 </td>
                             </tr>

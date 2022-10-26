@@ -37,9 +37,21 @@ const CadastroAeronave = () => {
             var dados = {}
             dados.modelo_de_aeronave = document.getElementById('Modelo-de-aeronave').value;
             dados.motor = document.getElementById('Motor').value
-            dados.certificacao = document.getElementById('Certificaçao').value
-            dados.peso = document.getElementById('Peso').value
+            dados.certificacao = document.getElementById('slcCertificacao').value
             dados.reversor = document.getElementById('Reversor').value
+            dados.peso = document.getElementById('Peso').value
+            // dados.landing_flap = document.getElementById('LF').value
+            dados.peso_max = document.getElementById('PesoMax').value 
+            dados.peso_min = document.getElementById("PesoMin").value
+            dados.owerweight = document.getElementById("PesoOw").value
+            dados.overspeed_max = document.getElementById("OverSpeedMax").value
+            dados.overspeed_min = document.getElementById("OverSpeedMin").value
+            dados.vento_max = document.getElementById("VentoMax").value
+            dados.vento_min = document.getElementById("VentoMin").value
+            dados.isa_max = document.getElementById("TempMax").value
+            dados.isa_min = document.getElementById("TempMin").value
+
+
             // dados.overspeed = document.getElementById('Overspeed').value
             // dados.flap_de_pouso = document.getElementById('Flap de pouso').value
 
@@ -87,12 +99,14 @@ const CadastroAeronave = () => {
             <form action="#">
                 <div className="informacoes">Informações da aeronave</div>
                 <div className="detalhes-aeronave" id="det">
-                    <SelectFlap></SelectFlap>
-                    <SelectCertificacao></SelectCertificacao>
+                    {/* <SelectFlap></SelectFlap> */}
                     <InputCadastros id="Modelo-de-aeronave" type="text" placeholder="Enter the Model">Modelo do avião</InputCadastros>
+                    <SelectCertificacao></SelectCertificacao>
                     <InputCadastros id="Motor" type="text" placeholder="Enter the engine">Motor</InputCadastros>
                     <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Peso referencia (T)</InputCadastros>
                     <InputCadastros min="0" id="Reversor" type="number" placeholder="Enter the reverser" >Reverser</InputCadastros>
+                    {/* <InputCadastros id="Flaps" type ="text" placeholder="Enter the Flap">Flap</InputCadastros> */}
+
 
                 </div>
                 <div className="informacoes">Parâmetros da aeronave (Max - Min)</div>

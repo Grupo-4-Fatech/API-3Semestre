@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
--- Host: localhost    Database: api
+-- Host: 127.0.0.1    Database: api
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,9 +25,19 @@ DROP TABLE IF EXISTS `aeronaves`;
 CREATE TABLE `aeronaves` (
   `modelo_de_aeronave` varchar(50) NOT NULL,
   `motor` varchar(50) NOT NULL,
-  `certificacao` varchar(50) DEFAULT NULL,
-  `peso` varchar(50) NOT NULL,
-  `reversor` varchar(50) NOT NULL,
+  `certificacao` varchar(50) NOT NULL,
+  `landing_flap` varchar(50) DEFAULT NULL,
+  `reversor` int NOT NULL,
+  `peso` int NOT NULL,
+  `peso_max` int NOT NULL,
+  `peso_min` int NOT NULL,
+  `owerweight` int NOT NULL,
+  `overspeed_max` int NOT NULL,
+  `overspeed_min` int NOT NULL,
+  `vento_max` int NOT NULL,
+  `vento_min` int NOT NULL,
+  `isa_max` int NOT NULL,
+  `isa_min` int NOT NULL,
   PRIMARY KEY (`modelo_de_aeronave`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +48,7 @@ CREATE TABLE `aeronaves` (
 
 LOCK TABLES `aeronaves` WRITE;
 /*!40000 ALTER TABLE `aeronaves` DISABLE KEYS */;
-INSERT INTO `aeronaves` VALUES ('lkjgildfjgkldfg','jnhsdkjfhsdjk','jsdnjkas','434','33');
+INSERT INTO `aeronaves` VALUES ('Cessna','trimotor','FAA',NULL,3,2,11,10,11,11,10,11,10,11,10);
 /*!40000 ALTER TABLE `aeronaves` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -372,17 +382,9 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('','','',NULL),('1','','',NULL),('Admin@Admin','Admin','Admin123',2),('cliente2@cliente','cliente','Teste123',1),('cliente3@cliente','cliente','Teste123',2),('cliente4@cliente','cliente','Teste123',1),('cliente@cliente','cliente','Teste123',1),('email23y374@teste733','teste2324','hgdjhefj',NULL),('emailteste2@emailteste','Fernanda Nicole Almeida','Teste123',NULL),('emailteste@emailteste','Fernanda Nicole Almeida','Teste123',NULL),('jdcdshkjshoidhjoiese','jhedjhesjkdhkjhf','skldjhesiodoilceiod',1),('test5654@teste','testeAtualizar23','tetsebhbsb',NULL),('teste@teste2','testeAtualizar23','tetsebhbsb',NULL),('testeMil','teste@mil','teste123',NULL);
+INSERT INTO `usuarios` VALUES ('Admin@Admin','Admin','Admin123',2),('andre@ribeiro','and ','771823',2),('cliente2@cliente','cliente','Teste123',1),('cliente3@cliente','cliente','Teste123',2),('cliente4@cliente','cliente','Teste123',1),('cliente@cliente','cliente','Teste123',1),('emailteste2@emailteste','Fernanda Nicole Almeida','Teste123',NULL),('emailteste@emailteste','Fernanda Nicole Almeida','Teste123',NULL),('teste@teste2','testeAtualizar23','tetsebhbsb',NULL),('testeMil','teste@mil','fefef',2);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'api'
---
-
---
--- Dumping routines for database 'api'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -393,4 +395,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-04 10:05:57
+-- Dump completed on 2022-10-26 15:30:55

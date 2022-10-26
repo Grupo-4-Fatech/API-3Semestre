@@ -18,16 +18,16 @@ const CrudAer = ({ dados, deletar, editar, load, email}) => {
                     <tr>
 
                         {atributos.length && atributos.map((atributo) => {
-                            if(atributo ==='modelo_de_aeronave'){
+                             if(atributo ==='modelo_de_aeronave'){
                                 atributo = 'MODEL';
-                            }else if(atributo === 'motor'){
-                                atributo = 'ENGINE';
-                            }else if(atributo === 'certificacao'){
-                                atributo = "CERTIFICATION"
-                            }else if(atributo === 'peso'){
-                                atributo = "WEIGHT"
-                            }else if(atributo === 'reversor'){
-                                atributo = "REVERSER"
+                            // // }else if(atributo === 'motor'){
+                            // //     atributo = 'ENGINE';
+                            // // }else if(atributo === 'certificacao'){
+                            // //     atributo = "CERTIFICATION"
+                            // // }else if(atributo === 'peso'){
+                            // //     atributo = "WEIGHT"
+                            // // }else if(atributo === 'reversor'){
+                            // //     atributo = "REVERSER"
                             }
 
                            
@@ -74,8 +74,8 @@ const CrudAer = ({ dados, deletar, editar, load, email}) => {
                                 })}
                                 <td>
 
-                                    <button id='btnex' type="submit" onClick={deletar}>Excluir</button>
-                                    <button id='btnex' type="submit" onClick={editar}>update</button>
+                                    <button id='btnex' type="submit" onClick={deletar}>Delete</button>
+                                    <button id='btnex' type="submit" onClick={editar}>Consult</button>
 
                                 </td>
                             </tr>
