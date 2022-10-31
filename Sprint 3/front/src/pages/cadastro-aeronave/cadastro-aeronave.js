@@ -2,38 +2,150 @@ import React from 'react';
 import "./cadastro_aeronave.css"
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faPlane } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faPlane, faTruckMonster } from '@fortawesome/free-solid-svg-icons'
 import SelectCertificacao from '../../componentes/select/selectCertificacao';
 import SelectFlap from '../../componentes/select/selectFlap';
 const Swal = require('sweetalert2')
 
-function validarCampos(e) {
-    var numRever = document.getElementById("Reversor").value;
-    var numPeso = document.getElementById("Peso").value;
-
-    if (numPeso < 0 && numRever < 0) {
-        document.getElementById("Peso").value = 0
-        document.getElementById("Reversor").value = 0
-        return false
-    }
-
-    if (numRever < 0) {
-        document.getElementById("Reversor").value = 0
-        return false
-    }
-    if (numPeso < 0) {
-        document.getElementById("Peso").value = 0
-        return false
-    }
-
-    return true
+function validarCamposPositivos(e) {
+    var peso_max = document.getElementById('PesoMax')
+    var peso_min = document.getElementById("PesoMin")
+    var owerweight = document.getElementById("PesoOw")
+    var overspeed_max = document.getElementById("OverSpeedMax")
+    var overspeed_min = document.getElementById("OverSpeedMin")
+    var vento_max = document.getElementById("VentoMax")
+    var vento_min = document.getElementById("VentoMin")
+    var numRever = document.getElementById("Reversor");
+    var numPeso = document.getElementById("Peso");
+    const camposPositivos = [peso_max,peso_min,owerweight,overspeed_max,overspeed_min,vento_max,vento_min,numRever,numPeso]
+    let evalido = true
+    for (var campo of camposPositivos){
+        if (campo.value < 0 ){
+            campo.value = 0 
+            evalido = false
+        }
+    } return evalido
 }
-
+function validarCampos(e){
+    var peso_max = document.getElementById('PesoMax')
+    var peso_min = document.getElementById("PesoMin")
+    var owerweight = document.getElementById("PesoOw")
+    var overspeed_max = document.getElementById("OverSpeedMax")
+    var overspeed_min = document.getElementById("OverSpeedMin")
+    var vento_max = document.getElementById("VentoMax")
+    var vento_min = document.getElementById("VentoMin")
+    var numRever = document.getElementById("Reversor");
+    var numPeso = document.getElementById("Peso");
+    var isa_max = document.getElementById("TempMax")
+    var isa_min = document.getElementById("TempMin")
+    const campos= [peso_max,peso_min,owerweight,overspeed_max,overspeed_min,vento_max,vento_min,numRever,numPeso,isa_max,isa_min]
+    let evalido = true
+    for (var campo of campos){
+        if(campo.value === null){
+            evalido = false
+        }
+        if(campo.value === ""){
+            evalido = false
+        }
+    } return evalido
+}
+function validarReversor(e){
+    var numRever = document.getElementById("Reversor").value;
+    if (numRever > 10){
+        document.getElementById("Reversor").value = 0
+        return false
+    }return true
+}
+function validarTemperatura(e){
+    var isaMax = document.getElementById("TempMax").value
+    var isaMin = document.getElementById("TempMin").value
+    if (isaMax <= isaMin){
+        return false 
+    }return true
+}
+function validarPeso(e){
+    var pesoMaximo= document.getElementById('PesoMax').value
+    var pesoMinimo = document.getElementById("PesoMin").value
+    if ( pesoMaximo <= pesoMinimo){
+        return false
+    }return true
+}
+function validarOverspeed(e){
+    var overspeedMaximo = document.getElementById("OverSpeedMax").value
+    var overspeedMinimo = document.getElementById("OverSpeedMin").value
+    if (overspeedMaximo <= overspeedMinimo){
+        return false
+    }return true
+}
+function validarSelect(e){
+    var certificacao = document.getElementById('slcCertificacao').value
+    if (certificacao === "default"){
+        return false
+    }return true
+}
 const CadastroAeronave = () => {
     var handleCadastroAeronave = function (e) {
         e.preventDefault();
-        var validarCps = validarCampos();
-        if (validarCps) {
+        if (!validarCampos()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Fields cannot be empty',
+                text: '',
+            })
+            return true
+
+        }
+        if (!validarCamposPositivos()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Cannot enter negative numbers',
+                text: 'Only temperature can be negative',
+            })
+            return true
+
+        }
+        if (!validarReversor()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Reverser cannot be more than ten',
+                text: '',
+            })
+            return true
+        }
+        if (!validarSelect()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Select an option',
+                text: '',
+            })
+            return true
+        }
+        if (!validarPeso()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Weight max cannot be less or iqual than Weight min',
+                text: '',
+            })
+            return true
+        }
+        
+        if(!validarOverspeed()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Overspeed max cannot be less or iqual than Overspeed min',
+                text: '',
+            })
+            return true
+        }
+        if(!validarTemperatura()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Temperature max cannot be less or iqual than temperature min',
+                text: '',
+            })
+            return true
+        }
+        
             var dados = {}
             dados.modelo_de_aeronave = document.getElementById('Modelo-de-aeronave').value;
             dados.motor = document.getElementById('Motor').value
@@ -81,15 +193,8 @@ const CadastroAeronave = () => {
                 }
             })
         }
-        else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid type',
-                text: 'Cannot enter negative numbers',
-            })
-        }
-    }
-
+        
+    
     return (
 
         <div className="container">
@@ -100,7 +205,7 @@ const CadastroAeronave = () => {
                 <div className="informacoes">Informações da aeronave</div>
                 <div className="detalhes-aeronave" id="det">
                     {/* <SelectFlap></SelectFlap> */}
-                    <InputCadastros id="Modelo-de-aeronave" type="text" placeholder="Enter the Model">Modelo do avião</InputCadastros>
+                    <InputCadastros  id="Modelo-de-aeronave" type="text" placeholder="Enter the Model">Modelo do avião</InputCadastros>
                     <SelectCertificacao></SelectCertificacao>
                     <InputCadastros id="Motor" type="text" placeholder="Enter the engine">Motor</InputCadastros>
                     <InputCadastros min="0" id="Peso" type="number" placeholder="Enter the weight">Peso referencia (T)</InputCadastros>

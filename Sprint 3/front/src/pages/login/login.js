@@ -6,8 +6,30 @@ import Botao from "../../componentes/botao/botao";
 const Swal = require('sweetalert2')
 
 
+function validarCampos (e){
+    const email = document.getElementById('email')
+    const senha = document.getElementById('senha')
+    const campos = [email,senha]
+    let Evalido = true 
+    for (var campo of campos){
+        if (campo.value ===""){
+            Evalido = false
+        }
+    }return Evalido
+}
+
+
+
 const Login = () => {
     var handleLogin = function () {
+        // if (validarCampos){
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Fields cannot be empty',
+
+        //     })
+        //     return
+        // }
         var dados = {}
         dados.email = document.getElementById('email').value;
         dados.senha = document.getElementById('senha').value

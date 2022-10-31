@@ -1,7 +1,8 @@
 import React from 'react';
+import { useState } from 'react'
 import "./calculo.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
+import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 // import NativeSelectDemo from "../../componentes/select/select";
 import SelectSlope from "../../componentes/select/selectSlope";
@@ -19,44 +20,51 @@ function validacao(e) {
     var numWind = document.getElementById("Wind");
     var numReversor = document.getElementById("Reversor");
     var numSlope = document.getElementById("InputSlope");
-    const campos = [numAlt,numPeso,numReversor,numSlope,numWind]
-
-
+    const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
     console.log("campos" + campos);
-    let Evalido = true 
-    for(var campo of campos){
+    let Evalido = true
+    for (var campo of campos) {
         console.log(campo);
-        if (campo.value < 0 ){
+        if (campo.value < 0) {
             campo.value = 0
             Evalido = false
         }
+        if (campo.value === "") {
+            Evalido = false
+        }
     } return Evalido
-    
-    // if (numAlt < 0) {
-    //     document.getElementById("Alt").value = 0
-    //     // alert ("a")
-    //     return false
-    // }
-    // if (numPeso < 0) {
-    //     document.getElementById("Peso").value = 0
-    //     return false
-    // }
-    // if (numWind < 0) {
-    //     document.getElementById("Wind").value = 0
-    //     return false
-    // }
-    // if (numReversor < 0) {
-    //     document.getElementById("Reversor").value = 0
-    //     return false
-    // }
-    // if (numSlope < 0) {
-    //     document.getElementById("InputSlope").value = 0
-    //     return false
-    // }
-    //     return true
-    
 
 }
+function validacao2(e) {
+    var valFlap = document.getElementById("slcFlap").value;
+    var valRC = document.getElementById("runway_condition").value;
+    var valIce = document.getElementById("slcIce").value;
+    var valSlope = document.getElementById("slcSlope").value;
+    var valWind = document.getElementById("slcWind").value;
+    const selects = [valFlap, valRC, valIce, valSlope, valWind]
+    let Evalido2 = true
+    for (var sel of selects) {
+        if (sel === "default") {
+            Evalido2 = false
+        }
+    } return Evalido2
+}
+function validacao3(e) {
+    const numAlt = document.getElementById("Alt");
+    const numPeso = document.getElementById("Peso");
+    const numWind = document.getElementById("Wind");
+    const numReversor = document.getElementById("Reversor");
+    const numSlope = document.getElementById("InputSlope");
+    const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
+    console.log("campos" + campos);
+    let Evalido3 = true
+    for (const campo of campos) {
+        if (campo.value === "") {
+            Evalido3 = false
+        }
+    } return Evalido3
+}
+
 
 const func = (tipo) => {
 
@@ -71,80 +79,106 @@ const func = (tipo) => {
 
 var handleCalcular = function (e) {
     e.preventDefault();
-    var valicacaoCampos = validacao();
-    console.log(valicacaoCampos)
-    if (valicacaoCampos) {
-        var dados = {
-            Flap: parseInt(document.getElementById('slcFlap').value),
-            Ice: document.getElementById('slcIce').value === 1 ? false : true,
-            RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
-            Peso: parseInt(document.getElementById('Peso').value),
-            Alt: parseInt(document.getElementById('Alt').value),
-            LikeWind: parseInt(document.getElementById('slcWind').value),
-            Wind: parseInt(document.getElementById('Wind').value),
-            Temp: parseInt(document.getElementById('Temp').value),
-            LikeSlope: Number(document.getElementById('slcSlope').value),
-            Slope: parseInt(document.getElementById('InputSlope').value),
-            Rev: parseInt(document.getElementById('Reversor').value)
+    if (!validacao2()) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Select an option',
 
-        };
-
-        fetch("/calcular", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(dados)
-        }).then((resposta) => resposta.json()).then((data) => {
-            document.getElementById('result').value = data.toFixed(2) + "m";
-            Swal.fire({
-                title: 'Calculation performed successfully',
-                text:"You need " + data.toFixed(2) + "m",
-                icon: 'success',
-            })
         })
-        
-    } else {
+        return true
+    }
+    if (!validacao3()) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Field cannot be empty',
+        })
+        return true
+    }
+    if (!validacao()) {
         Swal.fire({
             icon: 'error',
             title: 'Invalid type',
             text: 'Cannot enter negative numbers',
         })
-        
+        return true
+    }
+    if (!validacao2()) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Select an option',
+
+        })
+        return true
     }
 
-    //     var dados = {
-    //         Flap: parseInt(document.getElementById('slcFlap').value),
-    //         Ice: document.getElementById('slcIce').value == 1 ? false : true,
-    //         RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
-    //         Peso: parseInt(document.getElementById('Peso').value),
-    //         Alt: parseInt(document.getElementById('Alt').value),
-    //         LikeWind: parseInt(document.getElementById('slcWind').value),
-    //         Wind: parseInt(document.getElementById('Wind').value),
-    //         Temp: parseInt(document.getElementById('Temp').value),
-    //         LikeSlope: Number(document.getElementById('slcSlope').value),
-    //         Slope: parseInt(document.getElementById('InputSlope').value),
-    //         Rev: parseInt(document.getElementById('Reversor').value)
+    var dados = {
+        Flap: parseInt(document.getElementById('slcFlap').value),
+        Ice: document.getElementById('slcIce').value === 1 ? false : true,
+        RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
+        Peso: parseInt(document.getElementById('Peso').value),
+        Alt: parseInt(document.getElementById('Alt').value),
+        LikeWind: parseInt(document.getElementById('slcWind').value),
+        Wind: parseInt(document.getElementById('Wind').value),
+        Temp: parseInt(document.getElementById('Temp').value),
+        LikeSlope: Number(document.getElementById('slcSlope').value),
+        Slope: parseInt(document.getElementById('InputSlope').value),
+        Rev: parseInt(document.getElementById('Reversor').value)
 
-    //     };
+    };
 
-    //     fetch("/calcular", {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json;charset=utf-8'
-    //         },
-    //         body: JSON.stringify(dados)
-    //     }).then((resposta) => resposta.json()).then((data) => {
+    fetch("/calcular", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(dados)
+    }).then((resposta) => resposta.json()).then((data) => {
+        document.getElementById('result').value = data.toFixed(2) + "m";
+        Swal.fire({
+            title: 'Calculation performed successfully',
+            text: "You need " + data.toFixed(2) + "m",
+            icon: 'success',
+        })
+    })
 
-    //         document.getElementById('result').value = data + "m";
-    //     })
 }
 
-
-
-
 const Calculo = () => {
+    const [tituloPeso, setTituloPeso] = useState('Weight')
+    const [tituloAltitude, setTituloAltitude] = useState('Altitude')
+    const [tituloTemperature, setTituloTemperature] = useState('Temperature')
+    const [tituloWind, setWind] = useState('Wind')
+    const [placeholderWeight, setPlaceholderWeight] = useState('18')
+    const [placeholderAltitude, setPlaceholderAltitude] = useState('1800')
+    const [placeholderTemperature, setPlaceholderTemperature] = useState('20')
+    const [placeholderWind, setPlaceholderWind] = useState('2')
 
+
+
+    const handClick = (e) => {
+        console.log(e.target.value);
+        if (e.target.value === '1') {
+            setTituloPeso('Weight (T)')
+            setTituloAltitude('Altitude (M)')
+            setTituloTemperature('Temperature (ºC)')
+            setWind('wind (Km/h)')
+            setPlaceholderAltitude('1800')
+            setPlaceholderTemperature('20')
+            setPlaceholderWeight('18')
+            setPlaceholderWind('2')
+            
+        }
+        if (e.target.value ==='2'){
+            setTituloPeso('Weight (Lb)')
+            setTituloAltitude('Altitude (Ft)')
+            setTituloTemperature('Temperature (ºF)')
+            setWind('wind (Kt)')
+            setPlaceholderAltitude('5905')
+            setPlaceholderTemperature('68')
+            setPlaceholderWeight('39683')
+            setPlaceholderWind('1,07991')
+        }
+    }
     return (
         <div className="cont">
             {/* <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a> */}
@@ -152,43 +186,30 @@ const Calculo = () => {
             <FontAwesomeIcon icon={faPlaneArrival} />
             <form action="#">
                 <div className="detalhes-aeronave">
-                    {/* <NativeSelectDemo></NativeSelectDemo> */}
-                    {/* {func('bk')} */}
+                    <><div className="medidas">
+                        <label htmlFor="" className="tituloS">Unit of Measurement</label>
+                        <select onChange={handClick} className="medida" name="medidas" id="medida" defaultValue={'default'}>
+                            <option value="default" disabled>Select measure:</option>
+                            <option value="1">Internacional</option>
+                            <option value="2">Imperial</option>
+                        </select></div>
+                    </>
                     {func('flap')}
                     <SelectIce></SelectIce>
                     <SelectCondicao></SelectCondicao>
-                    <InputCadastros min="0" id="Peso" type="number" placeholder="Ex.: 18" >Weight (T)</InputCadastros>
+                    <InputCadastros min="0" id="Peso" type="number" placeholder={placeholderWeight} >{tituloPeso}</InputCadastros>
                     <SelectSlope></SelectSlope>
                     <InputCadastros min="0" id="InputSlope" type="number" placeholder="Ex.: 0.2">Slope (%)</InputCadastros>
-                    <InputCadastros min="0" id="Alt" type="number" placeholder="Ex.: 1800" >Altitude (ft)</InputCadastros>
-                    <InputCadastros id="Temp" type="number" placeholder="Ex.: 20">Temperature (°C) </InputCadastros>
+                    <InputCadastros min="0" id="Alt" type="number" placeholder={placeholderAltitude} >{tituloAltitude}</InputCadastros>
+                    <InputCadastros id="Temp" type="number" placeholder={placeholderTemperature}>{tituloTemperature}</InputCadastros>
                     <SelectWind></SelectWind>
-                    <InputCadastros min="0" id="Wind" type="number" placeholder="Ex.: 2">Wind (KT)</InputCadastros>
+                    <InputCadastros min="0" id="Wind" type="number" placeholder={placeholderWind}>{tituloWind}</InputCadastros>
                     {/* <InputCadastros min="0" id="Overspeed" type="number" placeholder="Enter the overspeed">Overspeed</InputCadastros> */}
                     <InputCadastros qtd="10" min="0" id="Reversor" type="number" placeholder="Ex.: 1">Reverser (Un) </InputCadastros>
 
                 </div>
 
-                {/* <div className="Reversor-details">
-                <input type="radio" name="Reversor" id="dot-1"/>
-                <input type="radio" name="Reversor" id="dot-2"/>
-                <span className="Reversor-title">Reversor</span>
-
-                <div className="category">
-
-                    <label htmlFor="dot-1">
-                        <span className="dot one"></span>
-                        <span className="reversor">Usa reversor</span>
-                    </label>
-
-                    <label htmlFor="dot-2">
-                        <span className="dot two"></span>
-                        <span className="reversor">Não usa reversor</span>
-                    </label>
-
-                </div>
-
-            </div> */}
+               
                 <div className="button">
                     <input type="submit" onClick={handleCalcular} value="Calculate" id="calcular" />
                 </div>
