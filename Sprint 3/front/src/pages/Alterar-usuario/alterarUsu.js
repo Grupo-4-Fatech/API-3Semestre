@@ -1,7 +1,7 @@
 import React from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom"
 import "./alterarUsu.css"
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -110,6 +110,7 @@ const AtualizarUsuario = () => {
 
     return (
         <div id="form">
+            <FontAwesomeIcon icon={faRightFromBracket}/>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <form action="">
                 <h2 className="titulo">Alter Users</h2>
