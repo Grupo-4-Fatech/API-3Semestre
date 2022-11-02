@@ -6,6 +6,10 @@ const ParametrosModel = conexao.define("parametros", {
         primaryKey: true
         
     },
+    Udm:{
+        type: sequelize.Sequelize.INTEGER
+        
+    },
     Flap:{
         type: sequelize.Sequelize.INTEGER
         

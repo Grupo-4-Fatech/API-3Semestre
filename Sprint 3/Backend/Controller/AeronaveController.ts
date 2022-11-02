@@ -16,20 +16,21 @@ AeronaveController.post("/CadastrarAeronave", async(req, res)=>{
         try{
             await AeronaveModel.create({
                 modelo_de_aeronave: dados.modelo_de_aeronave,
-                motor: dados.motor,
+                unidade_de_medida:dados.unidade_de_medida,
                 certificacao: dados.certificacao,
-                landing_flap: dados.landing_flap,
-                reversor:parseInt(dados.reversor),
+                motor: dados.motor,
                 peso:parseInt(dados.peso),
+                reversor:parseInt(dados.reversor),
+                landing_flap: dados.landing_flap,
+                peso_referencia:parseInt(dados.peso_referencia),
+                altitude:parseInt(dados.altitude),
+                isa:parseInt(dados.isa),
+                vento:parseInt(dados.vento),
                 peso_max:parseInt(dados.peso_max),
                 peso_min:parseInt(dados.peso_min),
                 owerweight:parseInt(dados.owerweight),
                 overspeed_max:parseInt(dados.overspeed_max),
-                overspeed_min:parseInt(dados.overspeed_min),
-                vento_max:parseInt(dados.vento_max),
-                vento_min:parseInt(dados.vento_min),
-                isa_max:parseInt(dados.isa_max),
-                isa_min:parseInt(dados.isa_min)
+                overspeed_min:parseInt(dados.overspeed_min)
 
              })
              res.json({
@@ -60,20 +61,22 @@ AeronaveController.patch("/AtualizarAeronave", async(req, res)=>{
             AeronaveModel.findByPk(modelo_de_aeronave?.toString()).then(async(data)=>{
                 if(data!= null){
                     await AeronaveModel.update({
-                        motor: dados.motor,
+                        modelo_de_aeronave: dados.modelo_de_aeronave,
+                        unidade_de_medida:dados.unidade_de_medida,
                         certificacao: dados.certificacao,
+                        motor: dados.motor,
+                        peso:dados.peso,
+                        reversor:dados.reversor,
                         landing_flap: dados.landing_flap,
-                        reversor: dados.reversor,
-                        peso: dados.peso,
-                        peso_max: dados.peso_max,
-                        peso_min: dados.peso_min,
-                        owerweight: dados.owerweight,
-                        overspeed_max: dados.overspeed_max,
-                        overspeed_min: dados.overspeed_min,
-                        vento_max: dados.vento_max,
-                        vento_min: dados.vento_min,
-                        isa_max: dados.isa_max,
-                        isa_min: dados.isa_min
+                        peso_referencia:dados.peso_referencia,
+                        altitude:dados.altitude,
+                        isa:dados.isa,
+                        vento:dados.vento,
+                        peso_max:dados.peso_max,
+                        peso_min:dados.peso_min,
+                        owerweight:dados.owerweight,
+                        overspeed_max:dados.overspeed_max,
+                        overspeed_min:dados.overspeed_min
 
                     },{where:{
                         modelo_de_aeronave: dados.modelo_de_aeronave
@@ -101,7 +104,7 @@ AeronaveController.get("/BuscarAeronave", async(req,res)=>{
 })
 
 AeronaveController.get("/ListarAeronave",async (req,res) => {
-    await AeronaveModel.findAll({attributes: {exclude:['motor','certificacao','landing_flap','reversor','peso','peso_max','peso_min','owerweight','overspeed_max','overspeed_min','vento_max','vento_min','isa_max','isa_min']}}).then((data)=>{
+    await AeronaveModel.findAll({attributes: {exclude:['unidade_de_medida','certificacao','motor','peso','reversor','landing_flap','peso_referencia','altitude','isa','vento','peso_max','peso_min','owerweight','overspeed_max','overspeed_min']}}).then((data)=>{
         res.json(data)
     })
     

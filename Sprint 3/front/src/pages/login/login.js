@@ -43,7 +43,7 @@ const Login = () => {
         }).then((resposta) => resposta.json()).then((data) => {
 
             if (data.ok) {
-                if (data.usuario.TipoUsuario === 2) {
+                if (data.usuario.tipo_usuario === 2) {
                     window.location.href = '/home'
                 } else {
                     window.location.href = '/Calculo'

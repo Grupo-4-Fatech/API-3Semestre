@@ -19,7 +19,7 @@ UsuarioController.post("/CadastrarUsuario", async (req, res)=>{
                  email: dados.email,
                  nome: dados.nome,
                  senha: dados.senha,
-                 TipoUsuario : dados.tipoUsuario
+                 tipo_usuario : dados.tipoUsuario
              });
              res.json({
                 ok: true, 
@@ -55,7 +55,7 @@ UsuarioController.patch("/AtualizarUsuario", async (req, res)=>{
             await UsuarioModel.update({
                     nome: dados.nome,
                     senha: dados.senha,
-                    TipoUsuario : dados.tipoUsuario
+                    tipo_usuario : dados.tipoUsuario
                 },{where:{
                 email : dados.email,
                 }});

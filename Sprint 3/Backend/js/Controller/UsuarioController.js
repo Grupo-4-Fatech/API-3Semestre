@@ -29,7 +29,7 @@ UsuarioController.post("/CadastrarUsuario", (req, res) => __awaiter(void 0, void
                 email: dados.email,
                 nome: dados.nome,
                 senha: dados.senha,
-                TipoUsuario: dados.tipoUsuario
+                tipo_usuario: dados.tipoUsuario
             });
             res.json({
                 ok: true,
@@ -67,7 +67,7 @@ UsuarioController.patch("/AtualizarUsuario", (req, res) => __awaiter(void 0, voi
                 yield UsuarioModel_1.default.update({
                     nome: dados.nome,
                     senha: dados.senha,
-                    TipoUsuario: dados.tipoUsuario
+                    tipo_usuario: dados.tipoUsuario
                 }, { where: {
                         email: dados.email,
                     } });

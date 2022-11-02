@@ -22,7 +22,7 @@ const CrudUsu = ({ dados, deletar, editar, load, email}) => {
                                 atributo = 'NAME';
                             }else if(atributo === 'email'){
                                 atributo = 'EMAIL';
-                            }else if(atributo === 'TipoUsuario'){
+                            }else if(atributo === 'tipo_usuario'){
                                 atributo = "USER"
                             }
 
@@ -54,7 +54,7 @@ const CrudUsu = ({ dados, deletar, editar, load, email}) => {
                             <tr id={dado['email']}>
                                 {atributos.length && atributos.map((atributo) => {
                                     
-                                    if(atributo === 'TipoUsuario'){
+                                    if(atributo === 'tipo_usuario'){
                                         return (
                                             
                                             <td >{dado[atributo] === 2?"Admin":"Cliente"}</td>
