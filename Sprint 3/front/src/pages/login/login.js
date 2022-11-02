@@ -46,7 +46,7 @@ const Login = () => {
                 if (data.usuario.tipo_usuario === 2) {
                     window.location.href = '/home'
                 } else {
-                    window.location.href = '/Calculo'
+                    window.location.href = '/Calculo-Cliente'
                 }
 
             } else {

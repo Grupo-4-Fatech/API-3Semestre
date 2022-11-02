@@ -60,7 +60,7 @@ const ConsDelUsu = () => {
     <div className=" container" >
       <FontAwesomeIcon icon={faRightFromBracket} />
       <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
-      <div className="titulo">Consult and Delete</div>
+      <div className="titulo">Consult</div>
       <form action="#">
         <div className="cadastro-aeronave">
           <CrudUsu dados={usuarios} deletar={deletarUsuario} editar={editarUsuario}></CrudUsu>

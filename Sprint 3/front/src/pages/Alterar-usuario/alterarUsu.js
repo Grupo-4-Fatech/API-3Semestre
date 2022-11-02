@@ -113,7 +113,7 @@ const AtualizarUsuario = () => {
             <FontAwesomeIcon icon={faRightFromBracket}/>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <form action="">
-                <h2 className="titulo">Alter Users</h2>
+                <h2 className="titulo">Update Users</h2>
                 <InputLogin text="Name" id="username" placeholder="Enter name" type="text" icon={faUserCircle} />
                 <InputLogin desabilitado text="Email" id="email" placeholder="Enter email" type="text" icon={faEnvelope} />
                 <InputLogin min="8" text="Password" id="senha" placeholder="Enter password" type="password" icon={faLock} />
