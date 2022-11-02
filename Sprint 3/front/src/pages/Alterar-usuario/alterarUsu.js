@@ -99,10 +99,10 @@ const AtualizarUsuario = () => {
         document.getElementById('email').value = data.email
         document.getElementById('username').value = data.nome
 
-        if (data.TipoUsuario == 2) {
+        if (data.tipo_usuario == 2) {
             document.getElementById("dot-2").checked = true;
 
-        } else if (data.TipoUsuario == 1) {
+        } else if (data.tipo_usuario == 1) {
             document.getElementById("dot-1").checked = true;
         }
 
