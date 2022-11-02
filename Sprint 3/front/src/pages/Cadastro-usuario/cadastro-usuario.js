@@ -128,7 +128,7 @@ const CadastroUsuario = () => {
     }
     return (
         <div id="form">
-            <FontAwesomeIcon icon={faRightFromBracket}/>
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <form action="">
                 <h2 className="titulo">Register Users</h2>

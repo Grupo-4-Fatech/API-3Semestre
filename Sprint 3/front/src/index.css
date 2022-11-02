@@ -1,17 +1,9 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(-45deg, #0a1a5c, #0a1a5c)!important;
-
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#btnlogout button  {
+  float: right;
+  font-size: 25px;
+  background-color: Transparent;
+  cursor: pointer;
+  border: none;  
 }
 .content {
   max-width: 100%;

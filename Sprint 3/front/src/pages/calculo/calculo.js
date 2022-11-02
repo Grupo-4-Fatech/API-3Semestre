@@ -181,7 +181,7 @@ const Calculo = () => {
     }
     return (
         <div className="cont">
-            <FontAwesomeIcon icon={faRightFromBracket}/>
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <div className="tituloCal">Landing calculation</div>
             <FontAwesomeIcon icon={faPlaneArrival} />

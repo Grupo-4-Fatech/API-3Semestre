@@ -197,7 +197,7 @@ const AtualizarAeronave = () => {
     return (
 
         <div className="container">
-            <FontAwesomeIcon icon={faRightFromBracket} />
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <div className="titulo">Update Aircraft</div>
             <FontAwesomeIcon icon={faPlane} />

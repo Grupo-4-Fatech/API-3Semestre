@@ -7,8 +7,8 @@ import "./home.css"
 const Home = () => {
     return ( 
         <div className=" containerHome">
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <div className="tituloHome">Home</div>
-            <FontAwesomeIcon icon={faRightFromBracket}/>
             <FontAwesomeIcon icon={faPlane}/>
             <form action="#">
                 <div className="Home">

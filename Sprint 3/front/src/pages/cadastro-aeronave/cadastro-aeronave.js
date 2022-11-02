@@ -231,7 +231,7 @@ const CadastroAeronave = () => {
     return (
 
         <div className="container">
-            <FontAwesomeIcon icon={faRightFromBracket}/>
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <div className="titulo">Aircraft registration</div>
             <FontAwesomeIcon icon={faPlane} />

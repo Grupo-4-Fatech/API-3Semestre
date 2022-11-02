@@ -110,7 +110,7 @@ const AtualizarUsuario = () => {
 
     return (
         <div id="form">
-            <FontAwesomeIcon icon={faRightFromBracket}/>
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <form action="">
                 <h2 className="titulo">Update Users</h2>
