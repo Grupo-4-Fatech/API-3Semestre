@@ -222,7 +222,7 @@ const AtualizarAeronave = () => {
                 <div className='detalhes-aeronave' id='det'>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Peso_ref" type="number" placeholder="Enter peso ref" >{tituloPesoRef}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Alt" type="number" placeholder="Enter altitude" >{tituloAltitude}</InputCadastros>
-                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
+                    <InputCadastros min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Vento1" type="number" placeholder="Enter wind">Wind</InputCadastros>
                 </div>
                 <div className="informacoes">Aircraft Parameter (Max - Min)</div>

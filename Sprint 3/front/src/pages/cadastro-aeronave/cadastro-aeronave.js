@@ -13,14 +13,13 @@ function validarCamposPositivos(e) {
     var reversor = document.getElementById("Reversor")
     var pesoRef = document.getElementById("Peso_ref")
     var alt = document.getElementById("Alt")
-    var temp = document.getElementById("Temp")
     var vento = document.getElementById("Vento")
     var pesoMax = document.getElementById("PesoMax")
     var pesoMin = document.getElementById("PesoMin")
     var overWeight = document.getElementById("PesoOw")
     var overMax = document.getElementById("OverSpeedMax")
     var overMin = document.getElementById("OverSpeedMin")
-    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, temp, vento, pesoMax, pesoMin,overWeight,overMax,overMin]
+    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, vento, pesoMax, pesoMin,overWeight,overMax,overMin]
     let evalido = true
     for (var campo of camposPositivos) {
         if (campo.value < 0) {
