@@ -17,13 +17,9 @@ const AtualizarAeronave = () => {
             return true
         }
     }
-    function validarOverspeed(overspeedMax, overspeedMin) {
-        if (overspeedMax <= overspeedMin) {
-            return true
-        }
-    }
-    function validarCampos(motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed_max, overspeed_min) {
-        const campos = [motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed_max, overspeed_min]
+
+    function validarCampos(motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed,slope) {
+        const campos = [motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed,slope]
         let evalido5 = true
         for (var campo of campos) {
             if (campo === null) {
@@ -69,8 +65,7 @@ const AtualizarAeronave = () => {
         dados.peso_max = document.getElementById('Pmax').value
         dados.peso_min = document.getElementById('Pmin').value
         dados.owerweight = document.getElementById('Owerweicght').value
-        dados.overspeed_max = document.getElementById('Owermax').value
-        dados.overspeed_min = document.getElementById('Owermin').value
+        dados.overspeed = document.getElementById('Ower').value
 
         if (!validarReversor(dados.reversor)) {
             Swal.fire({
@@ -81,7 +76,7 @@ const AtualizarAeronave = () => {
             return true
         }
 
-        if (!validarCampos(dados.motor, dados.reversor, dados.peso, dados.peso_referencia, dados.altitude, dados.isa, dados.vento, dados.peso_max, dados.peso_min, dados.owerweight, dados.overspeed_max, dados.overspeed_min)) {
+        if (!validarCampos(dados.motor, dados.reversor, dados.peso, dados.peso_referencia, dados.altitude, dados.isa, dados.vento, dados.peso_max, dados.peso_min, dados.owerweight, dados.overspeed,dados.slope)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Fields cannot be empty',
@@ -98,17 +93,6 @@ const AtualizarAeronave = () => {
             })
             return true
         }
-        if (validarOverspeed(dados.overspeed_max, dados.overspeed_min)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Overspeed max cannot be less or iqual than Overspeed min',
-                text: '',
-            })
-            return true
-        }
-
-
-
         console.log(dados)
         fetch("/AtualizarAeronave", {
             method: 'PATCH',
@@ -157,8 +141,7 @@ const AtualizarAeronave = () => {
         document.getElementById('Pmax').value = data.peso_max
         document.getElementById('Pmin').value = data.peso_min
         document.getElementById('Owerweicght').value = data.owerweight
-        document.getElementById('Owermax').value = data.overspeed_max
-        document.getElementById('Owermin').value = data.overspeed_min
+        document.getElementById('Ower').value = data.overspeed
 
 
 
@@ -236,8 +219,10 @@ const AtualizarAeronave = () => {
                 <div className='detalhes'>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Peso_ref" type="number" placeholder="Enter peso ref" >{tituloPesoRef}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Alt" type="number" placeholder="Enter altitude" >{tituloAltitude}</InputCadastros>
-                    <InputCadastros min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
+                    <InputCadastros  min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Vento1" type="number" placeholder="Enter wind">Wind</InputCadastros>
+                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Slope" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
+
                 </div>
                 <div className="informacoes">Aircraft Parameter (Max - Min)</div>
                 <div className="detalhes">
@@ -246,8 +231,8 @@ const AtualizarAeronave = () => {
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Pmin" type="number" placeholder="Enter Min weight">{tituloMinWeight}</InputCadastros>
                     {/* <InputCadastros onInput={validarCampoNegativo} min="0" id="AltMax" type="number" placeholder="Altura Max">Altura Max</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="AltMin" type="number" placeholder="Altura Min">Altura Min</InputCadastros> */}
-                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Owermax" type="number" placeholder="Overspeed Max">Overspeed Max</InputCadastros>
-                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Owermin" type="number" placeholder="Overspeed Min">Overspeed Min</InputCadastros>
+                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Ower" type="number" placeholder="Overspeed">Overspeed </InputCadastros>
+                    
 
                 </div>
                 <div className='button'>

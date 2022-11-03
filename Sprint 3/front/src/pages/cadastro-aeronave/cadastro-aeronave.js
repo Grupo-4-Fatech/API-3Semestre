@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faPlane } from '@fortawesome/free-solid-svg-icons'
 import SelectCertificacao from '../../componentes/select/selectCertificacao';
 import SelectFlap from '../../componentes/select/selectFlap';
+import SelectSlope from '../../componentes/select/selectSlope';
 import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
 
@@ -18,9 +19,9 @@ function validarCamposPositivos(e) {
     var pesoMax = document.getElementById("PesoMax")
     var pesoMin = document.getElementById("PesoMin")
     var overWeight = document.getElementById("PesoOw")
-    var overMax = document.getElementById("OverSpeedMax")
-    var overMin = document.getElementById("OverSpeedMin")
-    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, vento, pesoMax, pesoMin, overWeight, overMax, overMin]
+    var over = document.getElementById("OverSpeed")
+    var slope = document.getElementById("Slope")
+    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, vento, pesoMax, pesoMin, overWeight, over,slope]
     let evalido = true
     for (var campo of camposPositivos) {
         if (campo.value < 0) {
@@ -35,15 +36,15 @@ function validarCampos(e) {
     var peso_max = document.getElementById('PesoMax')
     var peso_min = document.getElementById("PesoMin")
     var owerweight = document.getElementById("PesoOw")
-    var overspeed_max = document.getElementById("OverSpeedMax")
-    var overspeed_min = document.getElementById("OverSpeedMin")
+    var overspeed = document.getElementById("OverSpeed")
     var vento = document.getElementById("Vento")
     var temp = document.getElementById("Temp")
     var alt = document.getElementById("Alt")
     var numRever = document.getElementById("Reversor");
     var pesoAirplane = document.getElementById("Peso");
-    var pesoRef = document.getElementById("Peso_ref")
-    const campos = [modelAeronave, alt, motor, pesoRef, peso_max, peso_min, owerweight, overspeed_max, overspeed_min, vento, numRever, pesoAirplane, temp]
+    var pesoRef = document.getElementById("Peso_ref");
+    var slope = document.getElementById("Slope");
+    const campos = [modelAeronave,slope, alt, motor, pesoRef, peso_max, peso_min, owerweight, overspeed, vento, numRever, pesoAirplane, temp]
     let evalido = true
     for (var campo of campos) {
         if (campo.value === null) {
@@ -69,14 +70,6 @@ function validarPeso(e) {
         return false
     } return true
 }
-function validarOverspeed(e) {
-    var overspeedMaximo = document.getElementById("OverSpeedMax").value
-    var overspeedMinimo = document.getElementById("OverSpeedMin").value
-    if (overspeedMaximo <= overspeedMinimo) {
-        return false
-    } return true
-}
-
 function validarSelectCertificacao(e) {
     var certificacao = document.getElementById('slcCertificacao').value
     if (certificacao === "default") {
@@ -89,6 +82,7 @@ function validarSelectUnidadeMedidas(e) {
         return false
     } return true
 }
+
 const CadastroAeronave = () => {
     var handleCadastroAeronave = function (e) {
         e.preventDefault();
@@ -144,14 +138,7 @@ const CadastroAeronave = () => {
             return true
         }
 
-        if (!validarOverspeed()) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Overspeed max cannot be less or iqual than Overspeed min',
-                text: '',
-            })
-            return true
-        }
+        
 
 
         var dados = {}
@@ -169,8 +156,7 @@ const CadastroAeronave = () => {
         dados.peso_max = document.getElementById('PesoMax').value
         dados.peso_min = document.getElementById('PesoMin').value
         dados.owerweight = document.getElementById('PesoOw').value
-        dados.overspeed_max = document.getElementById('OverSpeedMax').value
-        dados.overspeed_min = document.getElementById('OverSpeedMin').value
+        dados.overspeed = document.getElementById('OverSpeed').value
 
 
 
@@ -197,10 +183,16 @@ const CadastroAeronave = () => {
             Swal.fire({
                 title: 'Successful aircraft registration',
                 icon: 'success',
+            }).then(() => {
+                if (data.ok) {
+                    window.location.href = '/Home';
+                }
+
             })
-            if (data.ok) {
-                window.location.href = '/home';
-            }
+            
+            // if (data.ok) {
+            //     window.location.href = '/home';
+            // }
         })
     }
     const [tituloPeso, setTituloPeso] = useState('Weight Airplane')
@@ -263,6 +255,8 @@ const CadastroAeronave = () => {
                     <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >{tituloAltitude}</InputCadastros>
                     <InputCadastros min="0" id="Temp" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
                     <InputCadastros min="0" id="Vento" type="number" placeholder="Enter wind">Wind</InputCadastros>
+                    <InputCadastros min="0" id="Slope" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
+
                 </div>
 
                 <div className="informacoes">Aircraft parameters (Max - Min)</div>
@@ -273,8 +267,7 @@ const CadastroAeronave = () => {
                     <InputCadastros min="0" id="PesoMin" type="number" placeholder="Enter Min weight">{tituloMinWeight} </InputCadastros>
                     {/* <InputCadastros min="0" id="AltMax" type="number" placeholder="Altura Max">Altura Max</InputCadastros>
                     <InputCadastros min="0" id="AltMin" type="number" placeholder="Altura Min">Altura Min</InputCadastros> */}
-                    <InputCadastros min="0" id="OverSpeedMax" type="number" placeholder="Enter Overspeed Max">Overspeed Max</InputCadastros>
-                    <InputCadastros min="0" id="OverSpeedMin" type="number" placeholder="Enter Overspeed Min">Overspeed Min</InputCadastros>
+                    <InputCadastros min="0" id="OverSpeed" type="number" placeholder="Enter Overspeed">Overspeed</InputCadastros>
                 </div>
 
                 <div className='button'>
