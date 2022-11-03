@@ -1,6 +1,9 @@
 import e from "express";
 import Router from "express";
 import UsuarioModel from "../Models/UsuarioModel";
+import app from "../server";
+
+const { Op } = require("sequelize");
 
 
 const UsuarioController = Router();
@@ -88,7 +91,7 @@ UsuarioController.get("/BuscarUsuario", async(req, res)=>{
 })
 
 UsuarioController.get("/ListarUsuarios", async(req,res)=>{
-     await UsuarioModel.findAll({attributes: { exclude: ['senha', 'tipoUsuario'] }}).then((data)=>{
+     await UsuarioModel.findAll({attributes: { exclude: ['senha', 'tipoUsuario'] }, where:{email:{[Op.not]:app.locals.email}  }}).then((data)=>{
         res.json(data);
     });
    
