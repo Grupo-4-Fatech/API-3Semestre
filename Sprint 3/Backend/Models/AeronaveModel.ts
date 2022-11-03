@@ -44,10 +44,10 @@ const AeronaveModel = conexao.define("aeronaves",{
     owerweight:{
         type: sequelize.Sequelize.INTEGER
     },
-    overspeed_max:{
+    overspeed:{
         type: sequelize.Sequelize.INTEGER
     },
-    overspeed_min:{
+    slope:{
         type: sequelize.Sequelize.INTEGER
     }
 

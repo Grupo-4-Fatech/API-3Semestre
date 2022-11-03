@@ -41,8 +41,8 @@ AeronaveController.post("/CadastrarAeronave", (req, res) => __awaiter(void 0, vo
                 peso_max: parseInt(dados.peso_max),
                 peso_min: parseInt(dados.peso_min),
                 owerweight: parseInt(dados.owerweight),
-                overspeed_max: parseInt(dados.overspeed_max),
-                overspeed_min: parseInt(dados.overspeed_min)
+                overspeed: parseInt(dados.overspeed),
+                slope: parseInt(dados.slope)
             });
             res.json({
                 ok: true,
@@ -92,8 +92,8 @@ AeronaveController.patch("/AtualizarAeronave", (req, res) => __awaiter(void 0, v
                     peso_max: dados.peso_max,
                     peso_min: dados.peso_min,
                     owerweight: dados.owerweight,
-                    overspeed_max: dados.overspeed_max,
-                    overspeed_min: dados.overspeed_min
+                    overspeed: dados.overspeed,
+                    slope: dados.slope
                 }, { where: {
                         modelo_de_aeronave: dados.modelo_de_aeronave
                     } });
@@ -118,7 +118,7 @@ AeronaveController.get("/BuscarAeronave", (req, res) => __awaiter(void 0, void 0
     });
 }));
 AeronaveController.get("/ListarAeronave", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield AeronaveModel_1.default.findAll({ attributes: { exclude: ['unidade_de_medida', 'certificacao', 'motor', 'peso', 'reversor', 'landing_flap', 'peso_referencia', 'altitude', 'isa', 'vento', 'peso_max', 'peso_min', 'owerweight', 'overspeed_max', 'overspeed_min'] } }).then((data) => {
+    yield AeronaveModel_1.default.findAll({ attributes: { exclude: ['unidade_de_medida', 'certificacao', 'motor', 'peso', 'reversor', 'landing_flap', 'peso_referencia', 'altitude', 'isa', 'vento', 'peso_max', 'peso_min', 'owerweight', 'overspeed', 'slope'] } }).then((data) => {
         res.json(data);
     });
 }));

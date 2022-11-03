@@ -19,9 +19,9 @@ function validarCamposPositivos(e) {
     var pesoMax = document.getElementById("PesoMax")
     var pesoMin = document.getElementById("PesoMin")
     var overWeight = document.getElementById("PesoOw")
-    var over = document.getElementById("OverSpeed")
+    var overspeed = document.getElementById("OverSpeed")
     var slope = document.getElementById("Slope")
-    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, vento, pesoMax, pesoMin, overWeight, over,slope]
+    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, vento, pesoMax, pesoMin, overWeight, overspeed,slope]
     let evalido = true
     for (var campo of camposPositivos) {
         if (campo.value < 0) {
@@ -157,6 +157,7 @@ const CadastroAeronave = () => {
         dados.peso_min = document.getElementById('PesoMin').value
         dados.owerweight = document.getElementById('PesoOw').value
         dados.overspeed = document.getElementById('OverSpeed').value
+        dados.slope = document.getElementById('Slope').value
 
 
 

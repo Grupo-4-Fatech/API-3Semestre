@@ -65,7 +65,8 @@ const AtualizarAeronave = () => {
         dados.peso_max = document.getElementById('Pmax').value
         dados.peso_min = document.getElementById('Pmin').value
         dados.owerweight = document.getElementById('Owerweicght').value
-        dados.overspeed = document.getElementById('Ower').value
+        dados.overspeed = document.getElementById('Overspeed1').value
+        dados.slope = document.getElementById('Slope1').value
 
         if (!validarReversor(dados.reversor)) {
             Swal.fire({
@@ -141,7 +142,8 @@ const AtualizarAeronave = () => {
         document.getElementById('Pmax').value = data.peso_max
         document.getElementById('Pmin').value = data.peso_min
         document.getElementById('Owerweicght').value = data.owerweight
-        document.getElementById('Ower').value = data.overspeed
+        document.getElementById('Overspeed1').value = data.overspeed
+        document.getElementById('Slope1').value = data.slope
 
 
 
@@ -221,7 +223,7 @@ const AtualizarAeronave = () => {
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Alt" type="number" placeholder="Enter altitude" >{tituloAltitude}</InputCadastros>
                     <InputCadastros  min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Vento1" type="number" placeholder="Enter wind">Wind</InputCadastros>
-                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Slope" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
+                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Slope1" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
 
                 </div>
                 <div className="informacoes">Aircraft Parameter (Max - Min)</div>
@@ -231,7 +233,7 @@ const AtualizarAeronave = () => {
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Pmin" type="number" placeholder="Enter Min weight">{tituloMinWeight}</InputCadastros>
                     {/* <InputCadastros onInput={validarCampoNegativo} min="0" id="AltMax" type="number" placeholder="Altura Max">Altura Max</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="AltMin" type="number" placeholder="Altura Min">Altura Min</InputCadastros> */}
-                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Ower" type="number" placeholder="Overspeed">Overspeed </InputCadastros>
+                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Overspeed1" type="number" placeholder="Overspeed">Overspeed </InputCadastros>
                     
 
                 </div>

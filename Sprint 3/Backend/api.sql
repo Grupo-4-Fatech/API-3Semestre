@@ -37,8 +37,8 @@ CREATE TABLE `aeronaves` (
   `peso_max` int NOT NULL,
   `peso_min` int NOT NULL,
   `owerweight` int NOT NULL,
-  `overspeed_max` int NOT NULL,
-  `overspeed_min` int NOT NULL,
+  `overspeed` int NOT NULL,
+  `slope` int NOT NULL,
   PRIMARY KEY (`modelo_de_aeronave`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,7 +49,7 @@ CREATE TABLE `aeronaves` (
 
 LOCK TABLES `aeronaves` WRITE;
 /*!40000 ALTER TABLE `aeronaves` DISABLE KEYS */;
-INSERT INTO `aeronaves` VALUES ('Boeing 777',2,'ANAC','bimotor',3,2,NULL,2,2,2,2,4,3,3,4,3),('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,10);
+INSERT INTO `aeronaves` VALUES ('777',1,'EASA','trimotor',321,2,NULL,312,321,31,31,31,30,31,11,11),('888',1,'EASA','tri',21,0,NULL,21,21,21,12,21,20,21,21,21),('Boeing 777',2,'ANAC','bimotor',3,2,NULL,2,2,2,2,4,3,3,4,3),('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,10);
 /*!40000 ALTER TABLE `aeronaves` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('Admin@Admin','Admin','Admin123',2),('andre@ribeiro','and ','771823',2),('cliente2@cliente','cliente','Teste123',1),('cliente3@cliente','cliente','Teste123',2),('cliente4@cliente','cliente','Teste123',1),('cliente@cliente','cliente','Teste123',1),('testeMil','teste@mil','77777777777777777777777',1);
+INSERT INTO `usuarios` VALUES ('Admin@Admin','Admin','Admin123',2),('andre@ribeiro','and ','a012340120123',2),('cliente2@cliente','cliente','Teste123',1),('cliente3@cliente','cliente','Teste123',2),('cliente4@cliente','cliente','Teste123',1),('cliente@cliente','cliente','Teste123',1),('luzia@ramos.com','luzia','a012340120123',1),('testeMil','teste@mil','77777777777777777777777',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -127,4 +127,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-01 23:35:41
+-- Dump completed on 2022-11-03 16:48:23
