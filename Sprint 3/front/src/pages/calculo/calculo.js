@@ -112,6 +112,7 @@ var handleCalcular = function (e) {
     }
 
     var dados = {
+        UnitOfMeasurement: parseInt(document.getElementById('medida').value),
         Flap: parseInt(document.getElementById('slcFlap').value),
         Ice: document.getElementById('slcIce').value === 1 ? false : true,
         RunwayCondicion: parseInt(document.getElementById('runway_condition').value),

@@ -4,6 +4,7 @@ const CalculoController = Router();
 
 CalculoController.post("/calcular" , async(req, res)=>{
     var dados = req.body
+    console.log(dados)
     await ParametrosModel.findOne( { raw: true,
         where:{
         Flap: dados.Flap,
@@ -41,6 +42,16 @@ var calcular = function(dados: any, valores:any ){
     var wind = 0;
     var slope = 0
     var rev = 0;
+    //1== internacional
+    if(valores.UnitOfMeasurement == 1){
+        valores.Wind = valores.Wind/1852;
+        valores.Alt = valores.Alt*3.281;
+    }else{
+        valores.Peso = valores.Peso/2205;
+        valores.Temp = (valores.Temp - 32)*(5/9);
+
+
+    }
     //VALORES DE PESO
     if(valores.Peso > 18){
         peso = peso + (valores.Peso - 18) * dados.AboveWeight;
@@ -77,7 +88,12 @@ var calcular = function(dados: any, valores:any ){
     rev = dados.Rev * valores.Rev
 
     //RESPOTA EM METROS
-    return (valorReferencia + peso + altura + temp + wind + slope + rev);
+    var resultado = valorReferencia + peso + altura + temp + wind + slope + rev
+    if(valores.UnitOfMeasurement == 2){
+        resultado = resultado*3.281
+    }
+    
+    return resultado;
 
 
 }

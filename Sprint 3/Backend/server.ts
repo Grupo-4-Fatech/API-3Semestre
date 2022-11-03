@@ -7,6 +7,7 @@ import AeronaveController from './Controller/AeronaveController';
 
 const app: express.Application = express();
 const port: number = 5000;
+app.locals.email = "teste";
 
 app.use(express.json())
 
@@ -31,3 +32,4 @@ app.listen(port, () => {
     console.log(`TypeScript with Express
          http://localhost:${port}/`);
 });
+export default app;

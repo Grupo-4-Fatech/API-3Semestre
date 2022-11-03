@@ -193,11 +193,24 @@ const AtualizarAeronave = () => {
             setTituloPesoRef('Weight Ref (T)')
         }
     }
-
+    const handleLogOut = function(){
+        fetch("/LogOut", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            
+          }).then((resposta) => resposta.json()).then((data) => {
+                if(data){
+                    window.location = '/'
+                }
+              
+            })
+    }
     return (
 
         <div className="container">
-            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
+            <div  onClick ={handleLogOut} id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <div className="titulo">Update Aircraft</div>
             <FontAwesomeIcon icon={faPlane} />
