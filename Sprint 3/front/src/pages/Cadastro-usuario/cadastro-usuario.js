@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft,faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
 
 function valSenha(senha) {
@@ -127,7 +128,7 @@ const CadastroUsuario = () => {
     }
     return (
         <div id="form">
-            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
+            <Logout></Logout>
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <form action="">
                 <h2 className="titulo">Register Users</h2>

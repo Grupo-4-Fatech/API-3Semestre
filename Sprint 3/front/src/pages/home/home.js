@@ -8,9 +8,9 @@ import Logout from '../../componentes/logout/logout';
 const Home = () => {
    
     return ( 
-        <div className=" containerHome">
-            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
-            <div className="tituloHome">Home</div>
+        <div className="container">
+           <Logout></Logout>
+            <div className="titulo">Home</div>
             <FontAwesomeIcon icon={faPlane}/>
             <form action="#">
                 <div className="detalhes">

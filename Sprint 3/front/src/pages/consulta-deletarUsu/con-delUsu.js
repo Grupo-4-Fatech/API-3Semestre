@@ -3,6 +3,7 @@ import CrudUsu from "../../componentes/Read-Delect-Update/crudUsu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from "react";
+import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
 
 
@@ -58,7 +59,7 @@ const ConsDelUsu = () => {
 
   return (
     <div className="container" >
-      <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
+      <Logout></Logout>
       <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
       <div className="titulo">Consult</div>
       <form action="#">

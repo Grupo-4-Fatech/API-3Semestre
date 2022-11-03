@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import { faArrowLeft, faPlane, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import SelectCertificacao1 from '../../componentes/select/selectCertificacao1';
+import Logout from '../../componentes/logout/logout';
 
 const Swal = require('sweetalert2')
 
@@ -210,7 +211,7 @@ const AtualizarAeronave = () => {
     return (
 
         <div className="container">
-            <div  onClick ={handleLogOut} id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
+            <Logout></Logout>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <div className="titulo">Update Aircraft</div>
             <FontAwesomeIcon icon={faPlane} />

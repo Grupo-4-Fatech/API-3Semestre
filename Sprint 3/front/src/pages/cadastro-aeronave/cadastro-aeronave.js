@@ -3,9 +3,10 @@ import "./cadastro_aeronave.css"
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faPlane, faTruckMonster,faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faPlane } from '@fortawesome/free-solid-svg-icons'
 import SelectCertificacao from '../../componentes/select/selectCertificacao';
 import SelectFlap from '../../componentes/select/selectFlap';
+import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
 
 function validarCamposPositivos(e) {
@@ -231,7 +232,7 @@ const CadastroAeronave = () => {
     return (
 
         <div className="container">
-            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
+            <Logout></Logout>
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <div className="titulo">Aircraft registration</div>
             <FontAwesomeIcon icon={faPlane} />

@@ -11,6 +11,7 @@ import SelectCondicao from "../../componentes/select/selectCondicao"
 import SelectIce from "../../componentes/select/selectIce";
 import SelectBk from "../../componentes/select/selectBk";
 import SelectWind from "../../componentes/select/selectWind";
+import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
 
 
@@ -181,7 +182,7 @@ const CalculoCliente = () => {
     }
     return (
         <div className="container">
-            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
+           <Logout></Logout>
             {/* <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a> */}
             <div className="titulo">Landing calculation</div>
             <FontAwesomeIcon icon={faPlaneArrival} />

@@ -5,6 +5,7 @@ import { faArrowLeft, faRightFromBracket} from '@fortawesome/free-solid-svg-icon
 import { useNavigate } from "react-router-dom"
 import "./alterarUsu.css"
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2');
 
 function valSenha(senha) {
@@ -110,7 +111,7 @@ const AtualizarUsuario = () => {
 
     return (
         <div id="form">
-            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
+            <Logout></Logout>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <form action="">
                 <h2 className="titulo">Update Users</h2>
