@@ -154,7 +154,26 @@ const Calculo = () => {
     const [placeholderAltitude, setPlaceholderAltitude] = useState('Ex.: 1800')
     const [placeholderTemperature, setPlaceholderTemperature] = useState('Ex.: 20')
     const [placeholderWind, setPlaceholderWind] = useState('Ex.: 2')
-
+    var dados = [{
+        modelo_de_aeronave : "teste"
+      }];
+    const [aeronaves, setAronave] = useState(dados);
+    const ListarAeronaves = function(){
+        fetch("/ListarAeronave", {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8'
+            },
+    
+          }).then((resposta) => resposta.json()).then((data) => {
+    
+            
+                setAronave(data)
+          });
+    }
+    ListarAeronaves();
+    
+ 
 
 
     const handClick = (e) => {
@@ -201,8 +220,10 @@ const Calculo = () => {
                         <label htmlFor="" className="tituloS">Aircraft Model</label>
                         <select className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
                             <option value="default" disabled>Select aircraft:</option>
-                            <option value="1"></option>
-                            <option value="2"></option>
+                               { aeronaves.map(function(a) {
+                                console.log(a)
+                                return <option value={a.modelo_de_aeronave}> {a.modelo_de_aeronave}</option>
+                                })};
                         </select></div>
                     </>
                     {func('flap')}
