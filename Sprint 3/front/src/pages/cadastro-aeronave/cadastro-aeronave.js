@@ -39,12 +39,13 @@ function validarCampos(e) {
     var overspeed = document.getElementById("OverSpeed")
     var vento = document.getElementById("Vento")
     var temp = document.getElementById("Temp")
+    var tempRef = document.getElementById("TempRef")
     var alt = document.getElementById("Alt")
     var numRever = document.getElementById("Reversor");
     var pesoAirplane = document.getElementById("Peso");
     var pesoRef = document.getElementById("Peso_ref");
     var slope = document.getElementById("Slope");
-    const campos = [modelAeronave,slope, alt, motor, pesoRef, peso_max, peso_min, owerweight, overspeed, vento, numRever, pesoAirplane, temp]
+    const campos = [modelAeronave,slope, alt, motor, pesoRef, peso_max, peso_min, owerweight, overspeed, vento, numRever, pesoAirplane, temp,tempRef]
     let evalido = true
     for (var campo of campos) {
         if (campo.value === null) {
@@ -255,6 +256,7 @@ const CadastroAeronave = () => {
                     <InputCadastros min="0" id="Peso_ref" type="number" placeholder="Enter reference weight" >Reference weight</InputCadastros>
                     <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >{tituloAltitude}</InputCadastros>
                     <InputCadastros min="0" id="Temp" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
+                    <InputCadastros min="0" id="TempRef" type="number" placeholder="Enter reference temperature">Reference temperature</InputCadastros>
                     <InputCadastros min="0" id="Vento" type="number" placeholder="Enter wind">Wind</InputCadastros>
                     <InputCadastros min="0" id="Slope" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
 

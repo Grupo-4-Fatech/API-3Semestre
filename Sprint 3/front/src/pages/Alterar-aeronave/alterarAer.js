@@ -18,8 +18,8 @@ const AtualizarAeronave = () => {
         }
     }
 
-    function validarCampos(motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed,slope) {
-        const campos = [motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed,slope]
+    function validarCampos(motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed,slope,tempRef) {
+        const campos = [motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed,slope,tempRef]
         let evalido5 = true
         for (var campo of campos) {
             if (campo === null) {
@@ -77,7 +77,7 @@ const AtualizarAeronave = () => {
             return true
         }
 
-        if (!validarCampos(dados.motor, dados.reversor, dados.peso, dados.peso_referencia, dados.altitude, dados.isa, dados.vento, dados.peso_max, dados.peso_min, dados.owerweight, dados.overspeed,dados.slope)) {
+        if (!validarCampos(dados.motor, dados.reversor, dados.peso, dados.peso_referencia, dados.altitude, dados.isa, dados.vento, dados.peso_max, dados.peso_min, dados.owerweight, dados.overspeed,dados.slope,dados.tempRef)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Fields cannot be empty',
@@ -222,6 +222,7 @@ const AtualizarAeronave = () => {
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Peso_ref" type="number" placeholder="Enter peso ref" >{tituloPesoRef}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Alt" type="number" placeholder="Enter altitude" >{tituloAltitude}</InputCadastros>
                     <InputCadastros  min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
+                    <InputCadastros  min="0" id="TempRef1" type="number" placeholder="Enter temperature">Reference temperature</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Vento1" type="number" placeholder="Enter wind">Wind</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Slope1" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
 

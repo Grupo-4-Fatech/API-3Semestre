@@ -154,6 +154,7 @@ const Calculo = () => {
     const [placeholderAltitude, setPlaceholderAltitude] = useState('Ex.: 1800')
     const [placeholderTemperature, setPlaceholderTemperature] = useState('Ex.: 20')
     const [placeholderWind, setPlaceholderWind] = useState('Ex.: 2')
+    const [placeholderSlope, setPlaceholderSlope] = useState('Ex.: 1')
     var dados = [{
         modelo_de_aeronave : "teste"
       }];
@@ -183,10 +184,11 @@ const Calculo = () => {
             setTituloAltitude('Altitude (M)')
             setTituloTemperature('Temperature (ºC)')
             setWind('wind (Km/h)')
-            setPlaceholderAltitude('Ex.: 1800')
+            setPlaceholderAltitude('Ex.: 548')
             setPlaceholderTemperature('Ex.: 20')
             setPlaceholderWeight('Ex.: 18')
-            setPlaceholderWind('Ex.: 2')
+            setPlaceholderWind('Ex.: 3.704')
+            setPlaceholderSlope('Ex.: 1')
 
         }
         if (e.target.value === '2') {
@@ -194,10 +196,11 @@ const Calculo = () => {
             setTituloAltitude('Altitude (Ft)')
             setTituloTemperature('Temperature (ºF)')
             setWind('wind (Kt)')
-            setPlaceholderAltitude('Ex.: 5905')
+            setPlaceholderAltitude('Ex.: 1800')
             setPlaceholderTemperature('Ex.: 68')
-            setPlaceholderWeight('Ex.: 39683')
-            setPlaceholderWind('Ex.: 1,07991')
+            setPlaceholderWeight('Ex.: 44092')
+            setPlaceholderWind('Ex.: 2')
+            setPlaceholderSlope('Ex.: 1')
         }
     }
     return (
@@ -231,7 +234,7 @@ const Calculo = () => {
                     <SelectCondicao></SelectCondicao>
                     <InputCadastros min="0" id="Peso" type="number" placeholder={placeholderWeight} >{tituloPeso}</InputCadastros>
                     <SelectSlope></SelectSlope>
-                    <InputCadastros min="0" id="InputSlope" type="number" placeholder="Ex.: 0.2">Slope (%)</InputCadastros>
+                    <InputCadastros min="0" id="InputSlope" type="number" placeholder={placeholderSlope}>Slope (%)</InputCadastros>
                     <InputCadastros min="0" id="Alt" type="number" placeholder={placeholderAltitude} >{tituloAltitude}</InputCadastros>
                     <InputCadastros id="Temp" type="number" placeholder={placeholderTemperature}>{tituloTemperature}</InputCadastros>
                     <SelectWind></SelectWind>
