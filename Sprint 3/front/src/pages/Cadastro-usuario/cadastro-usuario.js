@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft,faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-import "./cadastro_usuario.css"
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 const Swal = require('sweetalert2')
 

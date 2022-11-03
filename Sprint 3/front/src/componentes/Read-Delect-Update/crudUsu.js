@@ -12,7 +12,7 @@ const CrudUsu = ({ dados, deletar, editar, load, email}) => {
 
     
     return (
-        <div className="cont" >
+        <div className="container" >
             <Table striped bordered hover>
                 <thead >
                     <tr>

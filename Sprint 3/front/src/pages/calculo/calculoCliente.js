@@ -180,13 +180,13 @@ const CalculoCliente = () => {
         }
     }
     return (
-        <div className="cont">
+        <div className="container">
             <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             {/* <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a> */}
-            <div className="tituloCal">Landing calculation</div>
+            <div className="titulo">Landing calculation</div>
             <FontAwesomeIcon icon={faPlaneArrival} />
             <form action="#">
-                <div className="detalhes-aeronave">
+                <div className="detalhes">
                     <><div className="medidas">
                         <label htmlFor="" className="tituloS">Unit of Measurement</label>
                         <select onChange={handClick} className="medida" name="medidas" id="medida" defaultValue={'default'}>

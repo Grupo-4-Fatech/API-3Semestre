@@ -1,19 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-
-}
-body{
-   
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg,  #0a1a5c, #0a1a5c);
-}
+/* body{
+    background: linear-gradient(-45deg, #0a1a5c, #0a1a5c); 
+  }
 #form{
-    /* position: relative; */
+    
     top: 50%;
     left: 50%;
-    /* transform: translate(-50%,-50%); */
     background: #fff;
     border-radius: 10px;
     padding: 60px;
@@ -117,4 +108,4 @@ form .button {
     height: 45px;
     margin: 45px 0;
 
-}
+} */

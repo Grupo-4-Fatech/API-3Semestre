@@ -237,7 +237,7 @@ const CadastroAeronave = () => {
             <FontAwesomeIcon icon={faPlane} />
             <form action="#">
                 <div className="informacoes">Aircraft information</div>
-                <div className="detalhes-aeronave" id="det">
+                <div className="detalhes">
                     {/* <SelectFlap></SelectFlap> */}
                     <><div className="medidas">
                         <label htmlFor="" className="tituloS">Unit of Measurement</label>
@@ -256,8 +256,8 @@ const CadastroAeronave = () => {
 
 
                 </div>
-                <div className='informacoes'>Reference values ​​for calculation</div>
-                <div className="detalhes-aeronave" id="det">
+                <div className='informacoes'>Reference values for calculation</div>
+                <div className="detalhes">
                 <InputCadastros min="0" id="Peso_ref" type="number" placeholder="Enter reference weight" >Reference weight</InputCadastros>
                 <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >{tituloAltitude}</InputCadastros>
                 <InputCadastros min="0" id="Temp" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
@@ -265,7 +265,7 @@ const CadastroAeronave = () => {
                 </div>
 
                 <div className="informacoes">Aircraft parameters (Max - Min)</div>
-                <div className="detalhes-aeronave" id="det">
+                <div className="detalhes">
                     
                     <InputCadastros min="0" id="PesoMax" type="number" placeholder="Enter Max weight">{tituloMaxWeight}</InputCadastros>
                     <InputCadastros min="0" id="PesoOw" type="number" placeholder="Enter owerweight">{tituloOwerWeight}</InputCadastros>
@@ -276,7 +276,7 @@ const CadastroAeronave = () => {
                     <InputCadastros min="0" id="OverSpeedMin" type="number" placeholder="Enter Overspeed Min">Overspeed Min</InputCadastros>
                 </div>
 
-                <div id="btn">
+                <div className='button'>
                     <button type="submit" onClick={handleCadastroAeronave}>Register</button>
                 </div>
             </form>

@@ -57,12 +57,12 @@ const ConsDelAer = () => {
     }
     
         return (  
-            <div className=" container" >
+            <div className="container" >
               <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
                 <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>
                 <div className="titulo">Consult</div>
                 <form action="#">
-                    <div className="cadastro-aeronave">
+                    <div className="detalhes">
                         <CrudAer dados={aeronaves} deletar={deletarAeronave} editar={editarAeronave}></CrudAer>
                     </div>
     

@@ -1,4 +1,4 @@
-form .detalhes-aeronave .medidas {
+form .detalhes .medidas {
 
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
@@ -22,5 +22,20 @@ form .detalhes-aeronave .medidas {
     border-bottom-width: 2px;
     transition: all 0.3s ease;
 }
+@media(max-width: 584px) {
+    .container {
+      max-width: 100%;
+    }
+    
+    form .detalhes .medidas {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+  
+    .container form .detalhes {
+      max-height: 200px;
+      overflow-y: scroll;
+    }
+  }
 
 

@@ -1,28 +1,29 @@
-form .btn {
-    height: 100px;
-    margin: 45px 0;
+ .btn {
+     height: 100px;
+     margin: 45px 0;
 
-}
+ }
 
-.containerHome form .Home .btn input {
-    height: 100%;
-    width: 100%; 
-    outline: none;
-    color: #fff;
-    border: none;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    background: linear-gradient(-45deg, #0a1a5c, #1f274f, #282f55);
-}
+ .btn input {
+     height: 100%;
+     width: 100%;
+     outline: none;
+     color: #fff;
+     border: none;
+     font-size: 18px;
+     font-weight: 500;
+     border-radius: 5px;
+     letter-spacing: 1px;
+     cursor: pointer;
+     background: linear-gradient(-45deg, #0a1a5c, #1f274f, #282f55);
+ }
 
-.containerHome form .Home .btn input:hover {
-    background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
-}
-form .Home .btn {
+ .btn input:hover {
+     background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
+ }
 
-    margin-bottom: 15px;
-    width: calc(100% / 2 - 20px);
-}
+ .btn {
+     margin-bottom: 15px;
+     width: calc(100% / 2 - 20px);
+ }
+ 

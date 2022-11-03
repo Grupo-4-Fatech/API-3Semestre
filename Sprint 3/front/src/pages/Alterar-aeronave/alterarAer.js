@@ -1,11 +1,11 @@
 import React from 'react';
-import "./alterarAer.css"
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import { faArrowLeft, faPlane, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import SelectCertificacao1 from '../../componentes/select/selectCertificacao1';
+
 const Swal = require('sweetalert2')
 
 
@@ -202,7 +202,7 @@ const AtualizarAeronave = () => {
             <div className="titulo">Update Aircraft</div>
             <FontAwesomeIcon icon={faPlane} />
             <form action="#">
-                <div className="detalhes-aeronave">
+                <div className="detalhes">
                     <><div className="medidas">
                         <label htmlFor="" className="tituloS">Unit of Measurement</label>
                         <select onChange={handClick} className="medida" name="medidas" id="Medida1" defaultValue={'default'}>
@@ -219,14 +219,14 @@ const AtualizarAeronave = () => {
 
                 </div>
                 <div className='informacoes'>Reference values ​​for the calculation</div>
-                <div className='detalhes-aeronave' id='det'>
+                <div className='detalhes'>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Peso_ref" type="number" placeholder="Enter peso ref" >{tituloPesoRef}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Alt" type="number" placeholder="Enter altitude" >{tituloAltitude}</InputCadastros>
                     <InputCadastros min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Vento1" type="number" placeholder="Enter wind">Wind</InputCadastros>
                 </div>
                 <div className="informacoes">Aircraft Parameter (Max - Min)</div>
-                <div className="detalhes-aeronave" id="det">
+                <div className="detalhes">
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Pmax" type="number" placeholder="Enter Max weight">{tituloMaxWeight}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Owerweicght" type="number" placeholder="Enter owerweight">{tituloOwerWeight}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Pmin" type="number" placeholder="Enter Min weight">{tituloMinWeight}</InputCadastros>
@@ -236,7 +236,7 @@ const AtualizarAeronave = () => {
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Owermin" type="number" placeholder="Overspeed Min">Overspeed Min</InputCadastros>
 
                 </div>
-                <div id="btn">
+                <div className='button'>
                     <button type="submit" onClick={handleAtualizarAeronave}>Update</button>
                 </div>
             </form>

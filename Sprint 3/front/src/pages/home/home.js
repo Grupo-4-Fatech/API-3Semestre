@@ -2,16 +2,17 @@ import React from 'react';
 import BotaoHome from "./botaoHome";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlane,faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
-import "./home.css"
+import "../../index"
 
 const Home = () => {
     return ( 
-        <div className=" containerHome">
-            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
-            <div className="tituloHome">Home</div>
-            <FontAwesomeIcon icon={faPlane}/>
+        <div className="container">
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket}/></button></div>
+            <div className="titulo">Home</div>
+            <div className='icones'><FontAwesomeIcon icon={faPlane}/></div>
+            
             <form action="#">
-                <div className="Home">
+                <div className="detalhes">
                     <BotaoHome home="/Cadastro-Aeronave">Aircraft registration</BotaoHome>
                     <BotaoHome home="/Calculo">Calculation</BotaoHome>
                     <BotaoHome home="/Cadastro-usuario">User registration</BotaoHome>                  

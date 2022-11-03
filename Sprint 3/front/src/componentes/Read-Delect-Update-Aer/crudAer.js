@@ -1,7 +1,5 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
-import { Link } from "react-router-dom";
-import './crudAer.css'
 
 
 
@@ -12,7 +10,7 @@ const CrudAer = ({ dados, deletar, editar, load, email}) => {
 
     
     return (
-        <div className="cont" >
+        <div className="container" >
             <Table striped bordered hover>
                 <thead >
                     <tr>

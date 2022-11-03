@@ -57,12 +57,12 @@ const ConsDelUsu = () => {
   }
 
   return (
-    <div className=" container" >
+    <div className="container" >
       <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
       <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
       <div className="titulo">Consult</div>
       <form action="#">
-        <div className="cadastro-aeronave">
+        <div className="detalhes">
           <CrudUsu dados={usuarios} deletar={deletarUsuario} editar={editarUsuario}></CrudUsu>
         </div>
 

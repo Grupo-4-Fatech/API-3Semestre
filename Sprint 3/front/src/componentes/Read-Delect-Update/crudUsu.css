@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
-Table {
-    font-family: 'Poppins', sans-serif;
-}
 
 #btnex {
     margin-top: 10%;
@@ -17,7 +12,6 @@ Table {
     outline: none;
 
 }
-
-#btn::hover {
+#btn:hover {
     background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
 }

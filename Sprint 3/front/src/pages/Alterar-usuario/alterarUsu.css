@@ -1,19 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-*{
-    margin: 0;
-    padding: 0;
+body {
+    background: linear-gradient(-45deg, #0a1a5c, #0a1a5c);
+}
 
-}
-body{
-   
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg,  #0a1a5c, #0a1a5c);
-}
-#form{
-    /* position: relative; */
+#form {
     top: 50%;
     left: 50%;
-    /* transform: translate(-50%,-50%); */
     background: #fff;
     border-radius: 10px;
     padding: 60px;
@@ -21,57 +12,55 @@ body{
     align-items: center;
     color: #2b344b;
 }
-.title{
+
+.title {
     font-size: 1.0em;
     margin-bottom: 10%;
     padding: 4px;
 }
-.input{
+
+.input {
     min-width: 200px;
     border-radius: 22px;
     border: 2px #6f7e8a solid;
     padding: 5px;
-    margin:0px 0px 12px -5px ;
+    margin: 0px 0px 12px -5px;
 }
-.input i{
-    font-size: 1.2em;
-    padding: 5px;
-    background: -webkit-linear-gradient(-45deg, #0a1a5c, #0a1a5c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent ;
-   
-}
-.input input{
+
+.input input {
     width: 80%;
     border: none;
     outline: none;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     transform: translateY(-10%);
     color: #2b344b;
     font-size: 11pt;
 }
-#btn{
+
+#btn {
     margin-top: 10%;
-    width: 100%;
     text-align: center;
 }
-#btn button{
-    font-family: 'Poppins',sans-serif;
-    margin-bottom: 10px;
-    background: linear-gradient(-45deg,  #0a1a5c, #1f274f, #282f55);
+
+#btn button {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #0a1a5c, #1f274f, #282f55);
     width: 100%;
     height: 40px;
     border: none;
-    font-size: 1.2em;
-    color:#fff;
-    border-radius: 20px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 5px;
     outline: none;
-    cursor: pointer;   
-   
+    cursor: pointer;
+    letter-spacing: 1px;
 }
-#btn button:hover{
+
+#btn button:hover {
     background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
+
 }
+
 form .Reversor-details .Reversor-title {
     font-size: 20px;
     font-weight: 500;
@@ -107,14 +96,9 @@ form .Reversor-details .category {
     border-color: #d9d9d9;
     background: #0a1a5c;
 }
+
 form input[type="radio"] {
     display: none;
-    
 
-}
-
-form .button {
-    height: 45px;
-    margin: 45px 0;
 
 }

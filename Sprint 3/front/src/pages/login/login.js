@@ -6,16 +6,16 @@ import Botao from "../../componentes/botao/botao";
 const Swal = require('sweetalert2')
 
 
-function validarCampos (e){
+function validarCampos(e) {
     const email = document.getElementById('email')
     const senha = document.getElementById('senha')
-    const campos = [email,senha]
-    let Evalido = true 
-    for (var campo of campos){
-        if (campo.value ===""){
+    const campos = [email, senha]
+    let Evalido = true
+    for (var campo of campos) {
+        if (campo.value === "") {
             Evalido = false
         }
-    }return Evalido
+    } return Evalido
 }
 
 
