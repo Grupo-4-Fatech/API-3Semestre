@@ -10,19 +10,34 @@ const AeronaveModel = conexao_1.default.define("aeronaves", {
         type: sequelize.STRING,
         primaryKey: true
     },
-    motor: {
-        type: sequelize.Sequelize.STRING
+    unidade_de_medida: {
+        type: sequelize.Sequelize.INTEGER
     },
     certificacao: {
         type: sequelize.Sequelize.STRING
     },
-    landing_flap: {
+    motor: {
         type: sequelize.Sequelize.STRING
+    },
+    peso: {
+        type: sequelize.Sequelize.INTEGER
     },
     reversor: {
         type: sequelize.Sequelize.INTEGER
     },
-    peso: {
+    landing_flap: {
+        type: sequelize.Sequelize.STRING
+    },
+    peso_referencia: {
+        type: sequelize.Sequelize.INTEGER
+    },
+    altitude: {
+        type: sequelize.Sequelize.INTEGER
+    },
+    isa: {
+        type: sequelize.Sequelize.INTEGER
+    },
+    vento: {
         type: sequelize.Sequelize.INTEGER
     },
     peso_max: {
@@ -38,18 +53,6 @@ const AeronaveModel = conexao_1.default.define("aeronaves", {
         type: sequelize.Sequelize.INTEGER
     },
     overspeed_min: {
-        type: sequelize.Sequelize.INTEGER
-    },
-    vento_max: {
-        type: sequelize.Sequelize.INTEGER
-    },
-    vento_min: {
-        type: sequelize.Sequelize.INTEGER
-    },
-    isa_max: {
-        type: sequelize.Sequelize.INTEGER
-    },
-    isa_min: {
         type: sequelize.Sequelize.INTEGER
     }
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import CrudAer from '../../componentes/Read-Delect-Update-Aer/crudAer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft,faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from "react";
 const Swal = require('sweetalert2')
 
@@ -58,8 +58,9 @@ const ConsDelAer = () => {
     
         return (  
             <div className=" container" >
+              <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
                 <a href="./home"><FontAwesomeIcon icon={faArrowLeft}/></a>
-                <div className="titulo">Consult and Delete</div>
+                <div className="titulo">Consult</div>
                 <form action="#">
                     <div className="cadastro-aeronave">
                         <CrudAer dados={aeronaves} deletar={deletarAeronave} editar={editarAeronave}></CrudAer>

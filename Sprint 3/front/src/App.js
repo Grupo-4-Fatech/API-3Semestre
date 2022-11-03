@@ -12,6 +12,7 @@ import ConsDelUsu from './pages/consulta-deletarUsu/con-delUsu';
 import AlterarUsu from './pages/Alterar-usuario/alterarUsu';
 import ConsdelAer from './pages/consulta-deletarAer/con-delAer';
 import AlterarAer from "./pages/Alterar-aeronave/alterarAer";
+import CalculoCliente from './pages/calculo/calculoCliente';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/Cadastro-Aeronave" element={<CadastroAeronave />} />
             <Route exact path="/Cadastro-usuario" element={<CadastroUsuario />} />
             <Route exact path="/Calculo" element={<Calculo />} />
+            <Route exact path="/Calculo-Cliente" element={<CalculoCliente />} />
             <Route exact path="/Consulta" element={<ConsDelUsu/>} />
             <Route exact path="/Alterar-usuario/:Email" element={<AlterarUsu/>}/>
             <Route exact path="/Consulta-Aeronave" element={<ConsdelAer/>}/>

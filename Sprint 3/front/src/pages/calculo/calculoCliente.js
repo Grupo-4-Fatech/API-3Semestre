@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react'
 import "./calculo.css"
-import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
-import { faPlaneArrival,faArrowLeft, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlaneArrival, faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 // import NativeSelectDemo from "../../componentes/select/select";
 import SelectSlope from "../../componentes/select/selectSlope";
@@ -112,7 +112,6 @@ var handleCalcular = function (e) {
     }
 
     var dados = {
-        UnitOfMeasurement: parseInt(document.getElementById('medida').value),
         Flap: parseInt(document.getElementById('slcFlap').value),
         Ice: document.getElementById('slcIce').value === 1 ? false : true,
         RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
@@ -144,7 +143,7 @@ var handleCalcular = function (e) {
 
 }
 
-const Calculo = () => {
+const CalculoCliente = () => {
     const [tituloPeso, setTituloPeso] = useState('Weight')
     const [tituloAltitude, setTituloAltitude] = useState('Altitude')
     const [tituloTemperature, setTituloTemperature] = useState('Temperature')
@@ -183,7 +182,7 @@ const Calculo = () => {
     return (
         <div className="cont">
             <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
-            <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
+            {/* <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a> */}
             <div className="tituloCal">Landing calculation</div>
             <FontAwesomeIcon icon={faPlaneArrival} />
             <form action="#">
@@ -234,4 +233,4 @@ const Calculo = () => {
     );
 }
 
-export default Calculo;
+export default CalculoCliente;

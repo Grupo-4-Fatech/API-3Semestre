@@ -1,7 +1,7 @@
 import React from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom"
 import "./alterarUsu.css"
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -99,10 +99,10 @@ const AtualizarUsuario = () => {
         document.getElementById('email').value = data.email
         document.getElementById('username').value = data.nome
 
-        if (data.TipoUsuario == 2) {
+        if (data.tipo_usuario == 2) {
             document.getElementById("dot-2").checked = true;
 
-        } else if (data.TipoUsuario == 1) {
+        } else if (data.tipo_usuario == 1) {
             document.getElementById("dot-1").checked = true;
         }
 
@@ -110,9 +110,10 @@ const AtualizarUsuario = () => {
 
     return (
         <div id="form">
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <FontAwesomeIcon icon={faArrowLeft} onClick={voltar} />
             <form action="">
-                <h2 className="titulo">Alter Users</h2>
+                <h2 className="titulo">Update Users</h2>
                 <InputLogin text="Name" id="username" placeholder="Enter name" type="text" icon={faUserCircle} />
                 <InputLogin desabilitado text="Email" id="email" placeholder="Enter email" type="text" icon={faEnvelope} />
                 <InputLogin min="8" text="Password" id="senha" placeholder="Enter password" type="password" icon={faLock} />

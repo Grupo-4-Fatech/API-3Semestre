@@ -4,12 +4,6 @@ form .detalhes-aeronave .medidas {
     width: calc(100% / 2 - 20px);
 }
 
-#delt{
-    margin-bottom: 15px;
-    width: calc(100% / 3 - 20px);
-
-}
-
  .medidas .tituloS {
     display: block;
     font-weight: 500;

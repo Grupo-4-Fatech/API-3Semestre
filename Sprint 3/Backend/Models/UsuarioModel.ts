@@ -13,7 +13,7 @@ const UsuarioModel = conexao.define("usuarios", {
     senha: {
         type: sequelize.Sequelize.STRING
     },
-    TipoUsuario: {
+    tipo_usuario: {
         type: sequelize.Sequelize.INTEGER
     },
     

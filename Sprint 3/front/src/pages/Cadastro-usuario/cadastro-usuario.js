@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft,faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import "./cadastro_usuario.css"
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 const Swal = require('sweetalert2')
@@ -78,7 +78,7 @@ const CadastroUsuario = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Incorrect email',
-                text: '',
+                text: 'Must have @ and .com',
             })
             return true
         }
@@ -128,10 +128,11 @@ const CadastroUsuario = () => {
     }
     return (
         <div id="form">
+            <div id='btnlogout'><button ><FontAwesomeIcon icon={faRightFromBracket} id="iconlogout"/></button></div>
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <form action="">
                 <h2 className="titulo">Register Users</h2>
-                <InputLogin text="Name" id="username" placeholder="Enter username" type="text" icon={faUserCircle} />
+                <InputLogin text="Name" id="username" placeholder="Enter rname" type="text" icon={faUserCircle} />
                 <InputLogin text="Email" id="email" placeholder="Enter email" type="text" icon={faEnvelope} />
                 <InputLogin min="8" text="Password" id="senha" placeholder="Enter password" type="password" icon={faLock} />
 
