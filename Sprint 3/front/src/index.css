@@ -100,7 +100,7 @@ form .button input:hover {
   .container {
     max-width: 100%;
   }
-  
+
   form .detalhes .button {
     margin-bottom: 15px;
     width: 100%;
@@ -110,6 +110,7 @@ form .button input:hover {
     max-height: 200px;
     overflow-y: scroll;
   }
+
   form .detalhes .btn {
     margin-bottom: 15px;
     width: 100%;

@@ -1,5 +1,3 @@
-
-
 form .input_box input {
     height: 45px;
     width: 100%;
@@ -11,10 +9,12 @@ form .input_box input {
     border-bottom-width: 2px;
     transition: all 0.3s ease;
 }
+
 form .input_box input:focus,
-form .input_box input:valid{
+form .input_box input:valid {
     border-color: #0a1a5c;
 }
+
 form .input_box input .details {
     display: block;
     font-weight: 500;

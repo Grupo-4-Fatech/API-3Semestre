@@ -16,7 +16,7 @@ import CalculoCliente from './pages/calculo/calculoCliente';
 
 
 function App() {
-  
+
   return (
     <div className="App">
       <Router>
@@ -28,10 +28,10 @@ function App() {
             <Route exact path="/Cadastro-usuario" element={<CadastroUsuario />} />
             <Route exact path="/Calculo" element={<Calculo />} />
             <Route exact path="/Calculo-Cliente" element={<CalculoCliente />} />
-            <Route exact path="/Consulta" element={<ConsDelUsu/>} />
-            <Route exact path="/Alterar-usuario/:Email" element={<AlterarUsu/>}/>
-            <Route exact path="/Consulta-Aeronave" element={<ConsdelAer/>}/>
-            <Route exact path="/Alterar-aeronave/:Model_Aircraft" element={<AlterarAer/>}/>
+            <Route exact path="/Consulta" element={<ConsDelUsu />} />
+            <Route exact path="/Alterar-usuario/:Email" element={<AlterarUsu />} />
+            <Route exact path="/Consulta-Aeronave" element={<ConsdelAer />} />
+            <Route exact path="/Alterar-aeronave/:Model_Aircraft" element={<AlterarAer />} />
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </div>

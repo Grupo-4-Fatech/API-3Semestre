@@ -1,7 +1,7 @@
 import React from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom"
 import "./alterarUsu.css"
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -24,7 +24,7 @@ function validarCampos() {
         if (campo.value === null) {
             evalido = false
         }
-        if (campo.value === ""){
+        if (campo.value === "") {
             evalido = false
         }
     } return evalido
@@ -49,7 +49,7 @@ const AtualizarUsuario = () => {
         } else if (document.getElementById('dot-2').checked) {
             dados.tipoUsuario = 2
         }
-        if (!validarCampos()){
+        if (!validarCampos()) {
             Swal.fire({
                 icon: 'error',
                 title: 'Fields cannot be empty',

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import "./calculo.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlaneArrival, faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
+import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
 import InputCadastros from "../../componentes/inputCadastros/inputCadastro";
 // import NativeSelectDemo from "../../componentes/select/select";
 import SelectSlope from "../../componentes/select/selectSlope";
@@ -167,9 +167,9 @@ const CalculoCliente = () => {
             setPlaceholderTemperature('Ex.: 20')
             setPlaceholderWeight('Ex.: 18')
             setPlaceholderWind('Ex.: 2')
-            
+
         }
-        if (e.target.value ==='2'){
+        if (e.target.value === '2') {
             setTituloPeso('Weight (Lb)')
             setTituloAltitude('Altitude (Ft)')
             setTituloTemperature('Temperature (ºF)')
@@ -182,7 +182,7 @@ const CalculoCliente = () => {
     }
     return (
         <div className="container">
-           <Logout></Logout>
+            <Logout></Logout>
             {/* <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a> */}
             <div className="titulo">Landing calculation</div>
             <FontAwesomeIcon icon={faPlaneArrival} />
@@ -219,7 +219,7 @@ const CalculoCliente = () => {
 
                 </div>
 
-               
+
                 <div className="button">
                     <input type="submit" onClick={handleCalcular} value="Calculate" id="calcular" />
                 </div>

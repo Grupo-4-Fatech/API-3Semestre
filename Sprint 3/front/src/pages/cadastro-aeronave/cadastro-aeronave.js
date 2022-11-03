@@ -20,7 +20,7 @@ function validarCamposPositivos(e) {
     var overWeight = document.getElementById("PesoOw")
     var overMax = document.getElementById("OverSpeedMax")
     var overMin = document.getElementById("OverSpeedMin")
-    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, vento, pesoMax, pesoMin,overWeight,overMax,overMin]
+    const camposPositivos = [pesoAirplane, reversor, pesoRef, alt, vento, pesoMax, pesoMin, overWeight, overMax, overMin]
     let evalido = true
     for (var campo of camposPositivos) {
         if (campo.value < 0) {
@@ -43,7 +43,7 @@ function validarCampos(e) {
     var numRever = document.getElementById("Reversor");
     var pesoAirplane = document.getElementById("Peso");
     var pesoRef = document.getElementById("Peso_ref")
-    const campos = [modelAeronave,alt,motor,pesoRef,peso_max, peso_min, owerweight, overspeed_max, overspeed_min, vento, numRever, pesoAirplane, temp]
+    const campos = [modelAeronave, alt, motor, pesoRef, peso_max, peso_min, owerweight, overspeed_max, overspeed_min, vento, numRever, pesoAirplane, temp]
     let evalido = true
     for (var campo of campos) {
         if (campo.value === null) {
@@ -83,16 +83,16 @@ function validarSelectCertificacao(e) {
         return false
     } return true
 }
-function validarSelectUnidadeMedidas(e){
+function validarSelectUnidadeMedidas(e) {
     var unidadeMedida = document.getElementById('Medida').value
-    if (unidadeMedida === "default"){
+    if (unidadeMedida === "default") {
         return false
-    }return true
+    } return true
 }
 const CadastroAeronave = () => {
     var handleCadastroAeronave = function (e) {
         e.preventDefault();
-        if (!validarSelectUnidadeMedidas()){
+        if (!validarSelectUnidadeMedidas()) {
             Swal.fire({
                 icon: 'error',
                 title: 'Unit of Measurement has to be selected',
@@ -163,7 +163,7 @@ const CadastroAeronave = () => {
         dados.reversor = document.getElementById('Reversor').value
         // dados.landing_flap = document.getElementById('Flaps').value
         dados.peso_referencia = document.getElementById('Peso_ref').value
-        dados.altitude = document.getElementById('Alt').value 
+        dados.altitude = document.getElementById('Alt').value
         dados.isa = document.getElementById('Temp').value
         dados.vento = document.getElementById('Vento').value
         dados.peso_max = document.getElementById('PesoMax').value
@@ -171,7 +171,7 @@ const CadastroAeronave = () => {
         dados.owerweight = document.getElementById('PesoOw').value
         dados.overspeed_max = document.getElementById('OverSpeedMax').value
         dados.overspeed_min = document.getElementById('OverSpeedMin').value
- 
+
 
 
         // dados.overspeed = document.getElementById('Overspeed').value
@@ -217,7 +217,7 @@ const CadastroAeronave = () => {
             setTituloMinWeight('Min Weight (T)')
             setOwerWeight('OwerWeight (T)')
             setAltitude('Altitude (M)')
-            
+
 
         }
         if (e.target.value === '2') {
@@ -259,15 +259,15 @@ const CadastroAeronave = () => {
                 </div>
                 <div className='informacoes'>Reference values for calculation</div>
                 <div className="detalhes">
-                <InputCadastros min="0" id="Peso_ref" type="number" placeholder="Enter reference weight" >Reference weight</InputCadastros>
-                <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >{tituloAltitude}</InputCadastros>
-                <InputCadastros min="0" id="Temp" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
-                <InputCadastros min="0" id="Vento" type="number" placeholder="Enter wind">Wind</InputCadastros>
+                    <InputCadastros min="0" id="Peso_ref" type="number" placeholder="Enter reference weight" >Reference weight</InputCadastros>
+                    <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >{tituloAltitude}</InputCadastros>
+                    <InputCadastros min="0" id="Temp" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
+                    <InputCadastros min="0" id="Vento" type="number" placeholder="Enter wind">Wind</InputCadastros>
                 </div>
 
                 <div className="informacoes">Aircraft parameters (Max - Min)</div>
                 <div className="detalhes">
-                    
+
                     <InputCadastros min="0" id="PesoMax" type="number" placeholder="Enter Max weight">{tituloMaxWeight}</InputCadastros>
                     <InputCadastros min="0" id="PesoOw" type="number" placeholder="Enter owerweight">{tituloOwerWeight}</InputCadastros>
                     <InputCadastros min="0" id="PesoMin" type="number" placeholder="Enter Min weight">{tituloMinWeight} </InputCadastros>

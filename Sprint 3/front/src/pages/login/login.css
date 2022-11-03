@@ -1,6 +1,7 @@
-body{
-    background: linear-gradient(-45deg, #0a1a5c, #0a1a5c); 
-  }
+body {
+    background: linear-gradient(-45deg, #0a1a5c, #0a1a5c);
+}
+
 #formL {
     margin: 0 auto;
     background: #fff;
@@ -12,7 +13,6 @@ body{
 }
 
 .titleL {
-    /* font-size: 1.0em; */
     margin-bottom: 10%;
     text-align: center;
 }

@@ -22,8 +22,8 @@ const AtualizarAeronave = () => {
             return true
         }
     }
-    function validarCampos(motor,reversor, pesoAeronave, pesoRef,altitude,temperatura,vento,pesoMax,pesoMin,owerweight,overspeed_max,overspeed_min) {
-        const campos = [motor,reversor, pesoAeronave, pesoRef,altitude,temperatura,vento,pesoMax,pesoMin,owerweight,overspeed_max,overspeed_min]
+    function validarCampos(motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed_max, overspeed_min) {
+        const campos = [motor, reversor, pesoAeronave, pesoRef, altitude, temperatura, vento, pesoMax, pesoMin, owerweight, overspeed_max, overspeed_min]
         let evalido5 = true
         for (var campo of campos) {
             if (campo === null) {
@@ -53,7 +53,7 @@ const AtualizarAeronave = () => {
     var handleAtualizarAeronave = function (e) {
         e.preventDefault();
         var dados = {}
-  
+
 
         dados.modelo_de_aeronave = document.getElementById('Modelo-de-aeronave1').value
         dados.unidade_de_medida = document.getElementById('Medida1').value
@@ -63,7 +63,7 @@ const AtualizarAeronave = () => {
         dados.reversor = document.getElementById('Reversor1').value
         // dados.landing_flap = document.getElementById('LF').value
         dados.peso_referencia = document.getElementById('Peso_ref').value
-        dados.altitude = document.getElementById('Alt').value 
+        dados.altitude = document.getElementById('Alt').value
         dados.isa = document.getElementById('Temp1').value
         dados.vento = document.getElementById('Vento1').value
         dados.peso_max = document.getElementById('Pmax').value
@@ -80,8 +80,8 @@ const AtualizarAeronave = () => {
             })
             return true
         }
- 
-        if (!validarCampos(dados.motor,dados.reversor,dados.peso,dados.peso_referencia,dados.altitude,dados.isa,dados.vento,dados.peso_max,dados.peso_min,dados.owerweight,dados.overspeed_max,dados.overspeed_min)) {
+
+        if (!validarCampos(dados.motor, dados.reversor, dados.peso, dados.peso_referencia, dados.altitude, dados.isa, dados.vento, dados.peso_max, dados.peso_min, dados.owerweight, dados.overspeed_max, dados.overspeed_min)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Fields cannot be empty',
@@ -89,7 +89,7 @@ const AtualizarAeronave = () => {
             })
             return true
         }
-     
+
         if (validarPeso(dados.peso_max, dados.peso_min)) {
             Swal.fire({
                 icon: 'error',
@@ -106,7 +106,7 @@ const AtualizarAeronave = () => {
             })
             return true
         }
-      
+
 
 
         console.log(dados)
@@ -141,7 +141,7 @@ const AtualizarAeronave = () => {
     }).then((resposta) => resposta.json()).then((data) => {
 
 
-  
+
 
         document.getElementById('Modelo-de-aeronave1').value = data.modelo_de_aeronave
         document.getElementById('Medida1').value = data.unidade_de_medida
@@ -160,7 +160,7 @@ const AtualizarAeronave = () => {
         document.getElementById('Owermax').value = data.overspeed_max
         document.getElementById('Owermin').value = data.overspeed_min
 
- 
+
 
 
 
@@ -171,7 +171,7 @@ const AtualizarAeronave = () => {
     const [tituloMinWeight, setTituloMinWeight] = useState('Min Weight')
     const [tituloOwerWeight, setOwerWeight] = useState('OwerWeight')
     const [tituloAltitude, setAltitude] = useState('Altitude')
-    const [ tituloPesoRef, setTituloPesoRef] = useState('Weight Ref')
+    const [tituloPesoRef, setTituloPesoRef] = useState('Weight Ref')
 
     const handClick = (e) => {
         console.log(e.target.value);
@@ -194,19 +194,19 @@ const AtualizarAeronave = () => {
             setTituloPesoRef('Weight Ref (T)')
         }
     }
-    const handleLogOut = function(){
+    const handleLogOut = function () {
         fetch("/LogOut", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            
-          }).then((resposta) => resposta.json()).then((data) => {
-                if(data){
-                    window.location = '/'
-                }
-              
-            })
+
+        }).then((resposta) => resposta.json()).then((data) => {
+            if (data) {
+                window.location = '/'
+            }
+
+        })
     }
     return (
 

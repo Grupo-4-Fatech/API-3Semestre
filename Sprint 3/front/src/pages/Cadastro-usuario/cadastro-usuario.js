@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InputLogin from "../../componentes/inputLogin/inputLogin-Cadastro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope, faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
@@ -18,31 +18,31 @@ function validarEmail(email) {
 
 }
 function validarFieldSenha(senha) {
-    if(senha === null){
+    if (senha === null) {
         return false
     }
-    if (senha === "" ){
+    if (senha === "") {
         return false
     }
-    return true 
+    return true
 }
 function validarFieldName(name) {
-    if (name === null){
+    if (name === null) {
         return false
     }
-    if (name === ""){
+    if (name === "") {
         return false
-    }return true 
+    } return true
 }
-function validarFieldEmail(email){
-    if (email === null){
+function validarFieldEmail(email) {
+    if (email === null) {
         return false
     }
-    if (email === ""){
+    if (email === "") {
         return false
-    }return true 
+    } return true
 }
-    
+
 
 const CadastroUsuario = () => {
     var handleCadastroUsuario = function (e) {
@@ -56,9 +56,9 @@ const CadastroUsuario = () => {
         } else if (document.getElementById('dot-2').checked) {
             dados.tipoUsuario = 2
         }
-        console.log("omg",e.target.value);
-        
-        if(!validarFieldName(dados.nome)){
+        console.log("omg", e.target.value);
+
+        if (!validarFieldName(dados.nome)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Name cannot be empty',
@@ -66,7 +66,7 @@ const CadastroUsuario = () => {
             })
             return true
         }
-        if (!validarFieldEmail(dados.email)){
+        if (!validarFieldEmail(dados.email)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Email cannot be empty',
@@ -84,7 +84,7 @@ const CadastroUsuario = () => {
         }
         var senha = validarFieldName(dados.senha)
         console.log(senha);
-        if (!validarFieldSenha(dados.senha)){
+        if (!validarFieldSenha(dados.senha)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Password cannot be empty',
@@ -100,7 +100,7 @@ const CadastroUsuario = () => {
             })
             return true
         }
-        
+
 
         console.log(dados)
         fetch("/CadastrarUsuario", {
@@ -124,7 +124,7 @@ const CadastroUsuario = () => {
             // }
         })
 
-       
+
     }
     return (
         <div id="form">
@@ -138,7 +138,7 @@ const CadastroUsuario = () => {
 
                 <div className="Reversor-details">
                     <input type="radio" name="tipo-usuario" id="dot-1" value="1" defaultChecked />
-                    <input type="radio" name="tipo-usuario" id="dot-2" value="2"  />
+                    <input type="radio" name="tipo-usuario" id="dot-2" value="2" />
                     <span className="Reversor-title">Type</span>
 
                     <div className="category">

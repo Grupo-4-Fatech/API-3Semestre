@@ -1,7 +1,7 @@
 import React from 'react';
 import CrudUsu from "../../componentes/Read-Delect-Update/crudUsu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from "react";
 import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
