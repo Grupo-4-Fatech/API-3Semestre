@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom"
 import { faArrowLeft, faPlane, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import SelectCertificacao1 from '../../componentes/select/selectCertificacao1';
 import Logout from '../../componentes/logout/logout';
+import { useEffect } from "react";
+   
 
 const Swal = require('sweetalert2')
 
@@ -116,42 +118,39 @@ const AtualizarAeronave = () => {
             })
         })
     }
-    var string = window.location.href;
-    string = string.substring(window.location.href.indexOf("Modelo_de_aeronave=") + 19, string.length);
-    fetch("/BuscarAeronave" + "?modelo_de_aeronave=" + string, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-
-    }).then((resposta) => resposta.json()).then((data) => {
-
-
-
-
-        document.getElementById('Modelo-de-aeronave1').value = data.modelo_de_aeronave
-        document.getElementById('Medida1').value = data.unidade_de_medida
-        document.getElementById('Certificacao1').value = data.certificacao
-        document.getElementById('Motor1').value = data.motor
-        document.getElementById('Peso1').value = data.peso
-        document.getElementById('Reversor1').value = data.reversor
-        // document.getElementById('LF').value = data.landing_flap
-        document.getElementById('Peso_ref').value = data.peso_referencia
-        document.getElementById('Alt').value = data.altitude
-        document.getElementById('Temp1').value = data.isa
-        document.getElementById('Vento1').value = data.vento
-        document.getElementById('Pmax').value = data.peso_max
-        document.getElementById('Pmin').value = data.peso_min
-        document.getElementById('Owerweicght').value = data.owerweight
-        document.getElementById('Overspeed1').value = data.overspeed
-        document.getElementById('Slope1').value = data.slope
-        document.getElementById('TempRef1').value = data.temp_ref
-
-
-
-
-    });
-
+      useEffect(() => {
+        
+        var string = window.location.href;
+        string = string.substring(window.location.href.indexOf("Modelo_de_aeronave=") + 19, string.length);
+        fetch("/BuscarAeronave" + "?modelo_de_aeronave=" + string, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+    
+        }).then((resposta) => resposta.json()).then((data) => {
+    
+    
+            document.getElementById('Modelo-de-aeronave1').value = data.modelo_de_aeronave
+            document.getElementById('Medida1').value = data.unidade_de_medida
+            document.getElementById('Certificacao1').value = data.certificacao
+            document.getElementById('Motor1').value = data.motor
+            document.getElementById('Peso1').value = data.peso
+            document.getElementById('Reversor1').value = data.reversor
+            // document.getElementById('LF').value = data.landing_flap
+            document.getElementById('Peso_ref').value = data.peso_referencia
+            document.getElementById('Alt').value = data.altitude
+            document.getElementById('Temp1').value = data.isa
+            document.getElementById('Vento1').value = data.vento
+            document.getElementById('Pmax').value = data.peso_max
+            document.getElementById('Pmin').value = data.peso_min
+            document.getElementById('Owerweicght').value = data.owerweight
+            document.getElementById('Overspeed1').value = data.overspeed
+            document.getElementById('Slope1').value = data.slope
+            document.getElementById('TempRef1').value = data.temp_ref     
+        })
+      },[]);
+      
     const [tituloPeso, setTituloPeso] = useState('Weight Airplane')
     const [tituloMaxWeight, setTituloMaxWeight] = useState('Max Weight')
     const [tituloMinWeight, setTituloMinWeight] = useState('Min Weight')
@@ -177,7 +176,7 @@ const AtualizarAeronave = () => {
             setTituloMinWeight('Min Weight (Lb)')
             setOwerWeight('OwerWeight (Lb)')
             setAltitude('Altitude (Ft)')
-            setTituloPesoRef('Weight Ref (T)')
+            setTituloPesoRef('Weight Ref (Lb)')
         }
     }
     const handleLogOut = function () {
