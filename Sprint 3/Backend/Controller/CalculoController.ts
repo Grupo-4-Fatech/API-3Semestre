@@ -1,34 +1,36 @@
 import Router from "express";
 import ParametrosModel from "../Models/Parametros";
+import AeronaveModel from "../Models/AeronaveModel";
+import { Identifier } from "sequelize";
 const CalculoController = Router();
 
 CalculoController.post("/calcular" , async(req, res)=>{
     var dados = req.body
-    console.log(dados)
+    
     await ParametrosModel.findOne( { raw: true,
         where:{
         Flap: dados.Flap,
         Ice: dados.Ice,
         RunwayCondicion: dados.RunwayCondicion
-    }}).then((data)=>{
-        var valor = {
-            Peso: 20,
-            Alt:1800,
-            LikeWind:2,
-            Wind:2,
-            Temp:24,
-            LikeSlope: 2,
-            Slope:0.1,
-            Rev:1
-
-        };
-        res.json( calcular(data,dados));
+    }}).then(async (data)=>{
+        await AeronaveModel.findOne( { raw: true,where:{modelo_de_aeronave: dados.Modelo}}).then((dat)=>{
+            var calculo = calcular(data, dados, dat)
+            console.log("resultado do calculo")
+            console.log(calculo)
+            res.json(calculo)
+    
+    })
+       
+       
     })
     
     
 });
 
-var calcular = function(dados: any, valores:any ){
+
+var calcular = function(dados: any, valores:any , referencia:any):number{
+   
+  
     //PESO TONELADAS
     //ALTURA FEET
     //TEMPERATURA GRAUS
@@ -49,51 +51,75 @@ var calcular = function(dados: any, valores:any ){
     }else{
         valores.Peso = valores.Peso/2205;
         valores.Temp = (valores.Temp - 32)*(5/9);
-
-
     }
+    
+    if(referencia.unidade_de_medida == 1){
+        referencia.vento = referencia.vento/1852;
+        referencia.altitude = referencia.altitude*3.281;
+    }else{
+        referencia.peso = referencia.peso/2205;
+        referencia.isa = (referencia.isa - 32)*(5/9);
+    }
+
+
     //VALORES DE PESO
-    if(valores.Peso > 18){
-        peso = peso + (valores.Peso - 18) * dados.AboveWeight;
-    }else if(valores.Peso<18){
-        peso = peso + (18 - valores.Peso ) * dados.BelowWeight;
+    if(valores.Peso > referencia.peso){
+        peso = peso + (valores.Peso - referencia.peso_referencia) * dados.AboveWeight;
+    }else if(valores.Peso<referencia.peso){
+        peso = peso + (referencia.peso_referencia - valores.Peso ) * dados.BelowWeight;
     }
     //ALTURA
-    altura = (dados.Alt/1000) * valores.Alt;
+    altura = (dados.Alt/referencia.altitude) * valores.Alt;
     //TEMPERATURA
-    if(valores.Temp >15 ){
+    if(valores.Temp >referencia.isa ){
         temp = (dados.AboveISA/5) * valores.Temp
 
-    }else if(valores.Temp < 15){
+    }else if(valores.Temp < referencia.isa){
         temp = (dados.BelowISA/5) * valores.Temp
     }
     //1 == HEADWIND
     //1 == TALLWIND
     if(valores.LikeWind == 1){
-        wind = (dados.HeadWind/5) * valores.Wind
+        wind = (dados.HeadWind/referencia.vento) * valores.Wind
     } 
     else if(valores.LikeWind == 2){
-        wind = (dados.TallWind/5) * valores.Wind
+        wind = (dados.TallWind/referencia.vento) * valores.Wind
+    }
+
+   
+    if(referencia.slope==0){
+        referencia.slope = 1
     }
 
     //1 == UPHILL
     //2 == DOWNHILL
     if(valores.LikeSlope==1){
-        slope = dados.UpHill * valores.Slope;
+        slope = (dados.UpHill/referencia.slope) * valores.Slope;
     }
     else if(valores.LikeSlope==2){
-        slope = dados.DownHill * valores.Slope;
+        slope = (dados.DownHill/referencia.slope) * valores.Slope;
     }
     //REVERSOR
     rev = dados.Rev * valores.Rev
 
     //RESPOTA EM METROS
-    var resultado = valorReferencia + peso + altura + temp + wind + slope + rev
+    console.log(dados)
+    console.log(valores)
+    console.log(referencia)
+    console.log(valorReferencia)
+    console.log("Peso: "+  peso)
+    console.log("Altura "+ altura)
+    console.log("Temperatura " + temp)
+    console.log("Vento "+ wind)
+    console.log("Slop"+ slope)
+    console.log("Reversor " +rev)
+    let resultado:number = valorReferencia + peso + altura + temp + wind + slope + rev
     if(valores.UnitOfMeasurement == 2){
         resultado = resultado*3.281
     }
     
-    return resultado;
+    
+    return Math.floor(resultado);
 
 
 }

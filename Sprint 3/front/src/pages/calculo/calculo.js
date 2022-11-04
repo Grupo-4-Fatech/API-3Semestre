@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react'
+import React, { Component } from 'react';
+import { useState , useEffect} from 'react'
 import "./calculo.css"
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
 import { faPlaneArrival, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -124,7 +124,8 @@ var handleCalcular = function (e) {
         Temp: parseInt(document.getElementById('Temp').value),
         LikeSlope: Number(document.getElementById('slcSlope').value),
         Slope: parseInt(document.getElementById('InputSlope').value),
-        Rev: parseInt(document.getElementById('Reversor').value)
+        Rev: parseInt(document.getElementById('Reversor').value),
+        Modelo : document.getElementById('aircraft-model').value
 
     };
 
@@ -136,9 +137,10 @@ var handleCalcular = function (e) {
         body: JSON.stringify(dados)
     }).then((resposta) => resposta.json()).then((data) => {
         document.getElementById('result').value = data.toFixed(2) + "m";
+        console.log(data)
         Swal.fire({
             title: 'Calculation performed successfully',
-            text: "You need " + data.toFixed(2) + "m",
+            text: "You need " + data + "m",
             icon: 'success',
         })
     })
@@ -171,7 +173,10 @@ const Calculo = () => {
                 setAronave(data)
           });
     }
-    ListarAeronaves();
+    useEffect(() => {
+        ListarAeronaves();
+      }, [])
+    
     
  
 
