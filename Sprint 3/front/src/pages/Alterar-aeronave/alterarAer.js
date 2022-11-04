@@ -67,6 +67,7 @@ const AtualizarAeronave = () => {
         dados.owerweight = document.getElementById('Owerweicght').value
         dados.overspeed = document.getElementById('Overspeed1').value
         dados.slope = document.getElementById('Slope1').value
+        dados.temp_ref = document.getElementById('TempRef1').value
 
         if (!validarReversor(dados.reversor)) {
             Swal.fire({
@@ -144,7 +145,7 @@ const AtualizarAeronave = () => {
         document.getElementById('Owerweicght').value = data.owerweight
         document.getElementById('Overspeed1').value = data.overspeed
         document.getElementById('Slope1').value = data.slope
-
+        document.getElementById('TempRef1').value = data.temp_ref
 
 
 

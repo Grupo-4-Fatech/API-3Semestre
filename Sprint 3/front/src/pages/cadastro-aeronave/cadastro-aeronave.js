@@ -159,6 +159,7 @@ const CadastroAeronave = () => {
         dados.owerweight = document.getElementById('PesoOw').value
         dados.overspeed = document.getElementById('OverSpeed').value
         dados.slope = document.getElementById('Slope').value
+        dados.temp_ref = document.getElementById('TempRef').value
 
 
 

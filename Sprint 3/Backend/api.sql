@@ -38,7 +38,8 @@ CREATE TABLE `aeronaves` (
   `peso_min` int NOT NULL,
   `owerweight` int NOT NULL,
   `overspeed` int NOT NULL,
-  `slope` int NOT NULL,
+  `slope` float NOT NULL,
+  `temp_ref` int NOT NULL,
   PRIMARY KEY (`modelo_de_aeronave`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,7 +50,7 @@ CREATE TABLE `aeronaves` (
 
 LOCK TABLES `aeronaves` WRITE;
 /*!40000 ALTER TABLE `aeronaves` DISABLE KEYS */;
-INSERT INTO `aeronaves` VALUES ('777',1,'EASA','trimotor',321,2,NULL,312,321,31,31,31,30,31,11,11),('888',1,'EASA','tri',21,0,NULL,21,21,21,12,21,20,21,21,21),('Boeing 777',2,'ANAC','bimotor',3,2,NULL,2,2,2,2,4,3,3,4,3),('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,10);
+INSERT INTO `aeronaves` VALUES ('007',2,'FAA','bimotor',32,2,NULL,21,12,12,21,22,21,21,21,0.8,21),('111',1,'ANAC','bimotor',321,3,NULL,32,312,312,321,32,23,21,21,0.4,21),('222',1,'EASA','23',321,2,NULL,321,321,321,312,32,2,321,312,0.7,777),('444',2,'ANAC','mono',31,2,NULL,32,229,321,312,321,3,312,321,0.2,321),('888',2,'EASA','trimotor',21,0,NULL,21,21,21,12,21,20,21,21,0.3,0),('Boeing 777',1,'ANAC','bimotor',3,2,NULL,2,2,2,2,4,3,3,4,0.1,0),('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,0.9,0);
 /*!40000 ALTER TABLE `aeronaves` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,4 +128,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-03 16:48:23
+-- Dump completed on 2022-11-03 23:24:40
