@@ -6,7 +6,7 @@ const CalculoController = Router();
 
 CalculoController.post("/calcular" , async(req, res)=>{
     var dados = req.body
-    
+    console.log(dados)
     await ParametrosModel.findOne( { raw: true,
         where:{
         Flap: dados.Flap,
@@ -46,7 +46,7 @@ var calcular = function(dados: any, valores:any , referencia:any):number{
     var rev = 0;
     //1== internacional
     if(valores.UnitOfMeasurement == 1){
-        valores.Wind = valores.Wind/1852;
+        valores.Wind = valores.Wind/1.852;
         valores.Alt = valores.Alt*3.281;
     }else{
         valores.Peso = valores.Peso/2205;
@@ -54,7 +54,7 @@ var calcular = function(dados: any, valores:any , referencia:any):number{
     }
     
     if(referencia.unidade_de_medida == 1){
-        referencia.vento = referencia.vento/1852;
+        referencia.vento = referencia.vento/1.852;
         referencia.altitude = referencia.altitude*3.281;
     }else{
         referencia.peso = referencia.peso/2205;
@@ -72,10 +72,10 @@ var calcular = function(dados: any, valores:any , referencia:any):number{
     altura = (dados.Alt/referencia.altitude) * valores.Alt;
     //TEMPERATURA
     if(valores.Temp >referencia.isa ){
-        temp = (dados.AboveISA/5) * valores.Temp
+        temp = (dados.AboveISA/referencia.temp_ref) * valores.Temp
 
     }else if(valores.Temp < referencia.isa){
-        temp = (dados.BelowISA/5) * valores.Temp
+        temp = (dados.BelowISA/referencia.temp_ref) * valores.Temp
     }
     //1 == HEADWIND
     //1 == TALLWIND
@@ -114,6 +114,7 @@ var calcular = function(dados: any, valores:any , referencia:any):number{
     console.log("Slop"+ slope)
     console.log("Reversor " +rev)
     let resultado:number = valorReferencia + peso + altura + temp + wind + slope + rev
+    
     if(valores.UnitOfMeasurement == 2){
         resultado = resultado*3.281
     }

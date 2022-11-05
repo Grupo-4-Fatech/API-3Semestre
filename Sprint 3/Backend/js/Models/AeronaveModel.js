@@ -53,6 +53,9 @@ const AeronaveModel = conexao_1.default.define("aeronaves", {
         type: sequelize.Sequelize.INTEGER
     },
     slope: {
+        type: sequelize.Sequelize.FLOAT
+    },
+    temp_ref: {
         type: sequelize.Sequelize.INTEGER
     }
 });

@@ -18,6 +18,7 @@ const AeronaveModel_1 = __importDefault(require("../Models/AeronaveModel"));
 const CalculoController = (0, express_1.default)();
 CalculoController.post("/calcular", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var dados = req.body;
+    console.log(dados);
     yield Parametros_1.default.findOne({ raw: true,
         where: {
             Flap: dados.Flap,
@@ -48,7 +49,7 @@ var calcular = function (dados, valores, referencia) {
     var rev = 0;
     //1== internacional
     if (valores.UnitOfMeasurement == 1) {
-        valores.Wind = valores.Wind / 1852;
+        valores.Wind = valores.Wind / 1.852;
         valores.Alt = valores.Alt * 3.281;
     }
     else {
@@ -56,7 +57,7 @@ var calcular = function (dados, valores, referencia) {
         valores.Temp = (valores.Temp - 32) * (5 / 9);
     }
     if (referencia.unidade_de_medida == 1) {
-        referencia.vento = referencia.vento / 1852;
+        referencia.vento = referencia.vento / 1.852;
         referencia.altitude = referencia.altitude * 3.281;
     }
     else {
@@ -74,10 +75,10 @@ var calcular = function (dados, valores, referencia) {
     altura = (dados.Alt / referencia.altitude) * valores.Alt;
     //TEMPERATURA
     if (valores.Temp > referencia.isa) {
-        temp = (dados.AboveISA / 5) * valores.Temp;
+        temp = (dados.AboveISA / referencia.temp_ref) * valores.Temp;
     }
     else if (valores.Temp < referencia.isa) {
-        temp = (dados.BelowISA / 5) * valores.Temp;
+        temp = (dados.BelowISA / referencia.temp_ref) * valores.Temp;
     }
     //1 == HEADWIND
     //1 == TALLWIND

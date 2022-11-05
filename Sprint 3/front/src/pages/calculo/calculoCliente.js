@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./calculo.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
@@ -15,134 +15,7 @@ import Logout from '../../componentes/logout/logout';
 const Swal = require('sweetalert2')
 
 
-function validacao(e) {
-    var numAlt = document.getElementById("Alt");
-    var numPeso = document.getElementById("Peso");
-    var numWind = document.getElementById("Wind");
-    var numReversor = document.getElementById("Reversor");
-    var numSlope = document.getElementById("InputSlope");
-    const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
-    console.log("campos" + campos);
-    let Evalido = true
-    for (var campo of campos) {
-        console.log(campo);
-        if (campo.value < 0) {
-            campo.value = 0
-            Evalido = false
-        }
-        if (campo.value === "") {
-            Evalido = false
-        }
-    } return Evalido
 
-}
-function validacao2(e) {
-    var valFlap = document.getElementById("slcFlap").value;
-    var valRC = document.getElementById("runway_condition").value;
-    var valIce = document.getElementById("slcIce").value;
-    var valSlope = document.getElementById("slcSlope").value;
-    var valWind = document.getElementById("slcWind").value;
-    const selects = [valFlap, valRC, valIce, valSlope, valWind]
-    let Evalido2 = true
-    for (var sel of selects) {
-        if (sel === "default") {
-            Evalido2 = false
-        }
-    } return Evalido2
-}
-function validacao3(e) {
-    const numAlt = document.getElementById("Alt");
-    const numPeso = document.getElementById("Peso");
-    const numWind = document.getElementById("Wind");
-    const numReversor = document.getElementById("Reversor");
-    const numSlope = document.getElementById("InputSlope");
-    const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
-    console.log("campos" + campos);
-    let Evalido3 = true
-    for (const campo of campos) {
-        if (campo.value === "") {
-            Evalido3 = false
-        }
-    } return Evalido3
-}
-
-
-const func = (tipo) => {
-
-    if (tipo === 'flap') {
-        return <SelectFlap></SelectFlap>
-    }
-    if (tipo === 'bk') {
-        return <SelectBk></SelectBk>
-    }
-}
-
-
-var handleCalcular = function (e) {
-    e.preventDefault();
-    if (!validacao2()) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Select an option',
-
-        })
-        return true
-    }
-    if (!validacao3()) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Field cannot be empty',
-        })
-        return true
-    }
-    if (!validacao()) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Invalid type',
-            text: 'Cannot enter negative numbers',
-        })
-        return true
-    }
-    if (!validacao2()) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Select an option',
-
-        })
-        return true
-    }
-
-    var dados = {
-        Flap: parseInt(document.getElementById('slcFlap').value),
-        Ice: document.getElementById('slcIce').value === 1 ? false : true,
-        RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
-        Peso: parseInt(document.getElementById('Peso').value),
-        Alt: parseInt(document.getElementById('Alt').value),
-        LikeWind: parseInt(document.getElementById('slcWind').value),
-        Wind: parseInt(document.getElementById('Wind').value),
-        Temp: parseInt(document.getElementById('Temp').value),
-        LikeSlope: Number(document.getElementById('slcSlope').value),
-        Slope: parseInt(document.getElementById('InputSlope').value),
-        Rev: parseInt(document.getElementById('Reversor').value)
-
-    };
-
-    fetch("/calcular", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(dados)
-    }).then((resposta) => resposta.json()).then((data) => {
-        document.getElementById('result').value = data.toFixed(2) + "m";
-        Swal.fire({
-            title: 'Calculation performed successfully',
-            text: "You need " + data.toFixed(2) + "m",
-            icon: 'success',
-        })
-    })
-
-}
 
 const CalculoCliente = () => {
     const [tituloPeso, setTituloPeso] = useState('Weight')
@@ -153,24 +26,163 @@ const CalculoCliente = () => {
     const [placeholderAltitude, setPlaceholderAltitude] = useState('Ex.: 1800')
     const [placeholderTemperature, setPlaceholderTemperature] = useState('Ex.: 20')
     const [placeholderWind, setPlaceholderWind] = useState('Ex.: 2')
+    const [placeholderSlope, setPlaceholderSlope] = useState('Ex.: 0.1')
+    const [uniteMedida, setUnidadeMedida] = useState("")
+
+
+
+    function validacao(e) {
+        var numAlt = document.getElementById("Alt");
+        var numPeso = document.getElementById("Peso");
+        var numWind = document.getElementById("Wind");
+        var numReversor = document.getElementById("Reversor");
+        var numSlope = document.getElementById("InputSlope");
+        const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
+        console.log("campos" + campos);
+        let Evalido = true
+        for (var campo of campos) {
+            console.log(campo);
+            if (campo.value < 0) {
+                campo.value = 0
+                Evalido = false
+            }
+            if (campo.value === "") {
+                Evalido = false
+            }
+        } return Evalido
+
+    }
+    function validacao2(e) {
+        var valFlap = document.getElementById("slcFlap").value;
+        var valRC = document.getElementById("runway_condition").value;
+        var valIce = document.getElementById("slcIce").value;
+        var valSlope = document.getElementById("slcSlope").value;
+        var valWind = document.getElementById("slcWind").value;
+        var unidadeMedida = document.getElementById("medida").value;
+        const selects = [valFlap, valRC, valIce, valSlope, valWind,unidadeMedida]
+        let Evalido2 = true
+        for (var sel of selects) {
+            if (sel === "default") {
+                Evalido2 = false
+            }
+        } return Evalido2
+    }
+    function validacao3(e) {
+        const numAlt = document.getElementById("Alt");
+        const numPeso = document.getElementById("Peso");
+        const numWind = document.getElementById("Wind");
+        const numReversor = document.getElementById("Reversor");
+        const numSlope = document.getElementById("InputSlope");
+        const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
+        console.log("campos" + campos);
+        let Evalido3 = true
+        for (const campo of campos) {
+            if (campo.value === "") {
+                Evalido3 = false
+            }
+        } return Evalido3
+    }
+
+
+    const func = (tipo) => {
+
+        if (tipo === 'flap') {
+            return <SelectFlap></SelectFlap>
+        }
+        if (tipo === 'bk') {
+            return <SelectBk></SelectBk>
+        }
+    }
+
+
+    var handleCalcular = function (e) {
+        e.preventDefault();
+        if (!validacao2()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Select an option',
+
+            })
+            return true
+        }
+        if (!validacao3()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Field cannot be empty',
+            })
+            return true
+        }
+        if (!validacao()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid type',
+                text: 'Cannot enter negative numbers',
+            })
+            return true
+        }
+        if (!validacao2()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Select an option',
+
+            })
+            return true
+        }
+
+        var dados = {
+            UnitOfMeasurement: parseInt(document.getElementById('medida').value),
+            Flap: parseInt(document.getElementById('slcFlap').value),
+            Ice: document.getElementById('slcIce').value == 1 ? false : true,
+            RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
+            Peso: document.getElementById('Peso').value,
+            Alt: document.getElementById('Alt').value,
+            LikeWind: document.getElementById('slcWind').value,
+            Wind: document.getElementById('Wind').value,
+            Temp: document.getElementById('Temp').value,
+            LikeSlope: Number(document.getElementById('slcSlope').value),
+            Slope: document.getElementById('InputSlope').value,
+            Rev: parseInt(document.getElementById('Reversor').value),
+            Modelo : document.getElementById('aircraft-model').value
+
+        };
+
+        fetch("/calcular", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(dados)
+        }).then((resposta) => resposta.json()).then((data) => {
+            document.getElementById('result').value = data.toFixed(2) + " " + uniteMedida;
+            Swal.fire({
+                title: 'Calculation performed successfully',
+                text: "You need " + data.toFixed(2) + " " + uniteMedida,
+                icon: 'success',
+            })
+        })
+
+    }
+
     var dados = [{
-        modelo_de_aeronave : "teste"
-      }];
+        modelo_de_aeronave: "teste"
+    }];
     const [aeronaves, setAronave] = useState(dados);
-    const ListarAeronaves = function(){
+    const ListarAeronaves = function () {
         fetch("/ListarAeronave", {
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8'
             },
-    
-          }).then((resposta) => resposta.json()).then((data) => {
-    
-            
-                setAronave(data)
-          });
+
+        }).then((resposta) => resposta.json()).then((data) => {
+
+
+            setAronave(data)
+        });
     }
-    ListarAeronaves();
+    useEffect(() => {
+        ListarAeronaves();
+      }, [])
 
 
 
@@ -181,10 +193,13 @@ const CalculoCliente = () => {
             setTituloAltitude('Altitude (M)')
             setTituloTemperature('Temperature (ºC)')
             setWind('wind (Km/h)')
-            setPlaceholderAltitude('Ex.: 1800')
+            setPlaceholderAltitude('Ex.: 548')
             setPlaceholderTemperature('Ex.: 20')
             setPlaceholderWeight('Ex.: 18')
-            setPlaceholderWind('Ex.: 2')
+            setPlaceholderWind('Ex.: 3.704')
+            setPlaceholderSlope('Ex.: 0.1')
+            setUnidadeMedida('M')
+
 
         }
         if (e.target.value === '2') {
@@ -192,10 +207,12 @@ const CalculoCliente = () => {
             setTituloAltitude('Altitude (Ft)')
             setTituloTemperature('Temperature (ºF)')
             setWind('wind (Kt)')
-            setPlaceholderAltitude('Ex.: 5905')
+            setPlaceholderAltitude('Ex.: 1800')
             setPlaceholderTemperature('Ex.: 68')
-            setPlaceholderWeight('Ex.: 39683')
-            setPlaceholderWind('Ex.: 1,07991')
+            setPlaceholderWeight('Ex.: 44092')
+            setPlaceholderWind('Ex.: 2')
+            setPlaceholderSlope('Ex.: 0.1')
+            setUnidadeMedida('Ft')
         }
     }
     return (
@@ -218,10 +235,10 @@ const CalculoCliente = () => {
                         <label htmlFor="" className="tituloS">Aircraft Model</label>
                         <select className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
                             <option value="default" disabled>Select aircraft:</option>
-                            { aeronaves.map(function(a) {
+                            {aeronaves.map(function (a) {
                                 console.log(a)
                                 return <option value={a.modelo_de_aeronave}> {a.modelo_de_aeronave}</option>
-                                })};
+                            })};
                         </select></div>
                     </>
                     {func('flap')}
@@ -229,7 +246,7 @@ const CalculoCliente = () => {
                     <SelectCondicao></SelectCondicao>
                     <InputCadastros min="0" id="Peso" type="number" placeholder={placeholderWeight} >{tituloPeso}</InputCadastros>
                     <SelectSlope></SelectSlope>
-                    <InputCadastros min="0" id="InputSlope" type="number" placeholder="Ex.: 0.2">Slope (%)</InputCadastros>
+                    <InputCadastros min="0" id="InputSlope" type="number" placeholder={placeholderSlope}>Slope (%)</InputCadastros>
                     <InputCadastros min="0" id="Alt" type="number" placeholder={placeholderAltitude} >{tituloAltitude}</InputCadastros>
                     <InputCadastros id="Temp" type="number" placeholder={placeholderTemperature}>{tituloTemperature}</InputCadastros>
                     <SelectWind></SelectWind>
