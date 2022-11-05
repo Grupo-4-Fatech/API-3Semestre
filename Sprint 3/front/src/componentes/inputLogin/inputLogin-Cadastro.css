@@ -1,0 +1,25 @@
+.input{
+    min-width: 200px;
+    border-radius: 22px;
+    border: 2px #6f7e8a solid;
+    padding: 5px;
+    margin:0px 0px 12px -5px ;
+}
+.input i{
+    font-size: 1.2em;
+    padding: 5px;
+    background: -webkit-linear-gradient(-45deg, #0a1a5c, #0a1a5c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent ;
+   
+}
+.input input{
+    width: 80%;
+    border: none;
+    outline: none;
+    font-family: 'Poppins',sans-serif;
+    transform: translateY(-10%);
+    color: #2b344b;
+    font-size: 11pt;
+}
