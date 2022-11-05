@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useState , useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import "./calculo.css"
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
 import { faPlaneArrival, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -125,7 +125,7 @@ var handleCalcular = function (e) {
         LikeSlope: Number(document.getElementById('slcSlope').value),
         Slope: parseInt(document.getElementById('InputSlope').value),
         Rev: parseInt(document.getElementById('Reversor').value),
-        Modelo : document.getElementById('aircraft-model').value
+        Modelo: document.getElementById('aircraft-model').value
 
     };
 
@@ -211,6 +211,18 @@ const Calculo = () => {
         } return Evalido3
     }
 
+    function validarPesoMax(e){
+        let pesinhuu = document.getElementById("Peso").value
+        if(pesinhuu <= pesoMaximo){
+            return true
+        }
+    }
+    function validarPesoMin(e){
+        let pesinhuu2 = document.getElementById("Peso").value
+        if(pesinhuu2 < pesoMin){
+            return false
+        }return true
+    }
 
     const func = (tipo) => {
 
@@ -255,6 +267,22 @@ const Calculo = () => {
             })
             return true
         }
+        if (!validarPesoMax()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Weight cannot be more than: ' + pesoMaximo,
+                text: '',
+            })
+            return true
+        }
+        if (!validarPesoMin()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Weight cannot be less than: ' + pesoMin,
+                text: '',
+            })
+            return true
+        }
 
         var dados = {
             UnitOfMeasurement: parseInt(document.getElementById('medida').value),
@@ -269,7 +297,7 @@ const Calculo = () => {
             LikeSlope: Number(document.getElementById('slcSlope').value),
             Slope: document.getElementById('InputSlope').value,
             Rev: parseInt(document.getElementById('Reversor').value),
-            Modelo : document.getElementById('aircraft-model').value
+            Modelo: document.getElementById('aircraft-model').value
 
         };
 
@@ -310,13 +338,13 @@ const Calculo = () => {
 
     useEffect(() => {
         ListarAeronaves();
-      }, [])
-      
+    }, [])
+
     const [pesoMaximo, setPesoMaximo] = useState(0);
     const [pesoMin, setPesoMin] = useState(0);
-    const OnChangeAeronave = (e) =>{
+    const OnChangeAeronave = (e) => {
         e.preventDefault();
-        fetch("/BuscarAeronave"+"?modelo_de_aeronave=" + document.getElementById('aircraft-model').value, {
+        fetch("/BuscarAeronave" + "?modelo_de_aeronave=" + document.getElementById('aircraft-model').value, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -324,17 +352,18 @@ const Calculo = () => {
 
         }).then((resposta) => resposta.json()).then((data) => {
             console.log(data)
-            if(document.getElementById('medida').value == 2 && data.unidade_de_medida ==1){
-                
-                setPesoMaximo((data.peso_max*2205))
-                setPesoMin((data.peso_min*2205))
+            if (document.getElementById('medida').value === 2 && data.unidade_de_medida === 1) {
+
+                setPesoMaximo((data.peso_max * 2205))
+                setPesoMin((data.peso_min * 2205))
+
                 console.log(1)
-            }else if(document.getElementById('medida').value == 1 && data.unidade_de_medida ==2){
-                setPesoMaximo((data.peso_max/2205))
-                setPesoMin((data.peso_min/2205))
+            } else if (document.getElementById('medida').value === 1 && data.unidade_de_medida === 2) {
+                setPesoMaximo((data.peso_max / 2205))
+                setPesoMin((data.peso_min / 2205))
                 console.log(2)
             }
-            else{
+            else {
                 console.log(3)
                 setPesoMaximo(data.peso_max)
                 setPesoMin(data.peso_min)

@@ -156,7 +156,10 @@ const AtualizarAeronave = () => {
     const [tituloMinWeight, setTituloMinWeight] = useState('Min Weight')
     const [tituloOwerWeight, setOwerWeight] = useState('OwerWeight')
     const [tituloAltitude, setAltitude] = useState('Altitude')
-    const [tituloPesoRef, setTituloPesoRef] = useState('Weight Ref')
+    const [tituloWeightRef, setTituloWeightRef] = useState('Reference weight')
+    const [tituloTemperatureIsa, setTituloTemperatureIsa] = useState('Temperature (ISA)')
+    const [tituloWind, setTituloWind] = useState('Wind')
+    const [tituloReferenceTemperature, setTituloReferenceTemperature] = useState('Reference temperature')
 
     const handClick = (e) => {
         console.log(e.target.value);
@@ -166,7 +169,10 @@ const AtualizarAeronave = () => {
             setTituloMinWeight('Min Weight (T)')
             setOwerWeight('OwerWeight (T)')
             setAltitude('Altitude (M)')
-            setTituloPesoRef('Weight Ref (T)')
+            setTituloWeightRef ('Reference weight (T)')
+            setTituloTemperatureIsa('Temperature (ISA) (ºC)')
+            setTituloWind('Wind (Km/h)')
+            setTituloReferenceTemperature('Reference temperature (ºC)')
 
 
         }
@@ -176,7 +182,10 @@ const AtualizarAeronave = () => {
             setTituloMinWeight('Min Weight (Lb)')
             setOwerWeight('OwerWeight (Lb)')
             setAltitude('Altitude (Ft)')
-            setTituloPesoRef('Weight Ref (Lb)')
+            setTituloWeightRef ('Reference weight (Lb)')
+            setTituloTemperatureIsa('Temperature (ISA) (ºF)')
+            setTituloWind('Wind (Kt)')
+            setTituloReferenceTemperature('Reference temperature (ºF)')
         }
     }
     const handleLogOut = function () {
@@ -219,11 +228,11 @@ const AtualizarAeronave = () => {
                 </div>
                 <div className='informacoes'>Reference values ​​for the calculation</div>
                 <div className='detalhes'>
-                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Peso_ref" type="number" placeholder="Enter peso ref" >{tituloPesoRef}</InputCadastros>
+                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Peso_ref" type="number" placeholder="Enter peso ref" >{tituloWeightRef}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Alt" type="number" placeholder="Enter altitude" >{tituloAltitude}</InputCadastros>
-                    <InputCadastros  min="0" id="Temp1" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
-                    <InputCadastros  min="0" id="TempRef1" type="number" placeholder="Enter temperature">Reference temperature</InputCadastros>
-                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Vento1" type="number" placeholder="Enter wind">Wind</InputCadastros>
+                    <InputCadastros  min="0" id="Temp1" type="number" placeholder="Enter temperature">{tituloTemperatureIsa}</InputCadastros>
+                    <InputCadastros  min="0" id="TempRef1" type="number" placeholder="Enter temperature">{tituloReferenceTemperature}</InputCadastros>
+                    <InputCadastros onInput={validarCampoNegativo} min="0" id="Vento1" type="number" placeholder="Enter wind">{tituloWind}</InputCadastros>
                     <InputCadastros onInput={validarCampoNegativo} min="0" id="Slope1" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
 
                 </div>

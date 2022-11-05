@@ -203,6 +203,12 @@ const CadastroAeronave = () => {
     const [tituloMinWeight, setTituloMinWeight] = useState('Min Weight')
     const [tituloOwerWeight, setOwerWeight] = useState('OwerWeight')
     const [tituloAltitude, setAltitude] = useState('Altitude')
+    const [tituloWeightRef, setTituloWeightRef] = useState('Reference weight')
+    const [tituloTemperatureIsa, setTituloTemperatureIsa] = useState('Temperature (ISA)')
+    const [tituloWind, setTituloWind] = useState('Wind')
+    const [tituloReferenceTemperature, setTituloReferenceTemperature] = useState('Reference temperature')
+
+
 
     const handClick = (e) => {
         console.log(e.target.value);
@@ -212,7 +218,10 @@ const CadastroAeronave = () => {
             setTituloMinWeight('Min Weight (T)')
             setOwerWeight('OwerWeight (T)')
             setAltitude('Altitude (M)')
-
+            setTituloWeightRef ('Reference weight (T)')
+            setTituloTemperatureIsa('Temperature (ISA) (ºC)')
+            setTituloWind('Wind (Km/h)')
+            setTituloReferenceTemperature('Reference temperature (ºC)')
 
         }
         if (e.target.value === '2') {
@@ -221,6 +230,10 @@ const CadastroAeronave = () => {
             setTituloMinWeight('Min Weight (Lb)')
             setOwerWeight('OwerWeight (Lb)')
             setAltitude('Altitude (Ft)')
+            setTituloWeightRef ('Reference weight (Lb)')
+            setTituloTemperatureIsa('Temperature (ISA) (ºF)')
+            setTituloWind('Wind (Kt)')
+            setTituloReferenceTemperature('Reference temperature (ºF)')
         }
     }
 
@@ -254,11 +267,11 @@ const CadastroAeronave = () => {
                 </div>
                 <div className='informacoes'>Reference values for calculation</div>
                 <div className="detalhes">
-                    <InputCadastros min="0" id="Peso_ref" type="number" placeholder="Enter reference weight" >Reference weight</InputCadastros>
+                    <InputCadastros min="0" id="Peso_ref" type="number" placeholder="Enter reference weight" >{tituloWeightRef}</InputCadastros>
                     <InputCadastros min="0" id="Alt" type="number" placeholder="Enter the altitude" >{tituloAltitude}</InputCadastros>
-                    <InputCadastros min="0" id="Temp" type="number" placeholder="Enter temperature">Temperature (ISA)</InputCadastros>
-                    <InputCadastros min="0" id="TempRef" type="number" placeholder="Enter reference temperature">Reference temperature</InputCadastros>
-                    <InputCadastros min="0" id="Vento" type="number" placeholder="Enter wind">Wind</InputCadastros>
+                    <InputCadastros min="0" id="Temp" type="number" placeholder="Enter temperature">{tituloTemperatureIsa}</InputCadastros>
+                    <InputCadastros min="0" id="TempRef" type="number" placeholder="Enter reference temperature">{tituloReferenceTemperature}</InputCadastros>
+                    <InputCadastros min="0" id="Vento" type="number" placeholder="Enter wind">{tituloWind}</InputCadastros>
                     <InputCadastros min="0" id="Slope" type="number" placeholder="Enter Slope">Slope (%)</InputCadastros>
 
                 </div>
