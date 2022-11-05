@@ -82,7 +82,18 @@ const CalculoCliente = () => {
             }
         } return Evalido3
     }
-
+    function validarPesoMax(e){
+        let pesinhuu = document.getElementById("Peso").value
+        if(pesinhuu <= pesoMaximo){
+            return true
+        }
+    }
+    function validarPesoMin(e){
+        let pesinhuu2 = document.getElementById("Peso").value
+        if(pesinhuu2 < pesoMin){
+            return false
+        }return true
+    }
 
     const func = (tipo) => {
 
@@ -125,6 +136,22 @@ const CalculoCliente = () => {
                 icon: 'error',
                 title: 'Select an option',
 
+            })
+            return true
+        }
+        if (!validarPesoMax()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Weight cannot be more than: ' + pesoMaximo,
+                text: '',
+            })
+            return true
+        }
+        if (!validarPesoMin()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Weight cannot be less than: ' + pesoMin,
+                text: '',
             })
             return true
         }
@@ -184,7 +211,41 @@ const CalculoCliente = () => {
         ListarAeronaves();
       }, [])
 
-
+      const [pesoMaximo, setPesoMaximo] = useState(0);
+      const [pesoMin, setPesoMin] = useState(0);
+      const OnChangeAeronave = () => {
+        if(document.getElementById('aircraft-model').value == 'default'){
+            return
+        }
+          fetch("/BuscarAeronave" + "?modelo_de_aeronave=" + document.getElementById('aircraft-model').value, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json;charset=utf-8'
+              },
+  
+          }).then((resposta) => resposta.json()).then((data) => {
+              console.log(data)
+              if (document.getElementById('medida').value == 2 && data.unidade_de_medida == 1) {
+  
+                  setPesoMaximo((data.peso_max * 2205))
+                  setPesoMin((data.peso_min * 2205))
+  
+                  console.log(1)
+              } else if (document.getElementById('medida').value == 1 && data.unidade_de_medida == 2) {
+                  setPesoMaximo((data.peso_max / 2205))
+                  setPesoMin((data.peso_min / 2205))
+                  console.log(2)
+              }
+              else {
+                  console.log(document.getElementById('medida').value)
+                  console.log(3)
+                  setPesoMaximo(data.peso_max)
+                  setPesoMin(data.peso_min)
+              }
+              console.log(pesoMaximo, pesoMin)
+          });
+      }
+      
 
     const handClick = (e) => {
         console.log(e.target.value);
@@ -199,6 +260,7 @@ const CalculoCliente = () => {
             setPlaceholderWind('Ex.: 3.704')
             setPlaceholderSlope('Ex.: 0.1')
             setUnidadeMedida('M')
+            OnChangeAeronave();
 
 
         }
@@ -213,6 +275,7 @@ const CalculoCliente = () => {
             setPlaceholderWind('Ex.: 2')
             setPlaceholderSlope('Ex.: 0.1')
             setUnidadeMedida('Ft')
+            OnChangeAeronave();
         }
     }
     return (
@@ -233,7 +296,7 @@ const CalculoCliente = () => {
                     </>
                     <><div className="medidas">
                         <label htmlFor="" className="tituloS">Aircraft Model</label>
-                        <select className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
+                        <select onChange={OnChangeAeronave}className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
                             <option value="default" disabled>Select aircraft:</option>
                             {aeronaves.map(function (a) {
                                 console.log(a)

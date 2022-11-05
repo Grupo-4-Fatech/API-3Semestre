@@ -342,8 +342,10 @@ const Calculo = () => {
 
     const [pesoMaximo, setPesoMaximo] = useState(0);
     const [pesoMin, setPesoMin] = useState(0);
-    const OnChangeAeronave = (e) => {
-        e.preventDefault();
+    const OnChangeAeronave = () => {
+        if(document.getElementById('aircraft-model').value == 'default'){
+            return
+        }
         fetch("/BuscarAeronave" + "?modelo_de_aeronave=" + document.getElementById('aircraft-model').value, {
             method: 'GET',
             headers: {
@@ -352,29 +354,31 @@ const Calculo = () => {
 
         }).then((resposta) => resposta.json()).then((data) => {
             console.log(data)
-            if (document.getElementById('medida').value === 2 && data.unidade_de_medida === 1) {
+            if (document.getElementById('medida').value == 2 && data.unidade_de_medida == 1) {
 
                 setPesoMaximo((data.peso_max * 2205))
                 setPesoMin((data.peso_min * 2205))
 
                 console.log(1)
-            } else if (document.getElementById('medida').value === 1 && data.unidade_de_medida === 2) {
+            } else if (document.getElementById('medida').value == 1 && data.unidade_de_medida == 2) {
                 setPesoMaximo((data.peso_max / 2205))
                 setPesoMin((data.peso_min / 2205))
                 console.log(2)
             }
             else {
+                console.log(document.getElementById('medida').value)
                 console.log(3)
                 setPesoMaximo(data.peso_max)
                 setPesoMin(data.peso_min)
             }
-            console.log(pesoMaximo, pesoMin)
+            
         });
     }
     
     const handClick = (e) => {
         console.log(e.target.value);
         if (e.target.value === '1') {
+            OnChangeAeronave();
             setTituloPeso('Weight (T)')
             setTituloAltitude('Altitude (M)')
             setTituloTemperature('Temperature (ºC)')
@@ -388,6 +392,7 @@ const Calculo = () => {
 
         }
         if (e.target.value === '2') {
+            OnChangeAeronave();
             setTituloPeso('Weight (Lb)')
             setTituloAltitude('Altitude (Ft)')
             setTituloTemperature('Temperature (ºF)')
