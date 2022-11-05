@@ -117,13 +117,13 @@ var handleCalcular = function (e) {
         Flap: parseInt(document.getElementById('slcFlap').value),
         Ice: document.getElementById('slcIce').value === 1 ? false : true,
         RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
-        Peso: parseInt(document.getElementById('Peso').value),
-        Alt: parseInt(document.getElementById('Alt').value),
+        Peso: document.getElementById('Peso').value,
+        Alt: document.getElementById('Alt').value,
         LikeWind: parseInt(document.getElementById('slcWind').value),
-        Wind: parseInt(document.getElementById('Wind').value),
-        Temp: parseInt(document.getElementById('Temp').value),
+        Wind: document.getElementById('Wind').value,
+        Temp: document.getElementById('Temp').value,
         LikeSlope: Number(document.getElementById('slcSlope').value),
-        Slope: parseInt(document.getElementById('InputSlope').value),
+        Slope: document.getElementById('InputSlope').value,
         Rev: parseInt(document.getElementById('Reversor').value),
         Modelo: document.getElementById('aircraft-model').value
 
