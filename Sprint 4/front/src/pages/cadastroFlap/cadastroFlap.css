@@ -1,0 +1,89 @@
+#cadFlap {
+    max-width: 1000px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 25px;
+    border-radius: 5px;
+  }
+  
+  #cadFlap .titulo {
+    font-size: 25px;
+    font-weight: 500;
+    pointer-events: all;
+    padding: 5px;
+  }
+  
+  /* .container .titulo::before {
+    content: '';
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(-45deg, #0a1a5c, #0a1a5c);
+  
+  } */
+  
+  #cadFlap form .detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+  }
+  
+.condPista {
+    font-size: 17px;
+    font-weight: 500;
+    pointer-events: all;
+    padding: 3px;
+}
+
+form #cadastroFlap .input-box {
+
+    margin-bottom: 15px;
+    width: calc(100% / 12 - 5px);
+}
+#cadastroFlap .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 12px;
+
+}
+
+
+#cadastroFlap .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+#cadastroFlap .input-box input:focus,
+#cadastroFlap .input-box input:valid {
+    border-color: #0a1a5c;
+}
+@media(max-width: 584px) {
+    #cadFlap {
+      max-width: 100%;
+    }
+    
+    form #cadastroFlap .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+      #cadFlap form .detalhes {
+        max-height: 200px;
+        overflow-y: scroll;
+      }
+  
+      #cadastroFlap form .detalhes {
+      max-height: 200px;
+      overflow-y: scroll;
+    }
+  }

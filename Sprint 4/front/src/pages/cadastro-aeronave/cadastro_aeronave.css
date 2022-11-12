@@ -1,0 +1,31 @@
+.informacoes {
+    font-size: 20px;
+    font-weight: 500;
+    pointer-events: all;
+    position: relative;
+    padding: 10px;
+}
+
+form .button {
+    height: 45px;
+    margin: 45px 0;
+
+}
+
+form .button button {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(-45deg, #0a1a5c, #1f274f, #282f55);
+}
+
+form .button button:hover {
+    background: linear-gradient(45deg, #0a1a5c, #1f274f, #282f55);
+}
