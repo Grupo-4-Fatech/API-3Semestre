@@ -78,7 +78,7 @@ form #cadastroFlap .input-box {
 #cadastroFlap .input-box input:valid {
     border-color: #0a1a5c;
 }
-@media(max-width: 584px) {
+@media(max-width: 990px) {
     #cadFlap {
       max-width: 100%;
     }
