@@ -36,7 +36,17 @@
     font-weight: 500;
     pointer-events: all;
     padding: 3px;
+    
 }
+#informacoes {
+    font-size: 20px;
+    font-weight: 500;
+    pointer-events: all;
+    position: relative;
+    padding: 10px;
+    text-decoration: underline blue;
+}
+
 
 form #cadastroFlap .input-box {
 

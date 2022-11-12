@@ -64,7 +64,7 @@ const CadastrarFlap = () => {
 
                 </div>
 
-                <div className="informacoes">Com gelo</div>
+                <div id="informacoes">Com gelo</div>
                 <div className="condPista">Condição de pista 1</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF" type="" placeholder="Ref">REF</InputCadastros>
@@ -167,7 +167,7 @@ const CadastrarFlap = () => {
 
 
                 </div>
-                <div className="informacoes">Sem gelo</div>
+                <div id="informacoes">Sem gelo</div>
                 <div className="condPista">Condição de pista 1</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF" type="" placeholder="Ref">REF</InputCadastros>
