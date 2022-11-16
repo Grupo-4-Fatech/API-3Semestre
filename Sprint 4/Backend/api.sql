@@ -50,8 +50,47 @@ CREATE TABLE `aeronaves` (
 
 LOCK TABLES `aeronaves` WRITE;
 /*!40000 ALTER TABLE `aeronaves` DISABLE KEYS */;
-INSERT INTO `aeronaves` VALUES ('007',2,'FAA','bimotor',32,2,NULL,21,12,12,21,22,21,21,21,0.8,21),('111',1,'ANAC','bimotor',321,3,NULL,32,312,312,321,32,23,21,21,0.4,21),('222',1,'EASA','23',321,2,NULL,321,321,321,312,32,2,321,312,0.7,777),('444',2,'ANAC','mono',31,2,NULL,32,229,321,312,321,3,312,321,0.2,321),('888',2,'EASA','trimotor',21,0,NULL,21,21,21,12,21,20,21,21,0.3,0),('Boeing 777',1,'ANAC','bimotor',3,2,NULL,2,2,2,2,4,3,3,4,0.1,0),('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,0.9,0);
+INSERT INTO `aeronaves` VALUES ('007',2,'FAA','bimotor',32,2,NULL,21,12,12,21,22,21,21,21,0.8,21),('111',1,'ANAC','bimotor',321,3,NULL,32,312,312,321,32,23,21,21,0.4,21),('222',1,'EASA','23',321,2,NULL,321,321,321,312,32,2,321,312,0.7,777),('333',2,'ANAC','111',11,1,NULL,111,111,111,111,111,11,11,111,0.1,110),('444',2,'ANAC','mono',31,2,NULL,32,229,321,312,321,3,312,321,0.2,321),('888',2,'EASA','trimotor',21,0,NULL,21,21,21,12,21,20,21,21,0.3,0),('Boeing 777',1,'ANAC','bimotor',3,2,NULL,2,2,2,2,4,3,3,4,0.1,0),('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,0.9,0);
 /*!40000 ALTER TABLE `aeronaves` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cadastro_flap`
+--
+
+DROP TABLE IF EXISTS `cadastro_flap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cadastro_flap` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `aeronaves` varchar(50) NOT NULL,
+  `Udm` int NOT NULL,
+  `Flap` int NOT NULL,
+  `Ice` tinyint(1) NOT NULL,
+  `RunwayCondicion` int NOT NULL,
+  `Ref` int NOT NULL,
+  `BelowWeight` int NOT NULL,
+  `AboveWeight` int NOT NULL,
+  `Alt` int NOT NULL,
+  `BelowISA` int NOT NULL,
+  `AboveISA` int NOT NULL,
+  `HeadWind` int NOT NULL,
+  `TallWind` int NOT NULL,
+  `UpHill` int NOT NULL,
+  `DownHill` int NOT NULL,
+  `Vap` int DEFAULT NULL,
+  `rev` int NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cadastro_flap`
+--
+
+LOCK TABLES `cadastro_flap` WRITE;
+/*!40000 ALTER TABLE `cadastro_flap` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cadastro_flap` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -128,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-03 23:24:40
+-- Dump completed on 2022-11-16 14:18:47
