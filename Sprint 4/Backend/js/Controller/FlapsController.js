@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const FlapModel_1 = __importDefault(require("../Models/FlapModel"));
-const FlapController = (0, express_1.Router)();
-FlapController.post("/CadastrarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const FlapsModel_1 = __importDefault(require("../Models/FlapsModel"));
+const FlapsController = (0, express_1.Router)();
+FlapsController.post("/CadastrarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var dados = req.body;
     console.log(dados);
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -26,24 +26,9 @@ FlapController.post("/CadastrarFlap", (req, res) => __awaiter(void 0, void 0, vo
     }
     else {
         try {
-            yield FlapModel_1.default.create({
-                aeronaves: dados.aeronaves,
-                udm: parseInt(dados.udm),
+            yield FlapsModel_1.default.create({
                 flap: dados.flap,
-                ice: parseInt(dados.ice),
-                runway_condicion: parseInt(dados.runway_condicion),
-                ref: parseInt(dados.ref),
-                below_weight: parseInt(dados.below_weight),
-                above_weight: parseInt(dados.above_weight),
-                alt: parseInt(dados.alt),
-                below_isa: parseInt(dados.below_isa),
-                above_isa: parseInt(dados.above_isa),
-                head_wind: parseInt(dados.head_wind),
-                tall_wind: parseInt(dados.tall_wind),
-                up_hill: parseInt(dados.up_hill),
-                down_hill: parseInt(dados.down_hill),
-                vap: parseInt(dados.vap),
-                rev: parseInt(dados.rev)
+                aeronave: dados.aeronave
             });
             res.json({
                 ok: true,
@@ -66,7 +51,7 @@ FlapController.post("/CadastrarFlap", (req, res) => __awaiter(void 0, void 0, vo
         }
     }
 }));
-FlapController.patch("/AtualizarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+FlapsController.patch("/AtualizarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var dados = req.body;
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
@@ -76,26 +61,11 @@ FlapController.patch("/AtualizarFlap", (req, res) => __awaiter(void 0, void 0, v
     }
     else {
         var Id = dados.Id;
-        FlapModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => __awaiter(void 0, void 0, void 0, function* () {
+        FlapsModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => __awaiter(void 0, void 0, void 0, function* () {
             if (data != null) {
-                yield FlapModel_1.default.update({
-                    aeronaves: dados.aeronaves,
-                    udm: dados.udm,
+                yield FlapsModel_1.default.update({
                     flap: dados.flap,
-                    ice: dados.ice,
-                    runway_condicion: dados.runway_condicion,
-                    ref: dados.ref,
-                    below_weight: dados.below_weight,
-                    above_weight: dados.above_weight,
-                    alt: dados.alt,
-                    below_isa: dados.below_isa,
-                    above_isa: dados.above_isa,
-                    head_wind: dados.head_wind,
-                    tall_wind: dados.tall_wind,
-                    up_hill: dados.up_hill,
-                    down_hill: dados.down_hill,
-                    vap: dados.vap,
-                    rev: dados.rev
+                    aeronave: dados.aeronave
                 }, {
                     where: {
                         Id: dados.Id
@@ -115,20 +85,20 @@ FlapController.patch("/AtualizarFlap", (req, res) => __awaiter(void 0, void 0, v
         }));
     }
 }));
-FlapController.get("/BuscarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+FlapsController.get("/BuscarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var Id = req.query.Id;
-    FlapModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => {
+    FlapsModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => {
         res.json(data);
     });
 }));
-FlapController.get("/ListarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield FlapModel_1.default.findAll({ attributes: { exclude: [''] } }).then((data) => {
+FlapsController.get("/ListarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield FlapsModel_1.default.findAll({ attributes: { exclude: [''] } }).then((data) => {
         res.json(data);
     });
 }));
-FlapController.delete("/DeletarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+FlapsController.delete("/DeletarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var Id = req.query.Id;
-    yield FlapModel_1.default.destroy({ where: { Id: Id } }).then((data) => {
+    yield FlapsModel_1.default.destroy({ where: { Id: Id } }).then((data) => {
     });
 }));
-exports.default = FlapController;
+exports.default = FlapsController;

@@ -1,63 +1,64 @@
 import conexao from "../Conexao/conexao";
 const sequelize = require('sequelize')
 const FlapModel = conexao.define("cadastro_flap", {
-    Id: {
+    id: {
         type: sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
         
     },
     aeronaves:{
+        type: sequelize.Sequelize.STRING
+        
+    },
+    udm:{
         type: sequelize.Sequelize.INTEGER
         
     },
-    Udm:{
-        type: sequelize.Sequelize.INTEGER
+    flap:{
+        type: sequelize.Sequelize.STRING
         
     },
-    Flap:{
-        type: sequelize.Sequelize.INTEGER
-        
-    },
-    Ice: {
-        type: sequelize.Sequelize.BOOLEAN
-    },
-    RunwayCondicion: {
+    ice: {
         type: sequelize.Sequelize.INTEGER
     },
-    Ref: {
+    runway_condicion: {
         type: sequelize.Sequelize.INTEGER
     },
-    BelowWeight: {
+    ref: {
         type: sequelize.Sequelize.INTEGER
     },
-    AboveWeight: {
+    below_weight: {
         type: sequelize.Sequelize.INTEGER
     },
-    Alt: {
+    above_weight: {
         type: sequelize.Sequelize.INTEGER
     },
-    BelowISA: {
+    alt: {
         type: sequelize.Sequelize.INTEGER
     },
-    AboveISA: {
+    below_isa: {
         type: sequelize.Sequelize.INTEGER
     },
-    HeadWind: {
+    above_isa: {
         type: sequelize.Sequelize.INTEGER
     },
-    TallWind: {
+    head_wind: {
         type: sequelize.Sequelize.INTEGER
     },
-    UpHill: {
+    tall_wind: {
         type: sequelize.Sequelize.INTEGER
     },
-    DownHill: {
+    up_hill: {
         type: sequelize.Sequelize.INTEGER
     },
-    Vap: {
+    down_hill: {
         type: sequelize.Sequelize.INTEGER
     },
-    Rev: {
+    vap: {
+        type: sequelize.Sequelize.INTEGER
+    },
+    rev: {
         type: sequelize.Sequelize.INTEGER
     }
     

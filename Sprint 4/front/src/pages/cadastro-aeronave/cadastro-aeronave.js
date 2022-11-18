@@ -87,6 +87,8 @@ function validarSelectUnidadeMedidas(e) {
 const CadastroAeronave = () => {
     var handleCadastroAeronave = function (e) {
         e.preventDefault();
+
+        
         if (!validarSelectUnidadeMedidas()) {
             Swal.fire({
                 icon: 'error',

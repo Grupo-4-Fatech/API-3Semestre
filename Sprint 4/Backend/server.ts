@@ -5,6 +5,7 @@ import LoginController from './Controller/LoginController';
 import CalculoController from './Controller/CalculoController';
 import AeronaveController from './Controller/AeronaveController';
 import FlapController from './Controller/FlapController';
+import FlapsController from './Controller/FlapsController';
 
 const app: express.Application = express();
 const port: number = 5000;
@@ -29,6 +30,7 @@ app.use(LoginController);
 app.use(CalculoController);
 app.use(AeronaveController);
 app.use(FlapController);
+app.use(FlapsController);
 
 app.listen(port, () => {
     console.log(`TypeScript with Express

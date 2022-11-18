@@ -17,25 +17,23 @@ FlapController.post("/CadastrarFlap", async (req, res) => {
     } else {
         try {
             await FlapModel.create({
-                Id: parseInt(dados.Id),
                 aeronaves: dados.aeronaves,
-                Udm: parseInt(dados.Udm),
-                Flap: parseInt(dados.Flap),
-                Ice: parseInt(dados.Ice),
-                RunwayCondicion: parseInt(dados.RunwayCondicion),
-                Ref: parseInt(dados.Ref),
-                BelowWeight: parseInt(dados.BelowWeight),
-                AboveWeight: parseInt(dados.AboveWeight),
-                Alt: parseInt(dados.Alt),
-                BelowISA: parseInt(dados.BelowISA),
-                AboveISA: parseInt(dados.AboveISA),
-                HeadWind: parseInt(dados.HeadWind),
-                TallWind: parseInt(dados.TallWind),
-                UpHill: parseInt(dados.UpHill),
-                DownHill: parseInt(dados.DownHill),
-                Vap: parseInt(dados.Vap),
-                rev: parseInt(dados.Rev)
-
+                udm: parseInt(dados.udm),
+                flap: dados.flap,
+                ice: parseInt(dados.ice),
+                runway_condicion: parseInt(dados.runway_condicion),
+                ref: parseInt(dados.ref),
+                below_weight: parseInt(dados.below_weight),
+                above_weight: parseInt(dados.above_weight),
+                alt: parseInt(dados.alt),
+                below_isa: parseInt(dados.below_isa),
+                above_isa: parseInt(dados.above_isa),
+                head_wind: parseInt(dados.head_wind),
+                tall_wind: parseInt(dados.tall_wind),
+                up_hill: parseInt(dados.up_hill),
+                down_hill: parseInt(dados.down_hill),
+                vap: parseInt(dados.vap),
+                rev: parseInt(dados.rev)
 
             })
             res.json({
@@ -72,22 +70,22 @@ FlapController.patch("/AtualizarFlap", async (req, res) => {
             if (data != null) {
                 await FlapModel.update({
                     aeronaves: dados.aeronaves,
-                    Udm: dados.Udm,
-                    Flap: dados.Flap,
-                    Ice: dados.Ice,
-                    RunwayCondicion: dados.RunwayCondicion,
-                    Ref: dados.Ref,
-                    BelowWeight: dados.BelowWeight,
-                    AboveWeight: dados.AboveWeight,
-                    Alt: dados.Alt,
-                    BelowISA: dados.BelowISA,
-                    AboveISA: dados.AboveISA,
-                    HeadWind: dados.HeadWind,
-                    TallWind: dados.TallWind,
-                    UpHill: dados.UpHill,
-                    DownHill: dados.DownHill,
-                    Vap: dados.Vap,
-                    rev: dados.Rev
+                    udm: dados.udm,
+                    flap: dados.flap,
+                    ice: dados.ice,
+                    runway_condicion: dados.runway_condicion,
+                    ref: dados.ref,
+                    below_weight: dados.below_weight,
+                    above_weight: dados.above_weight,
+                    alt: dados.alt,
+                    below_isa: dados.below_isa,
+                    above_isa: dados.above_isa,
+                    head_wind: dados.head_wind,
+                    tall_wind: dados.tall_wind,
+                    up_hill: dados.up_hill,
+                    down_hill: dados.down_hill,
+                    vap: dados.vap,
+                    rev: dados.rev
 
                 }, {
                     where: {
