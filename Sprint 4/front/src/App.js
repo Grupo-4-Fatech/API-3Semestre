@@ -14,6 +14,8 @@ import ConsdelAer from './pages/consulta-deletarAer/con-delAer';
 import AlterarAer from "./pages/Alterar-aeronave/alterarAer";
 import CalculoCliente from './pages/calculo/calculoCliente';
 import CadastrarFlap from './pages/cadastroFlap/cadastroFlap';
+import ConsDelFlap from './pages/consultarFlap/con-delFlap';
+import AtualizarFlap from './pages/Alterar-Flap/atualizarFlap';
 
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
             <Route exact path="/Consulta-Aeronave" element={<ConsdelAer />} />
             <Route exact path="/Alterar-aeronave/:Model_Aircraft" element={<AlterarAer />} />
             <Route exact path="/CadastroFlap" element={<CadastrarFlap />} />
+            <Route exact path="/Consultar-Flap" element={<ConsDelFlap />} />
+            <Route exact path="/Alterar-Flap" element={<AtualizarFlap />} />
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </div>

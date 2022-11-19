@@ -70,7 +70,7 @@ FlapController.post("/CadastrarFlap", (req, res) => __awaiter(void 0, void 0, vo
     }
 }));
 FlapController.patch("/AtualizarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var dados = req.body;
+    var dadosFlap = req.body;
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
@@ -78,44 +78,46 @@ FlapController.patch("/AtualizarFlap", (req, res) => __awaiter(void 0, void 0, v
         });
     }
     else {
-        var Id = dados.Id;
-        FlapModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => __awaiter(void 0, void 0, void 0, function* () {
-            if (data != null) {
-                yield FlapModel_1.default.update({
-                    aeronaves: dados.aeronaves,
-                    udm: dados.udm,
-                    flap: dados.flap,
-                    ice: dados.ice,
-                    runway_condicion: dados.runway_condicion,
-                    ref: dados.ref,
-                    below_weight: dados.below_weight,
-                    above_weight: dados.above_weight,
-                    alt: dados.alt,
-                    below_isa: dados.below_isa,
-                    above_isa: dados.above_isa,
-                    head_wind: dados.head_wind,
-                    tall_wind: dados.tall_wind,
-                    up_hill: dados.up_hill,
-                    down_hill: dados.down_hill,
-                    vap: dados.vap,
-                    rev: dados.rev
-                }, {
-                    where: {
-                        Id: dados.Id
-                    }
-                });
-                res.json({
-                    ok: true,
-                    mensagem: "Flap atualizado com sucesso"
-                });
-            }
-            else {
-                res.json({
-                    ok: false,
-                    mensagem: "Flap não encontrado"
-                });
-            }
-        }));
+        dadosFlap.forEach((dados) => {
+            var Id = dados.Id;
+            FlapModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => __awaiter(void 0, void 0, void 0, function* () {
+                if (data != null) {
+                    yield FlapModel_1.default.update({
+                        aeronaves: dados.aeronaves,
+                        udm: dados.udm,
+                        flap: dados.flap,
+                        ice: dados.ice,
+                        runway_condicion: dados.runway_condicion,
+                        ref: dados.ref,
+                        below_weight: dados.below_weight,
+                        above_weight: dados.above_weight,
+                        alt: dados.alt,
+                        below_isa: dados.below_isa,
+                        above_isa: dados.above_isa,
+                        head_wind: dados.head_wind,
+                        tall_wind: dados.tall_wind,
+                        up_hill: dados.up_hill,
+                        down_hill: dados.down_hill,
+                        vap: dados.vap,
+                        rev: dados.rev
+                    }, {
+                        where: {
+                            Id: dados.Id
+                        }
+                    });
+                    res.json({
+                        ok: true,
+                        mensagem: "Flap atualizado com sucesso"
+                    });
+                }
+                else {
+                    res.json({
+                        ok: false,
+                        mensagem: "Flap não encontrado"
+                    });
+                }
+            }));
+        });
     }
 }));
 FlapController.get("/BuscarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {

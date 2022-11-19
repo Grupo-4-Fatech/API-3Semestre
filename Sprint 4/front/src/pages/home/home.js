@@ -20,6 +20,7 @@ const Home = () => {
                     <BotaoHome home="/Consulta">Consult user</BotaoHome>
                     <BotaoHome home="/Consulta-aeronave"> Consult Aircraft </BotaoHome>
                     <BotaoHome home="/CadastroFlap"> Flap Registration </BotaoHome>
+                    <BotaoHome home="/Consultar-Flap"> Consult Flap </BotaoHome>
                 </div>
 
             </form>
