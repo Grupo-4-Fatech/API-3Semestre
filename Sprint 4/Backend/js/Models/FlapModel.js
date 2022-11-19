@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const conexao_1 = __importDefault(require("../Conexao/conexao"));
 const sequelize = require('sequelize');
-const FlapModel = conexao_1.default.define("cadastro_flap", {
+const FlapModel = conexao_1.default.define("cadastro_flaps", {
     id: {
         type: sequelize.INTEGER,
         primaryKey: true,

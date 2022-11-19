@@ -1,6 +1,6 @@
 import conexao from "../Conexao/conexao";
 const sequelize = require('sequelize')
-const FlapModel = conexao.define("cadastro_flap", {
+const FlapModel = conexao.define("cadastro_flaps", {
     id: {
         type: sequelize.INTEGER,
         primaryKey: true,

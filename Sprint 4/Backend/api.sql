@@ -55,42 +55,68 @@ INSERT INTO `aeronaves` VALUES ('007',2,'FAA','bimotor',32,2,NULL,21,12,12,21,22
 UNLOCK TABLES;
 
 --
--- Table structure for table `cadastro_flap`
+-- Table structure for table `cadastro_flaps`
 --
 
-DROP TABLE IF EXISTS `cadastro_flap`;
+DROP TABLE IF EXISTS `cadastro_flaps`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cadastro_flap` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `aeronaves` varchar(50) NOT NULL,
-  `Udm` int NOT NULL,
-  `Flap` int NOT NULL,
-  `Ice` tinyint(1) NOT NULL,
-  `RunwayCondicion` int NOT NULL,
-  `Ref` int NOT NULL,
-  `BelowWeight` int NOT NULL,
-  `AboveWeight` int NOT NULL,
-  `Alt` int NOT NULL,
-  `BelowISA` int NOT NULL,
-  `AboveISA` int NOT NULL,
-  `HeadWind` int NOT NULL,
-  `TallWind` int NOT NULL,
-  `UpHill` int NOT NULL,
-  `DownHill` int NOT NULL,
-  `Vap` int DEFAULT NULL,
+CREATE TABLE `cadastro_flaps` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `aeronaves` varchar(50) DEFAULT NULL,
+  `udm` int DEFAULT NULL,
+  `flap` varchar(50) NOT NULL,
+  `ice` int DEFAULT NULL,
+  `runway_condicion` int DEFAULT NULL,
+  `ref` int NOT NULL,
+  `below_weight` int NOT NULL,
+  `above_weight` int NOT NULL,
+  `alt` int NOT NULL,
+  `below_isa` int NOT NULL,
+  `above_isa` int NOT NULL,
+  `head_wind` int NOT NULL,
+  `tall_wind` int NOT NULL,
+  `up_hill` int NOT NULL,
+  `down_hill` int NOT NULL,
+  `vap` int DEFAULT NULL,
   `rev` int NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cadastro_flap`
+-- Dumping data for table `cadastro_flaps`
 --
 
-LOCK TABLES `cadastro_flap` WRITE;
-/*!40000 ALTER TABLE `cadastro_flap` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cadastro_flap` ENABLE KEYS */;
+LOCK TABLES `cadastro_flaps` WRITE;
+/*!40000 ALTER TABLE `cadastro_flaps` DISABLE KEYS */;
+INSERT INTO `cadastro_flaps` VALUES (1,NULL,0,'1',1,0,1,1,1,1,1,1,1,1,1,1,1,1),(2,'222',0,'1',1,1,1,1,1,1,1,1,1,1,1,1,1,1),(3,'222',0,'1',1,2,2,2,2,2,2,2,2,2,3,2,2,2),(4,'222',0,'1',1,3,3,3,3,3,3,3,3,3,3,3,3,3),(5,'222',0,'1',1,5,5,5,5,5,5,5,5,5,5,5,5,5),(6,'222',0,'1',1,4,4,4,4,4,44,4,4,4,4,4,4,4),(7,'222',0,'1',1,6,6,6,6,6,6,6,6,6,6,6,6,6);
+/*!40000 ALTER TABLE `cadastro_flaps` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `flaps`
+--
+
+DROP TABLE IF EXISTS `flaps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `flaps` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `flap` varchar(50) NOT NULL,
+  `aeronave` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `flaps`
+--
+
+LOCK TABLES `flaps` WRITE;
+/*!40000 ALTER TABLE `flaps` DISABLE KEYS */;
+INSERT INTO `flaps` VALUES (1,'1','333'),(2,'1111','111'),(3,'111','222');
+/*!40000 ALTER TABLE `flaps` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -154,7 +180,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('Admin@Admin','Admin','Admin123',2),('andre@ribeiro','and ','a012340120123',2),('cliente2@cliente','cliente','Teste123',1),('cliente3@cliente','cliente','Teste123',2),('cliente4@cliente','cliente','Teste123',1),('cliente@cliente','cliente','Teste123',1),('luzia@ramos.com','luzia','a012340120123',1),('testeMil','teste@mil','77777777777777777777777',1);
+INSERT INTO `usuarios` VALUES ('Admin@Admin','Admin','Admin123',2),('andre@ribeiro','and ','a012340120123',2),('cliente2@cliente','cliente','Teste123',1),('cliente3@cliente','cliente','Teste123',2),('cliente4@cliente','cliente','Teste123',1),('cliente@cliente','cliente','Teste123',1),('luzia@ramos.com','luzia','a012340120123',1),('testeMil','teste@mil','77777777777777777777777',1),('wwewqewqeqw@ewqewqeqw.ewqeqweqw','ffff','ewqeqwewqewewqeqweq',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -167,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-16 14:18:47
+-- Dump completed on 2022-11-18 20:51:17

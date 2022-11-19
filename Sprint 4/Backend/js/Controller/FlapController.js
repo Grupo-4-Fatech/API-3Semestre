@@ -16,8 +16,8 @@ const express_1 = require("express");
 const FlapModel_1 = __importDefault(require("../Models/FlapModel"));
 const FlapController = (0, express_1.Router)();
 FlapController.post("/CadastrarFlap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var dados = req.body;
-    console.log(dados);
+    var dadosFlap = req.body;
+    console.log(dadosFlap);
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
@@ -26,25 +26,28 @@ FlapController.post("/CadastrarFlap", (req, res) => __awaiter(void 0, void 0, vo
     }
     else {
         try {
-            yield FlapModel_1.default.create({
-                aeronaves: dados.aeronaves,
-                udm: parseInt(dados.udm),
-                flap: dados.flap,
-                ice: parseInt(dados.ice),
-                runway_condicion: parseInt(dados.runway_condicion),
-                ref: parseInt(dados.ref),
-                below_weight: parseInt(dados.below_weight),
-                above_weight: parseInt(dados.above_weight),
-                alt: parseInt(dados.alt),
-                below_isa: parseInt(dados.below_isa),
-                above_isa: parseInt(dados.above_isa),
-                head_wind: parseInt(dados.head_wind),
-                tall_wind: parseInt(dados.tall_wind),
-                up_hill: parseInt(dados.up_hill),
-                down_hill: parseInt(dados.down_hill),
-                vap: parseInt(dados.vap),
-                rev: parseInt(dados.rev)
-            });
+            dadosFlap.forEach((dados) => __awaiter(void 0, void 0, void 0, function* () {
+                console.log("entrou");
+                yield FlapModel_1.default.create({
+                    aeronaves: dados.aeronaves,
+                    udm: parseInt(dados.udm),
+                    flap: dados.flap,
+                    ice: parseInt(dados.ice),
+                    runway_condicion: parseInt(dados.runway_condicion),
+                    ref: parseInt(dados.ref),
+                    below_weight: parseInt(dados.below_weight),
+                    above_weight: parseInt(dados.above_weight),
+                    alt: parseInt(dados.alt),
+                    below_isa: parseInt(dados.below_isa),
+                    above_isa: parseInt(dados.above_isa),
+                    head_wind: parseInt(dados.head_wind),
+                    tall_wind: parseInt(dados.tall_wind),
+                    up_hill: parseInt(dados.up_hill),
+                    down_hill: parseInt(dados.down_hill),
+                    vap: parseInt(dados.vap),
+                    rev: parseInt(dados.rev)
+                });
+            }));
             res.json({
                 ok: true,
                 mensagem: "Flap cadastrado com sucesso."

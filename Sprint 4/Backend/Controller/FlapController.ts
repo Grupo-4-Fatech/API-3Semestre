@@ -5,8 +5,8 @@ import FlapModel from "../Models/FlapModel";
 const FlapController = Router()
 
 FlapController.post("/CadastrarFlap", async (req, res) => {
-    var dados = req.body;
-    console.log(dados)
+    var dadosFlap = req.body;
+    console.log(dadosFlap)
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
@@ -16,24 +16,29 @@ FlapController.post("/CadastrarFlap", async (req, res) => {
 
     } else {
         try {
-            await FlapModel.create({
-                aeronaves: dados.aeronaves,
-                udm: parseInt(dados.udm),
-                flap: dados.flap,
-                ice: parseInt(dados.ice),
-                runway_condicion: parseInt(dados.runway_condicion),
-                ref: parseInt(dados.ref),
-                below_weight: parseInt(dados.below_weight),
-                above_weight: parseInt(dados.above_weight),
-                alt: parseInt(dados.alt),
-                below_isa: parseInt(dados.below_isa),
-                above_isa: parseInt(dados.above_isa),
-                head_wind: parseInt(dados.head_wind),
-                tall_wind: parseInt(dados.tall_wind),
-                up_hill: parseInt(dados.up_hill),
-                down_hill: parseInt(dados.down_hill),
-                vap: parseInt(dados.vap),
-                rev: parseInt(dados.rev)
+            dadosFlap.forEach(async (dados: any) => {
+                console.log("entrou");
+
+                await FlapModel.create({
+                    aeronaves: dados.aeronaves,
+                    udm: parseInt(dados.udm),
+                    flap: dados.flap,
+                    ice: parseInt(dados.ice),
+                    runway_condicion: parseInt(dados.runway_condicion),
+                    ref: parseInt(dados.ref),
+                    below_weight: parseInt(dados.below_weight),
+                    above_weight: parseInt(dados.above_weight),
+                    alt: parseInt(dados.alt),
+                    below_isa: parseInt(dados.below_isa),
+                    above_isa: parseInt(dados.above_isa),
+                    head_wind: parseInt(dados.head_wind),
+                    tall_wind: parseInt(dados.tall_wind),
+                    up_hill: parseInt(dados.up_hill),
+                    down_hill: parseInt(dados.down_hill),
+                    vap: parseInt(dados.vap),
+                    rev: parseInt(dados.rev)
+
+                })
 
             })
             res.json({
@@ -58,16 +63,20 @@ FlapController.post("/CadastrarFlap", async (req, res) => {
 })
 
 FlapController.patch("/AtualizarFlap", async (req, res) => {
-    var dados = req.body;
+    var dadosFlap = req.body;
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.json({
             ok: false,
             mensagem: "Por favor, preencha os dados para atualizar o cadastro."
         })
     } else {
+        dadosFlap.forEach( (dados: any) => {
         var Id = dados.Id;
         FlapModel.findByPk(Id?.toString()).then(async (data) => {
+
+            
             if (data != null) {
+                
                 await FlapModel.update({
                     aeronaves: dados.aeronaves,
                     udm: dados.udm,
@@ -92,6 +101,7 @@ FlapController.patch("/AtualizarFlap", async (req, res) => {
                         Id: dados.Id
                     }
                 })
+ 
 
                 res.json({
                     ok: true,
@@ -103,6 +113,7 @@ FlapController.patch("/AtualizarFlap", async (req, res) => {
                     mensagem: "Flap não encontrado"
                 })
             }
+        })
         })
     }
 

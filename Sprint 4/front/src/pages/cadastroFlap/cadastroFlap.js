@@ -21,70 +21,72 @@ const CadastrarFlap = () => {
     var handleCadastrarFlap = function (e) {
 
         // e.preventDefault();
+var dadosFlap = [];
 
-
-        // for(var n =1; n<=6; n++){
-        // var dados = {}
-        // // dados.aeronaves = document.getElementById('aircraft-model').value
-        // // dados.udm = document.getElementById('').value
-        // dados.flap = document.getElementById('nomeFlap').value
-        // // dados.ice = document.getElementById('').value
-        // dados.runway_condicion =  n
-        // dados.ref = document.getElementById('REF_'+ n).value
-        // dados.below_weight = document.getElementById('weightBelow_'+ n).value
-        // dados.above_weight = document.getElementById('weightAbove_'+ n).value
-        // dados.alt = document.getElementById('Alt_'+ n).value
-        // dados.below_isa = document.getElementById('tempBelow_'+ n).value
-        // dados.above_isa = document.getElementById('tempAbove_'+ n).value
-        // dados.head_wind = document.getElementById('headWind_'+ n).value 
-        // dados.tall_wind = document.getElementById('tailWind_'+ n).value
-        // dados.up_hill = document.getElementById('slopUp_'+ n).value 
-        // dados.down_hill = document.getElementById('slopDow_'+ n).value 
-        // dados.vap = document.getElementById('vap_'+ n).value 
-        // dados.rev = document.getElementById('rev_'+ n).value 
-        // if (document.getElementById('dot-1').checked) {
-        //     dados.ice = 1
-        // } else if (document.getElementById('dot-2').checked) {
-        //     dados.ice = 2
-        // }
-        // }
+        for(var n =1; n<=6; n++){
+        var dados = {}
+        dados.aeronaves = document.getElementById('aircraft-model').value
+        // dados.udm = document.getElementById('').value
+        dados.flap = document.getElementById('nomeFlap').value
+        // dados.ice = document.getElementById('').value
+        dados.runway_condicion =  n
+        dados.ref = document.getElementById('REF_'+ n).value
+        dados.below_weight = document.getElementById('weightBelow_'+ n).value
+        dados.above_weight = document.getElementById('weightAbove_'+ n).value
+        dados.alt = document.getElementById('Alt_'+ n).value
+        dados.below_isa = document.getElementById('tempBelow_'+ n).value
+        dados.above_isa = document.getElementById('tempAbove_'+ n).value
+        dados.head_wind = document.getElementById('headWind_'+ n).value 
+        dados.tall_wind = document.getElementById('tailWind_'+ n).value
+        dados.up_hill = document.getElementById('slopUp_'+ n).value 
+        dados.down_hill = document.getElementById('slopDow_'+ n).value 
+        dados.vap = document.getElementById('vap_'+ n).value 
+        dados.rev = document.getElementById('rev_'+ n).value 
+        if (document.getElementById('dot-1').checked) {
+            dados.ice = 1
+        } else if (document.getElementById('dot-2').checked) {
+            dados.ice = 2
+        }
+        dadosFlap.push(dados)
+        }
 
 
     
-            var dados = {}
-            // dados.aeronaves = document.getElementById('aircraft-model').value
-            // dados.udm = document.getElementById('').value
-            dados.flap = document.getElementById('nomeFlap').value
-            // dados.ice = document.getElementById('').value
-            // dados.runway_condicion =  n
-            dados.ref = document.getElementById('REF_1').value
-            dados.below_weight = document.getElementById('weightBelow_1').value
-            dados.above_weight = document.getElementById('weightAbove_1').value
-            dados.alt = document.getElementById('Alt_1').value
-            dados.below_isa = document.getElementById('tempBelow_1').value
-            dados.above_isa = document.getElementById('tempAbove_1').value
-            dados.head_wind = document.getElementById('headWind_1').value 
-            dados.tall_wind = document.getElementById('tailWind_1').value
-            dados.up_hill = document.getElementById('slopUp_1').value 
-            dados.down_hill = document.getElementById('slopDow_1').value 
-            dados.vap = document.getElementById('vap_1').value 
-            dados.rev = document.getElementById('rev_1').value 
-            if (document.getElementById('dot-1').checked) {
-                dados.ice = 1
-            } else if (document.getElementById('dot-2').checked) {
-                dados.ice = 2
-            }
+            // var dados = {}
+            // // dados.aeronaves = document.getElementById('aircraft-model').value
+            // // dados.udm = document.getElementById('').value
+            // dados.flap = document.getElementById('nomeFlap').value
+            // // dados.ice = document.getElementById('').value
+            // // dados.runway_condicion =  n
+            // dados.ref = document.getElementById('REF_1').value
+            // dados.below_weight = document.getElementById('weightBelow_1').value
+            // dados.above_weight = document.getElementById('weightAbove_1').value
+            // dados.alt = document.getElementById('Alt_1').value
+            // dados.below_isa = document.getElementById('tempBelow_1').value
+            // dados.above_isa = document.getElementById('tempAbove_1').value
+            // dados.head_wind = document.getElementById('headWind_1').value 
+            // dados.tall_wind = document.getElementById('tailWind_1').value
+            // dados.up_hill = document.getElementById('slopUp_1').value 
+            // dados.down_hill = document.getElementById('slopDow_1').value 
+            // dados.vap = document.getElementById('vap_1').value 
+            // dados.rev = document.getElementById('rev_1').value 
+            // if (document.getElementById('dot-1').checked) {
+            //     dados.ice = 1
+            // } else if (document.getElementById('dot-2').checked) {
+            //     dados.ice = 2
+            // }
             
 
-        console.log(dados)
+        console.log(dadosFlap)
         fetch("/CadastrarFlap", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify(dados)
+            body: JSON.stringify(dadosFlap)
         }).then((resposta) => resposta.json()).then((data) => {
 
+            console.log(data)
             Swal.fire({
                 title: data.ok ? 'Flap successfully registered' : "Flap already registered",
                 icon: data.ok ? 'success' : "erro",
