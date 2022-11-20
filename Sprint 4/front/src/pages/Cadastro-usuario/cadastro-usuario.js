@@ -132,7 +132,7 @@ const CadastroUsuario = () => {
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <form action="">
                 <h2 className="titulo">Register Users</h2>
-                <InputLogin text="Name" id="username" placeholder="Enter rname" type="text" icon={faUserCircle} />
+                <InputLogin text="Name" id="username" placeholder="Enter name" type="text" icon={faUserCircle} />
                 <InputLogin text="Email" id="email" placeholder="Enter email" type="text" icon={faEnvelope} />
                 <InputLogin min="8" text="Password" id="senha" placeholder="Enter password" type="password" icon={faLock} />
 

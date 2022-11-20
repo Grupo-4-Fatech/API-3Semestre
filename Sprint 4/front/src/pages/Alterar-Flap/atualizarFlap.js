@@ -6,6 +6,202 @@ import Logout from '../../componentes/logout/logout';
 import InputCadastros from '../../componentes/inputCadastros/inputCadastro';
 
 const AtualizarFlap = () => {
+    function validarCampoVazioFlap(flap) {
+        if (flap.value == null) {
+            return false
+        }
+        if (flap.value === "") {
+            return false
+        } return true
+    }
+    function validarCamposVaziosRef(ref1, ref2, ref3, ref4, ref5, ref6) {
+        const refs = [ref1, ref2, ref3, ref4, ref5, ref6,]
+        let evalido = true
+        for (const ref of refs) {
+            console.log(ref);
+            if (ref.value === null) {
+                evalido = false
+            }
+            if (ref.value === "") {
+                evalido = false
+            }
+
+        } return evalido
+    }
+    function validarCamposVaziosWeightBellow(weight1, weight2, weight3, weight4, weight5, weight6) {
+        const pesos = [weight1, weight2, weight3, weight4, weight5, weight6,]
+        let evalido = true
+        for (let peso of pesos) {
+            if (peso.value == null) {
+                evalido = false
+            }
+            if (peso.value === "") {
+                evalido = false
+            }
+
+        } return evalido
+    }
+    function validarCamposVaziosWeightAbove(weight1, weight2, weight3, weight4, weight5, weight6) {
+        const pesos = [weight1, weight2, weight3, weight4, weight5, weight6]
+        let evalido = true
+        for (let peso of pesos) {
+            if (peso.value == null) {
+                evalido = false
+            }
+            if (peso.value === "") {
+                evalido = false
+            }
+        } return evalido
+    }
+    function validarCamposVaziosAlt(alt1, alt2, alt3, alt4, alt5, alt6) {
+        const altitudes = [alt1, alt2, alt3, alt4, alt5, alt6]
+        let evalido = true
+        for (let altitude of altitudes) {
+            if (altitude.value == null) {
+                evalido = false
+            }
+            if (altitude.value === "") {
+                evalido = false
+            }
+        } return evalido
+    }
+    function validarCamposVaziosTempIsaBellow(temp1, temp2, temp3, temp4, temp5, temp6) {
+        const temperaturas = [temp1, temp2, temp3, temp4, temp5, temp6]
+        let evalido = true
+        for (let temperatura of temperaturas) {
+            if (temperatura.value == null) {
+                evalido = false
+            }
+            if (temperatura.value === "") {
+                evalido = false
+            }
+        } return evalido
+    }
+    function validarCamposVaziosTempIsaAbove(temp1, temp2, temp3, temp4, temp5, temp6) {
+        const temperaturas = [temp1, temp2, temp3, temp4, temp5, temp6]
+        let evalido = true
+        for (let temperatura of temperaturas) {
+            if (temperatura.value == null) {
+                evalido = false
+            }
+            if (temperatura.value === "") {
+                evalido = false
+            }
+        } return evalido
+    }
+    function validarCamposVaziosHead(head1, head2, head3, head4, head5, head6) {
+        const headWinds = [head1, head2, head3, head4, head5, head6]
+        let evalido = true
+        for (let head of headWinds) {
+            if (head.value == null) {
+                evalido = false
+            }
+            if (head.value === "") {
+                evalido = false
+            }
+        } return evalido
+    }
+    function validarCamposVaziosTail(tail1, tail2, tail3, tail4, tail5, tail6) {
+        const tailWinds = [tail1, tail2, tail3, tail4, tail5, tail6]
+        let evalido = true
+        for (let tail of tailWinds) {
+            if (tail.value == null) {
+                evalido = false
+            }
+            if (tail.value === "") {
+                evalido = false
+            }
+        } return evalido
+    }
+
+    function validarCamposVaziosSlopUphil(up1, up2, up3, up4, up5, up6) {
+        const uphils = [up1, up2, up3, up4, up5, up6]
+        let evalido = true
+        for (let up of uphils) {
+            if (up.value == null) {
+                evalido = false
+            }
+            if (up.value === "") {
+                evalido = false
+            }
+        } return evalido
+
+    }
+
+    function validarCamposVaziosSlopDowHil(dow1, dow2, dow3, dow4, dow5, dow6) {
+        const dowhils = [dow1, dow2, dow3, dow4, dow5, dow6]
+        let evalido = true
+        for (let up of dowhils) {
+            if (up.value == null) {
+                evalido = false
+            }
+            if (up.value === "") {
+                evalido = false
+            }
+        } return evalido
+
+    }
+
+    function validarCamposVaziosVap(vap1, vap2, vap3, vap4, vap5, vap6) {
+        const vaps = [vap1, vap2, vap3, vap4, vap5, vap6]
+        let evalido = true
+        for (let vap of vaps) {
+            if (vap.value == null) {
+                evalido = false
+            }
+            if (vap.value === "") {
+                evalido = false
+            }
+        } return evalido
+
+    }
+
+    function validarCamposVaziosRev(rev1, rev2, rev3, rev4, rev5, rev6) {
+        const revs = [rev1, rev2, rev3, rev4, rev5, rev6]
+        let evalido = true
+        for (let rev of revs) {
+            if (rev.value == null) {
+                evalido = false
+            }
+            if (rev.value === "") {
+                evalido = false
+            }
+        } return evalido
+
+    }
+    function validarCamposNegativos(weight1, weight2, weight3, weight4, weight5, weight6, head1, head2, head3, head4, head5, head6, temp1, temp2, temp3, temp4, temp5, temp6, up1, up2, up3, up4, up5, up6) {
+        const negativos = [weight1, weight2, weight3, weight4, weight5, weight6, head1, head2, head3, head4, head5, head6, temp1, temp2, temp3, temp4, temp5, temp6, up1, up2, up3, up4, up5, up6]
+        let evalido = true
+        for (let negativo of negativos) {
+            if (negativo.value >= 0) {
+                evalido = false
+                negativo.value = -1
+            }
+        } return evalido
+    }
+    function validarCamposPositivos(ref1, ref2, ref3, ref4, ref5, ref6, weight1, weight2, weight3, weight4, weight5, weight6, alt1, alt2, alt3, alt4, alt5, alt6, temp1, temp2, temp3, temp4, temp5, temp6, tail1, tail2, tail3, tail4, tail5, tail6, dow1, dow2, dow3, dow4, dow5, dow6, vap1, vap2, vap3, vap4, vap5, vap6, rev1, rev2, rev3, rev4, rev5, rev6) {
+        const positivos = [ref1, ref2, ref3, ref4, ref5, ref6, weight1, weight2, weight3, weight4, weight5, weight6, alt1, alt2, alt3, alt4, alt5, alt6, temp1, temp2, temp3, temp4, temp5, temp6, tail1, tail2, tail3, tail4, tail5, tail6, dow1, dow2, dow3, dow4, dow5, dow6, vap1, vap2, vap3, vap4, vap5, vap6, rev1, rev2, rev3, rev4, rev5, rev6]
+        let evalido = true
+        for (let positivo of positivos) {
+            if (positivo.value < 0) {
+                evalido = false
+                positivo.value = 0
+            }
+        } return evalido
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const OnChangeAeronave = () => {
         if (document.getElementById('aircraft-model').value === 'default') {
@@ -40,10 +236,10 @@ const AtualizarFlap = () => {
         ListarAeronaves();
     }, [])
 
-    
+
     return (
         <div id="cadFlap">
-            
+
             <Logout></Logout>
             <a href="./home"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <div className="titulo">Update Flap</div>
