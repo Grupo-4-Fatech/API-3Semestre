@@ -233,6 +233,7 @@ const Calculo = () => {
     function validarAltMax(e) {
         let alt = document.getElementById("Alt")
         if (alt.value > 39370) {
+            alt.value = 0
             return false
         } return true
 
@@ -240,6 +241,7 @@ const Calculo = () => {
     function validarAltMin(e) {
         let alt = document.getElementById("Alt")
         if (alt.value < 98) {
+            alt.value = 98
             return false
         } return true
 
@@ -247,12 +249,28 @@ const Calculo = () => {
     function validarTempMax(e) {
         let temp = document.getElementById("Temp")
         if (temp.value > 52) {
+            temp.value = 0
             return false
         } return true
     }
     function validarTempMin(e) {
         let temp = document.getElementById("Temp")
         if (temp.value < -50) {
+            temp.value = 0
+            return false
+        } return true
+    }
+    function validarReversor(e) {
+        let reversor = document.getElementById("Reversor")
+        if (reversor.value > 12) {
+            reversor.value = 0
+            return false
+        } return true
+    }
+    function validarVento(e) {
+        let vento = document.getElementById("Wind")
+        if (vento.value > 150) {
+            vento.value = 0
             return false
         } return true
     }
@@ -345,6 +363,20 @@ const Calculo = () => {
                 icon: 'error',
                 title: 'Weight cannot be less than: ' + pesoMin,
                 text: '',
+            })
+            return true
+        }
+        if(!validarVento()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Wind cannot be more than 150 Kt ',
+            })
+            return true
+        }
+        if (!validarReversor()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Reversor cannot be more than 12 ',
             })
             return true
         }
