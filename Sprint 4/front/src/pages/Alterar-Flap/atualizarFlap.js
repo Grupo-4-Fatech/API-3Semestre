@@ -294,15 +294,15 @@ const AtualizarFlap = () => {
                 <div className="condPista">Runway Condition 1</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF_1" type="number" placeholder="Ref">REF</InputCadastros>
-                    <InputCadastros id="weightBelow_1" type="number" placeholder="Below">Weight(+)</InputCadastros>
-                    <InputCadastros id="weightAbove_1" type="number" placeholder="Above">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightBelow_1" type="number" placeholder="Below">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightAbove_1" type="number" placeholder="Above">Weight(+)</InputCadastros>
                     <InputCadastros id="Alt_1" type="number" placeholder="Alt">ALT</InputCadastros>
-                    <InputCadastros id="tempBelow_1" type="number" placeholder="Below">TEMP(ISA+)</InputCadastros>
-                    <InputCadastros id="tempAbove_1" type="number" placeholder="Above">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempBelow_1" type="number" placeholder="Below">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempAbove_1" type="number" placeholder="Above">TEMP(ISA+)</InputCadastros>
                     <InputCadastros id="headWind_1" type="number" placeholder="Head">Head Wind</InputCadastros>
                     <InputCadastros id="tailWind_1" type="number" placeholder="Tail">Tail Wind</InputCadastros>
-                    <InputCadastros id="slopUp_1" type="number" placeholder="UpHill">Slop(+)</InputCadastros>
-                    <InputCadastros id="slopDow_1" type="number" placeholder="DownHill">Slop(-) </InputCadastros>
+                    <InputCadastros id="slopUp_1" type="number" placeholder="UpHill">Slop(-)</InputCadastros>
+                    <InputCadastros id="slopDow_1" type="number" placeholder="DownHill">Slop(+) </InputCadastros>
                     <InputCadastros id="vap_1" type="number" placeholder="Vap">VAP</InputCadastros>
                     <InputCadastros id="rev_1" type="number" placeholder="Rev">REV </InputCadastros>
 
@@ -311,15 +311,15 @@ const AtualizarFlap = () => {
                 <div className="condPista">Runway Condition 2</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF_2" type="number" placeholder="Ref">REF</InputCadastros>
-                    <InputCadastros id="weightBelow_2" type="number" placeholder="Below">Weight(+)</InputCadastros>
-                    <InputCadastros id="weightAbove_2" type="number" placeholder="Above">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightBelow_2" type="number" placeholder="Below">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightAbove_2" type="number" placeholder="Above">Weight(+)</InputCadastros>
                     <InputCadastros id="Alt_2" type="number" placeholder="Alt">ALT</InputCadastros>
-                    <InputCadastros id="tempBelow_2" type="number" placeholder="Below">TEMP(ISA+)</InputCadastros>
-                    <InputCadastros id="tempAbove_2" type="number" placeholder="Above">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempBelow_2" type="number" placeholder="Below">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempAbove_2" type="number" placeholder="Above">TEMP(ISA+)</InputCadastros>
                     <InputCadastros id="headWind_2" type="number" placeholder="Head">Head Wind</InputCadastros>
                     <InputCadastros id="tailWind_2" type="number" placeholder="Tail">Tail Wind</InputCadastros>
-                    <InputCadastros id="slopUp_2" type="number" placeholder="UpHill">Slop(+)</InputCadastros>
-                    <InputCadastros id="slopDow_2" type="number" placeholder="DownHill">Slop(-) </InputCadastros>
+                    <InputCadastros id="slopUp_2" type="number" placeholder="UpHill">Slop(-)</InputCadastros>
+                    <InputCadastros id="slopDow_2" type="number" placeholder="DownHill">Slop(+) </InputCadastros>
                     <InputCadastros id="vap_2" type="number" placeholder="Vap">VAP</InputCadastros>
                     <InputCadastros id="rev_2" type="number" placeholder="Rev">REV </InputCadastros>
 
@@ -328,15 +328,15 @@ const AtualizarFlap = () => {
                 <div className="condPista">Runway Condition 3</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF_3" type="number" placeholder="Ref">REF</InputCadastros>
-                    <InputCadastros id="weightBelow_3" type="number" placeholder="Below">Weight(+)</InputCadastros>
-                    <InputCadastros id="weightAbove_3" type="number" placeholder="Above">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightBelow_3" type="number" placeholder="Below">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightAbove_3" type="number" placeholder="Above">Weight(+)</InputCadastros>
                     <InputCadastros id="Alt_3" type="number" placeholder="Alt">ALT</InputCadastros>
-                    <InputCadastros id="tempBelow_3" type="number" placeholder="Below">TEMP(ISA+)</InputCadastros>
-                    <InputCadastros id="tempAbove_3" type="number" placeholder="Above">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempBelow_3" type="number" placeholder="Below">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempAbove_3" type="number" placeholder="Above">TEMP(ISA+)</InputCadastros>
                     <InputCadastros id="headWind_3" type="number" placeholder="Head">Head Wind</InputCadastros>
                     <InputCadastros id="tailWind_3" type="number" placeholder="Tail">Tail Wind</InputCadastros>
-                    <InputCadastros id="slopUp_3" type="number" placeholder="UpHill">Slop(+)</InputCadastros>
-                    <InputCadastros id="slopDow_3" type="number" placeholder="DownHill">Slop(-) </InputCadastros>
+                    <InputCadastros id="slopUp_3" type="number" placeholder="UpHill">Slop(-)</InputCadastros>
+                    <InputCadastros id="slopDow_3" type="number" placeholder="DownHill">Slop(+) </InputCadastros>
                     <InputCadastros id="vap_3" type="number" placeholder="Vap">VAP</InputCadastros>
                     <InputCadastros id="rev_3" type="number" placeholder="Rev">REV </InputCadastros>
 
@@ -345,15 +345,15 @@ const AtualizarFlap = () => {
                 <div className="condPista">Runway Condition 4</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF_4" type="number" placeholder="Ref">REF</InputCadastros>
-                    <InputCadastros id="weightBelow_4" type="number" placeholder="Below">Weight(+)</InputCadastros>
-                    <InputCadastros id="weightAbove_4" type="number" placeholder="Above">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightBelow_4" type="number" placeholder="Below">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightAbove_4" type="number" placeholder="Above">Weight(+)</InputCadastros>
                     <InputCadastros id="Alt_4" type="number" placeholder="Alt">ALT</InputCadastros>
-                    <InputCadastros id="tempBelow_4" type="number" placeholder="Below">TEMP(ISA+)</InputCadastros>
-                    <InputCadastros id="tempAbove_4" type="number" placeholder="Above">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempBelow_4" type="number" placeholder="Below">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempAbove_4" type="number" placeholder="Above">TEMP(ISA+)</InputCadastros>
                     <InputCadastros id="headWind_4" type="number" placeholder="Head">Head Wind</InputCadastros>
                     <InputCadastros id="tailWind_4" type="number" placeholder="Tail">Tail Wind</InputCadastros>
-                    <InputCadastros id="slopUp_4" type="number" placeholder="UpHill">Slop(+)</InputCadastros>
-                    <InputCadastros id="slopDow_4" type="number" placeholder="DownHill">Slop(-) </InputCadastros>
+                    <InputCadastros id="slopUp_4" type="number" placeholder="UpHill">Slop(-)</InputCadastros>
+                    <InputCadastros id="slopDow_4" type="number" placeholder="DownHill">Slop(+) </InputCadastros>
                     <InputCadastros id="vap_4" type="number" placeholder="Vap">VAP</InputCadastros>
                     <InputCadastros id="rev_4" type="number" placeholder="Rev">REV </InputCadastros>
 
@@ -362,15 +362,15 @@ const AtualizarFlap = () => {
                 <div className="condPista">Runway Condition 5</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF_5" type="number" placeholder="Ref">REF</InputCadastros>
-                    <InputCadastros id="weightBelow_5" type="number" placeholder="Below">Weight(+)</InputCadastros>
-                    <InputCadastros id="weightAbove_5" type="number" placeholder="Above">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightBelow_5" type="number" placeholder="Below">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightAbove_5" type="number" placeholder="Above">Weight(+)</InputCadastros>
                     <InputCadastros id="Alt_5" type="number" placeholder="Alt">ALT</InputCadastros>
-                    <InputCadastros id="tempBelow_5" type="number" placeholder="Below">TEMP(ISA+)</InputCadastros>
-                    <InputCadastros id="tempAbove_5" type="number" placeholder="Above">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempBelow_5" type="number" placeholder="Below">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempAbove_5" type="number" placeholder="Above">TEMP(ISA+)</InputCadastros>
                     <InputCadastros id="headWind_5" type="number" placeholder="Head">Head Wind</InputCadastros>
                     <InputCadastros id="tailWind_5" type="number" placeholder="Tail">Tail Wind</InputCadastros>
-                    <InputCadastros id="slopUp_5" type="number" placeholder="UpHill">Slop(+)</InputCadastros>
-                    <InputCadastros id="slopDow_5" type="number" placeholder="DownHill">Slop(-) </InputCadastros>
+                    <InputCadastros id="slopUp_5" type="number" placeholder="UpHill">Slop(-)</InputCadastros>
+                    <InputCadastros id="slopDow_5" type="number" placeholder="DownHill">Slop(+) </InputCadastros>
                     <InputCadastros id="vap_5" type="number" placeholder="Vap">VAP</InputCadastros>
                     <InputCadastros id="rev_5" type="number" placeholder="Rev">REV </InputCadastros>
 
@@ -379,15 +379,15 @@ const AtualizarFlap = () => {
                 <div className="condPista">Runway Condition 6</div>
                 <div className="detalhes" id='cadastroFlap'>
                     <InputCadastros id="REF_6" type="number" placeholder="Ref">REF</InputCadastros>
-                    <InputCadastros id="weightBelow_6" type="number" placeholder="Below">Weight(+)</InputCadastros>
-                    <InputCadastros id="weightAbove_6" type="number" placeholder="Above">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightBelow_6" type="number" placeholder="Below">Weight(-)</InputCadastros>
+                    <InputCadastros id="weightAbove_6" type="number" placeholder="Above">Weight(+)</InputCadastros>
                     <InputCadastros id="Alt_6" type="number" placeholder="Alt">ALT</InputCadastros>
-                    <InputCadastros id="tempBelow_6" type="number" placeholder="Below">TEMP(ISA+)</InputCadastros>
-                    <InputCadastros id="tempAbove_6" type="number" placeholder="Above">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempBelow_6" type="number" placeholder="Below">TEMP(ISA-)</InputCadastros>
+                    <InputCadastros id="tempAbove_6" type="number" placeholder="Above">TEMP(ISA+)</InputCadastros>
                     <InputCadastros id="headWind_6" type="number" placeholder="Head">Head Wind</InputCadastros>
                     <InputCadastros id="tailWind_6" type="number" placeholder="Tail">Tail Wind</InputCadastros>
-                    <InputCadastros id="slopUp_6" type="number" placeholder="UpHill">Slop(+)</InputCadastros>
-                    <InputCadastros id="slopDow_6" type="number" placeholder="DownHill">Slop(-) </InputCadastros>
+                    <InputCadastros id="slopUp_6" type="number" placeholder="UpHill">Slop(-)</InputCadastros>
+                    <InputCadastros id="slopDow_6" type="number" placeholder="DownHill">Slop(+) </InputCadastros>
                     <InputCadastros id="vap_6" type="number" placeholder="Vap">VAP</InputCadastros>
                     <InputCadastros id="rev_6" type="number" placeholder="Rev">REV </InputCadastros>
 
