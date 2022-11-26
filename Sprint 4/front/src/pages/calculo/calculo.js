@@ -157,6 +157,7 @@ const Calculo = () => {
     const [placeholderWind, setPlaceholderWind] = useState('Ex.: 2')
     const [placeholderSlope, setPlaceholderSlope] = useState('Ex.: 0.1')
     const [uniteMedida, setUnidadeMedida] = useState("")
+    const [slopes, setSlopes] = useState([])
 
 
     function validacao(e) {
@@ -278,7 +279,7 @@ const Calculo = () => {
     const func = (tipo) => {
 
         if (tipo === 'flap') {
-            return <SelectFlap></SelectFlap>
+            return <SelectFlap dados={slopes}></SelectFlap>
         }
         if (tipo === 'bk') {
             return <SelectBk></SelectBk>
@@ -432,6 +433,19 @@ const Calculo = () => {
             setAronave(data)
         });
     }
+    const ListarFlaps = function () {
+        fetch("/BuscarFlapAeronave"+ '?aeronave=' + document.getElementById('aircraft-model').value, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+
+        }).then((resposta) => resposta.json()).then((data) => {
+
+
+            setSlopes(data)
+        });
+    }
 
     useEffect(() => {
         ListarAeronaves();
@@ -440,6 +454,7 @@ const Calculo = () => {
     const [pesoMaximo, setPesoMaximo] = useState(0);
     const [pesoMin, setPesoMin] = useState(0);
     const OnChangeAeronave = () => {
+        ListarFlaps();
         if (document.getElementById('aircraft-model').value == 'default') {
             return
         }
@@ -527,11 +542,11 @@ const Calculo = () => {
                             })};
                         </select></div>
                     </>
-                    {func('flap')}
+                    <SelectFlap dados={slopes}></SelectFlap>
                     <SelectIce></SelectIce>
                     <SelectCondicao></SelectCondicao>
                     <InputCadastros min={pesoMin} qtd={pesoMaximo} id="Peso" type="number" placeholder={placeholderWeight} >{tituloPeso}</InputCadastros>
-                    <SelectSlope></SelectSlope>
+                    <SelectSlope ></SelectSlope>
                     <InputCadastros min="0" id="InputSlope" type="number" placeholder={placeholderSlope}>Slope (%)</InputCadastros>
                     <InputCadastros min="0" id="Alt" type="number" placeholder={placeholderAltitude} >{tituloAltitude}</InputCadastros>
                     <InputCadastros id="Temp" type="number" placeholder={placeholderTemperature}>{tituloTemperature}</InputCadastros>
