@@ -19,12 +19,11 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 - [X] Perfis diferentes (administrador, usuário);
 - [X] Interface responsiva para que possa ser utilizada via tablet, desktop ou celular;
 - [X] Gerar cálculo do comprimento mínimo da pista de pouso;
-- [ ] Gerar histórico dos cálculos realizados;
 
 > Requisitos Não Funcionais
 
 - [X] Linguagem Typescript;
-- [ ] Documentações;
+- [X] Documentações;
     
  ## 📅 Cronograma das Sprints 
 
@@ -32,7 +31,7 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
  - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint1">**1° Sprint:**</a> 29/08/2022 a 18/09/2022<br>
  - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint%202">**2° Sprint:**</a> 19/09/2022 a 09/10/2022
  - - [X] <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/tree/main/Sprint%203">**3° Sprint:**</a> 13/10/2022 a 06/11/2022
- - - [ ] **4°Sprint:** 07/11/2022 a 27/11/2022
+ - - [X] **4°Sprint:** 07/11/2022 a 27/11/2022
  - - [ ] **Feira de Soluções:** 08/12/2022
  
  </br>
@@ -68,6 +67,7 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 - <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint1/Documentacao/Burndown%20Geral%20-%20burndown%20sprint%201.pdf">**Sprint 1**</a>
 - <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint%202/documentacao/Burndown%20Geral%20-%20sprint%202.pdf">**Sprint 2**</a>
 - <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint%203/documentacao/Burndown%20Geral%20-%20sprint%203.pdf">**Sprint 3**</a>
+- <a href="https://github.com/Grupo-4-Fatech/API-3Semestre/blob/main/Sprint%204/documentacao/Burndown%20Geral%20-%20sprint%204.pdf">**Sprint 4**</a>
  
 ## 👥 Equipe
 
