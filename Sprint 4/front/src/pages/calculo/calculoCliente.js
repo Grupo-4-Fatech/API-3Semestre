@@ -448,18 +448,18 @@ const Calculo = () => {
             setTituloPeso('Weight (Kg)')
             setTituloAltitude('Altitude (Ft)')
             setTituloTemperature('Temperature (ºC)')
-            setWind('wind (Km/h)')
+            setWind('wind (Kt)')
             setPlaceholderAltitude('Ex.: 1800')
             setPlaceholderTemperature('Ex.: 20')
             setPlaceholderWeight('Ex.: 18000')
-            setPlaceholderWind('Ex.: 3.704')
+            setPlaceholderWind('Ex.: 2')
             setPlaceholderSlope('Ex.: 0.1')
             setUnidadeMedida('M')
 
         }
         if (e.target.value === '2') {
             OnChangeAeronave();
-            setTituloPeso('Weight (Lb)')
+            setTituloPeso('Weight (Kg)')
             setTituloAltitude('Altitude (Ft)')
             setTituloTemperature('Temperature (ºC)')
             setWind('wind (Kt)')
@@ -468,7 +468,7 @@ const Calculo = () => {
             setPlaceholderWeight('Ex.: 44092')
             setPlaceholderWind('Ex.: 2')
             setPlaceholderSlope('Ex.: 0.1')
-            setUnidadeMedida('Ft')
+            setUnidadeMedida('M')
         }
     }
     return (

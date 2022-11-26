@@ -164,28 +164,28 @@ const AtualizarAeronave = () => {
     const handClick = (e) => {
         console.log(e.target.value);
         if (e.target.value === '1') {
-            setTituloPeso('Weight Airplane (T)')
-            setTituloMaxWeight('Max Weight (T)')
-            setTituloMinWeight('Min Weight (T)')
-            setOwerWeight('OwerWeight (T)')
-            setAltitude('Altitude (M)')
-            setTituloWeightRef ('Reference weight (T)')
+            setTituloPeso('Weight Airplane (Kg)')
+            setTituloMaxWeight('Max Weight (Kg)')
+            setTituloMinWeight('Min Weight (Kg)')
+            setOwerWeight('OwerWeight (Kg)')
+            setAltitude('Altitude (Ft)')
+            setTituloWeightRef ('Reference weight (Kg)')
             setTituloTemperatureIsa('Temperature (ISA) (ºC)')
-            setTituloWind('Wind (Km/h)')
+            setTituloWind('Wind (Kt)')
             setTituloReferenceTemperature('Reference temperature (ºC)')
 
 
         }
         if (e.target.value === '2') {
-            setTituloPeso('Weight Airplane (Lb)')
-            setTituloMaxWeight('Max Weight (Lb)')
-            setTituloMinWeight('Min Weight (Lb)')
-            setOwerWeight('OwerWeight (Lb)')
+            setTituloPeso('Weight Airplane (Kg)')
+            setTituloMaxWeight('Max Weight (Kg)')
+            setTituloMinWeight('Min Weight (Kg)')
+            setOwerWeight('OwerWeight (Kg)')
             setAltitude('Altitude (Ft)')
-            setTituloWeightRef ('Reference weight (Lb)')
-            setTituloTemperatureIsa('Temperature (ISA) (ºF)')
+            setTituloWeightRef ('Reference weight (Kg)')
+            setTituloTemperatureIsa('Temperature (ISA) (ºC)')
             setTituloWind('Wind (Kt)')
-            setTituloReferenceTemperature('Reference temperature (ºF)')
+            setTituloReferenceTemperature('Reference temperature (ºC)')
         }
     }
     const handleLogOut = function () {
