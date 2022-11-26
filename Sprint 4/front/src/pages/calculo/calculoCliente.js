@@ -115,7 +115,7 @@ var handleCalcular = function (e) {
     var dados = {
         UnitOfMeasurement: parseInt(document.getElementById('medida').value),
         Flap: parseInt(document.getElementById('slcFlap').value),
-        Ice: document.getElementById('slcIce').value === 1 ? false : true,
+        Ice: document.getElementById('slcIce').value, //=== 1 ? false : true,
         RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
         Peso: document.getElementById('Peso').value,
         Alt: document.getElementById('Alt').value,
@@ -157,6 +157,7 @@ const Calculo = () => {
     const [placeholderWind, setPlaceholderWind] = useState('Ex.: 2')
     const [placeholderSlope, setPlaceholderSlope] = useState('Ex.: 0.1')
     const [uniteMedida, setUnidadeMedida] = useState("")
+    const [slopes, setSlopes] = useState([])
 
 
     function validacao(e) {
@@ -166,10 +167,8 @@ const Calculo = () => {
         var numReversor = document.getElementById("Reversor");
         var numSlope = document.getElementById("InputSlope");
         const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
-        console.log("campos" + campos);
         let Evalido = true
         for (var campo of campos) {
-            console.log(campo);
             if (campo.value < 0) {
                 campo.value = 0
                 Evalido = false
@@ -199,8 +198,7 @@ const Calculo = () => {
         const numReversor = document.getElementById("Reversor");
         const numSlope = document.getElementById("InputSlope");
         const numTemp = document.getElementById("Temp")
-        const campos = [numAlt, numPeso, numReversor, numSlope, numWind,numTemp]
-        console.log("campos" + campos);
+        const campos = [numAlt, numPeso, numReversor, numSlope, numWind, numTemp]
         let Evalido3 = true
         for (const campo of campos) {
             if (campo.value === "") {
@@ -233,6 +231,7 @@ const Calculo = () => {
     function validarAltMax(e) {
         let alt = document.getElementById("Alt")
         if (alt.value > 39370) {
+            alt.value = 0
             return false
         } return true
 
@@ -240,27 +239,44 @@ const Calculo = () => {
     function validarAltMin(e) {
         let alt = document.getElementById("Alt")
         if (alt.value < 98) {
+            alt.value = 98
             return false
         } return true
 
     }
-    function validarTempMax(e){
+    function validarTempMax(e) {
         let temp = document.getElementById("Temp")
-        if (temp.value > 52){
+        if (temp.value > 52) {
+            temp.value = 0
             return false
-        }return true
+        } return true
     }
-    function validarTempMin(e){
+    function validarTempMin(e) {
         let temp = document.getElementById("Temp")
-        if (temp.value < -50){
+        if (temp.value < -50) {
+            temp.value = 0
             return false
-        }return true
+        } return true
+    }
+    function validarReversor(e) {
+        let reversor = document.getElementById("Reversor")
+        if (reversor.value > 12) {
+            reversor.value = 0
+            return false
+        } return true
+    }
+    function validarVento(e) {
+        let vento = document.getElementById("Wind")
+        if (vento.value > 150) {
+            vento.value = 0
+            return false
+        } return true
     }
 
     const func = (tipo) => {
 
         if (tipo === 'flap') {
-            return <SelectFlap></SelectFlap>
+            return <SelectFlap dados={slopes}></SelectFlap>
         }
         if (tipo === 'bk') {
             return <SelectBk></SelectBk>
@@ -285,7 +301,7 @@ const Calculo = () => {
             })
             return true
         }
-        if(!validarAltMax()){
+        if (!validarAltMax()) {
             Swal.fire({
                 icon: 'error',
                 title: 'Altitude cannot be more than 39370 Ft',
@@ -293,7 +309,7 @@ const Calculo = () => {
             })
             return true
         }
-        if(!validarAltMin()){
+        if (!validarAltMin()) {
             Swal.fire({
                 icon: 'error',
                 title: 'Altitude cannot be less than 98 Ft',
@@ -301,7 +317,7 @@ const Calculo = () => {
             })
             return true
         }
-        if(!validarTempMax()){
+        if (!validarTempMax()) {
             Swal.fire({
                 icon: 'error',
                 title: 'Temperature cannot be more than 52 ºC',
@@ -309,7 +325,7 @@ const Calculo = () => {
             })
             return true
         }
-        if(!validarTempMin()){
+        if (!validarTempMin()) {
             Swal.fire({
                 icon: 'error',
                 title: 'Temperature cannot be less than -50 ºC',
@@ -317,7 +333,6 @@ const Calculo = () => {
             })
             return true
         }
-
         if (!validacao3()) {
             Swal.fire({
                 icon: 'error',
@@ -349,11 +364,25 @@ const Calculo = () => {
             })
             return true
         }
+        if(!validarVento()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Wind cannot be more than 150 Kt ',
+            })
+            return true
+        }
+        if (!validarReversor()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Reversor cannot be more than 12 ',
+            })
+            return true
+        }
 
         var dados = {
             UnitOfMeasurement: parseInt(document.getElementById('medida').value),
             Flap: parseInt(document.getElementById('slcFlap').value),
-            Ice: document.getElementById('slcIce').value == 1 ? false : true,
+            Ice: document.getElementById('slcIce').value, //== 1 ? false : true,
             RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
             Peso: document.getElementById('Peso').value,
             Alt: document.getElementById('Alt').value,
@@ -366,6 +395,7 @@ const Calculo = () => {
             Modelo: document.getElementById('aircraft-model').value
 
         };
+        console.log(dados.Ice)
 
         fetch("/calcular", {
             method: 'POST',
@@ -401,6 +431,19 @@ const Calculo = () => {
             setAronave(data)
         });
     }
+    const ListarFlaps = function () {
+        fetch("/BuscarFlapAeronave"+ '?aeronave=' + document.getElementById('aircraft-model').value, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+
+        }).then((resposta) => resposta.json()).then((data) => {
+
+
+            setSlopes(data)
+        });
+    }
 
     useEffect(() => {
         ListarAeronaves();
@@ -409,6 +452,7 @@ const Calculo = () => {
     const [pesoMaximo, setPesoMaximo] = useState(0);
     const [pesoMin, setPesoMin] = useState(0);
     const OnChangeAeronave = () => {
+        ListarFlaps();
         if (document.getElementById('aircraft-model').value == 'default') {
             return
         }
@@ -495,11 +539,11 @@ const Calculo = () => {
                             })};
                         </select></div>
                     </>
-                    {func('flap')}
+                    <SelectFlap dados={slopes}></SelectFlap>
                     <SelectIce></SelectIce>
                     <SelectCondicao></SelectCondicao>
                     <InputCadastros min={pesoMin} qtd={pesoMaximo} id="Peso" type="number" placeholder={placeholderWeight} >{tituloPeso}</InputCadastros>
-                    <SelectSlope></SelectSlope>
+                    <SelectSlope ></SelectSlope>
                     <InputCadastros min="0" id="InputSlope" type="number" placeholder={placeholderSlope}>Slope (%)</InputCadastros>
                     <InputCadastros min="0" id="Alt" type="number" placeholder={placeholderAltitude} >{tituloAltitude}</InputCadastros>
                     <InputCadastros id="Temp" type="number" placeholder={placeholderTemperature}>{tituloTemperature}</InputCadastros>
