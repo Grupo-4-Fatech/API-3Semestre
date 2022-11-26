@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: api
+-- Host: localhost    Database: api
 -- ------------------------------------------------------
 -- Server version	8.0.30
 
@@ -50,8 +50,56 @@ CREATE TABLE `aeronaves` (
 
 LOCK TABLES `aeronaves` WRITE;
 /*!40000 ALTER TABLE `aeronaves` DISABLE KEYS */;
-INSERT INTO `aeronaves` VALUES ('007',2,'FAA','bimotor',32,2,NULL,21,12,12,21,22,21,21,21,0.8,21),('111',1,'ANAC','bimotor',321,3,NULL,32,312,312,321,32,23,21,21,0.4,21),('222',1,'EASA','23',321,2,NULL,321,321,321,312,32,2,321,312,0.7,777),('333',2,'ANAC','111',11,1,NULL,111,111,111,111,111,11,11,111,0.1,110),('444',2,'ANAC','mono',31,2,NULL,32,229,321,312,321,3,312,321,0.2,321),('888',2,'EASA','trimotor',21,0,NULL,21,21,21,12,21,20,21,21,0.3,0),('Boeing 777',1,'ANAC','bimotor',3,2,NULL,2,2,2,2,4,3,3,4,0.1,0),('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,0.9,0);
+INSERT INTO `aeronaves` VALUES ('Cessna',1,'EASA','trimotor',2,3,NULL,10,10,11,11,11,10,11,11,0.9,0),('Teste Flap Calculo',1,'ANAC','model',20000,2,NULL,18000,1000,15,5,23000,15000,25000,12,1,5);
 /*!40000 ALTER TABLE `aeronaves` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `braking_mode`
+--
+
+DROP TABLE IF EXISTS `braking_mode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `braking_mode` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `braking_mode`
+--
+
+LOCK TABLES `braking_mode` WRITE;
+/*!40000 ALTER TABLE `braking_mode` DISABLE KEYS */;
+INSERT INTO `braking_mode` VALUES (1,'Manual'),(2,'Autobrake MED'),(3,'Autobrake LOW');
+/*!40000 ALTER TABLE `braking_mode` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `break_type`
+--
+
+DROP TABLE IF EXISTS `break_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `break_type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `break_type`
+--
+
+LOCK TABLES `break_type` WRITE;
+/*!40000 ALTER TABLE `break_type` DISABLE KEYS */;
+INSERT INTO `break_type` VALUES (1,'MAX_MAN '),(2,'HI'),(3,'MED'),(4,'LO');
+/*!40000 ALTER TABLE `break_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -66,7 +114,7 @@ CREATE TABLE `cadastro_flaps` (
   `aeronaves` varchar(50) DEFAULT NULL,
   `udm` int DEFAULT NULL,
   `flap` varchar(50) NOT NULL,
-  `ice` int DEFAULT NULL,
+  `ice` tinyint(1) DEFAULT NULL,
   `runway_condicion` int DEFAULT NULL,
   `ref` int NOT NULL,
   `below_weight` int NOT NULL,
@@ -81,7 +129,7 @@ CREATE TABLE `cadastro_flaps` (
   `vap` int DEFAULT NULL,
   `rev` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +138,7 @@ CREATE TABLE `cadastro_flaps` (
 
 LOCK TABLES `cadastro_flaps` WRITE;
 /*!40000 ALTER TABLE `cadastro_flaps` DISABLE KEYS */;
-INSERT INTO `cadastro_flaps` VALUES (1,NULL,0,'1',1,0,1,1,1,1,1,1,1,1,1,1,1,1),(2,'222',0,'1',1,1,1,1,1,1,1,1,1,1,1,1,1,1),(3,'222',0,'1',1,2,2,2,2,2,2,2,2,2,3,2,2,2),(4,'222',0,'1',1,3,3,3,3,3,3,3,3,3,3,3,3,3),(5,'222',0,'1',1,5,5,5,5,5,5,5,5,5,5,5,5,5),(6,'222',0,'1',1,4,4,4,4,4,44,4,4,4,4,4,4,4),(7,'222',0,'1',1,6,6,6,6,6,6,6,6,6,6,6,6,6);
+INSERT INTO `cadastro_flaps` VALUES (55,'Teste Flap Calculo',0,'220',2,1,1721,-81,83,61,-19,59,-43,228,-32,362,138,1425),(56,'Teste Flap Calculo',0,'220',2,2,1575,-76,79,58,-19,59,-39,237,-24,317,143,1039),(57,'Teste Flap Calculo',0,'220',2,5,1239,-57,59,41,-15,37,-29,160,-11,209,136,515),(58,'Teste Flap Calculo',0,'220',2,6,1068,-46,47,29,-11,23,-23,107,-7,170,114,129),(59,'Teste Flap Calculo',0,'220',2,3,1446,-63,64,45,-16,40,-34,161,-19,238,126,606),(60,'Teste Flap Calculo',0,'220',2,4,1357,-58,59,41,-15,35,-31,143,-16,214,120,515),(61,'Teste Flap Calculo',0,'220',1,2,1669,-80,82,62,-20,63,-40,241,-24,327,117,1064),(62,'Teste Flap Calculo',0,'220',1,3,1534,-67,68,48,-17,43,-34,165,-20,248,106,611),(63,'Teste Flap Calculo',0,'220',1,1,1813,-86,87,64,-20,63,-44,233,-32,371,114,1400),(64,'Teste Flap Calculo',0,'220',1,4,1443,-62,62,43,-16,38,-32,148,-17,222,105,504),(65,'Teste Flap Calculo',0,'220',1,5,1330,-62,63,45,-16,40,-30,165,-12,219,115,516),(66,'Teste Flap Calculo',0,'220',1,6,1145,-49,51,32,-12,26,-23,111,-8,179,103,135);
 /*!40000 ALTER TABLE `cadastro_flaps` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +154,7 @@ CREATE TABLE `flaps` (
   `flap` varchar(50) NOT NULL,
   `aeronave` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +163,7 @@ CREATE TABLE `flaps` (
 
 LOCK TABLES `flaps` WRITE;
 /*!40000 ALTER TABLE `flaps` DISABLE KEYS */;
-INSERT INTO `flaps` VALUES (1,'1','333'),(2,'1111','111'),(3,'111','222');
+INSERT INTO `flaps` VALUES (9,'220','Teste Flap Calculo');
 /*!40000 ALTER TABLE `flaps` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +228,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('Admin@Admin','Admin','Admin123',2),('andre@ribeiro','and ','a012340120123',2),('cliente2@cliente','cliente','Teste123',1),('cliente3@cliente','cliente','Teste123',2),('cliente4@cliente','cliente','Teste123',1),('cliente@cliente','cliente','Teste123',1),('luzia@ramos.com','luzia','a012340120123',1),('testeMil','teste@mil','77777777777777777777777',1),('wwewqewqeqw@ewqewqeqw.ewqeqweqw','ffff','ewqeqwewqewewqeqweq',1);
+INSERT INTO `usuarios` VALUES ('Admin@Admin','Admin','Admin123',2),('cliente2@cliente','cliente','Teste123',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -193,4 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-18 20:51:17
+-- Dump completed on 2022-11-26 20:16:09
