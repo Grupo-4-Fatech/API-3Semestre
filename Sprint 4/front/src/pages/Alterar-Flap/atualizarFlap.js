@@ -4,8 +4,116 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import Logout from '../../componentes/logout/logout';
 import InputCadastros from '../../componentes/inputCadastros/inputCadastro';
+const Swal = require('sweetalert2')
 
 const AtualizarFlap = () => {
+
+
+    var handleAtualizarFlap = function (e) {
+        e.preventDefault();
+        var dadosFlap = []
+        var string = window.location.href;
+        string = string.substring(window.location.href.indexOf("id=") + 3, string.length);
+        for (var n = 1; n <= 6; n++) {
+            var dados = {}
+            dados.id = string
+            dados.aeronaves = document.getElementById('aircraft-model').value
+            dados.flap = document.getElementById('nomeFlap').value
+            dados.runway_condicion = n
+            dados.ref = document.getElementById('REF_' + n).value
+            dados.below_weight = document.getElementById('weightBelow_' + n).value
+            dados.above_weight = document.getElementById('weightAbove_' + n).value
+            dados.alt = document.getElementById('Alt_' + n).value
+            dados.below_isa = document.getElementById('tempBelow_' + n).value
+            dados.above_isa = document.getElementById('tempAbove_' + n).value
+            dados.head_wind = document.getElementById('headWind_' + n).value
+            dados.tall_wind = document.getElementById('tailWind_' + n).value
+            dados.up_hill = document.getElementById('slopUp_' + n).value
+            dados.down_hill = document.getElementById('slopDow_' + n).value
+            dados.vap = document.getElementById('vap_' + n).value
+            dados.rev = document.getElementById('rev_' + n).value
+            if (document.getElementById('dot-1').checked) {
+                dados.ice = 1
+            } else if (document.getElementById('dot-2').checked) {
+                dados.ice = 2
+            }
+            dadosFlap.push(dados)
+        }
+        console.log(dados)
+        fetch("/AtualizarFlap", {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(dadosFlap)
+        }).then((resposta) => resposta.json()).then((data) => {
+            console.log(data)
+            Swal.fire({
+                icon: data.ok ? 'success' : 'error',
+                title: data.ok ? 'SUCCESS' : 'ERROR',
+                text: data.ok ? 'Aircraft updated successfuly' : 'Error updating the Flaps',
+            }).then(() => {
+                if (data.ok) {
+                    window.location.href = '/Consulta-Flap';
+                }
+
+            })
+        })
+    }
+    useEffect(() => {
+
+        var string = window.location.href;
+        string = string.substring(window.location.href.indexOf("id=") + 3, string.length);
+        fetch("/BuscarFlapParametros" + "?id=" + string, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+
+        }).then((resposta) => resposta.json()).then((dados) => {
+            console.log(dados)
+            var t = 1
+
+
+            for (var n = 0; n < dados.length; n++) {
+                if (t == 7) {
+                    t = 6
+                }
+
+                console.log(t)
+                dados.sort((a, b) => {
+                    return a.runway_condicion - b.runway_condicion
+                })
+                document.getElementById('aircraft-model').value = dados[n].aeronaves
+                document.getElementById('nomeFlap').value = dados[n].flap
+                // dados.ice = document.getElementById('').value
+                dados.runway_condicion = t
+                document.getElementById('REF_' + t).value = dados[n].ref
+                // dados.ref = document.getElementById('REF_2').value
+
+                document.getElementById('weightBelow_' + t).value = dados[n].below_weight
+                document.getElementById('weightAbove_' + t).value = dados[n].above_weight
+                document.getElementById('Alt_' + t).value = dados[n].alt
+                document.getElementById('tempBelow_' + t).value = dados[n].below_isa
+                document.getElementById('tempAbove_' + t).value = dados[n].above_isa
+                document.getElementById('headWind_' + t).value = dados[n].head_wind
+                document.getElementById('tailWind_' + t).value = dados[n].tall_wind
+                document.getElementById('slopUp_' + t).value = dados[n].up_hill
+                document.getElementById('slopDow_' + t).value = dados[n].down_hill
+                document.getElementById('vap_' + t).value = dados[n].vap
+                document.getElementById('rev_' + t).value = dados[n].rev
+                if (dados[n].ice = 1) {
+                    document.getElementById('dot-1').checked = true;
+                    dados.ice = 1
+                } else if (dados[n].ice = 2) {
+                    document.getElementById('dot-2').checked = true;
+                    dados.ice = 2
+                }
+                t++
+            }
+        })
+    }, []);
+
     function validarCampoVazioFlap(flap) {
         if (flap.value == null) {
             return false
@@ -191,18 +299,6 @@ const AtualizarFlap = () => {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     const OnChangeAeronave = () => {
         if (document.getElementById('aircraft-model').value === 'default') {
             return
@@ -215,6 +311,7 @@ const AtualizarFlap = () => {
 
         })
     }
+
     var dados = [{
         modelo_de_aeronave: "teste"
     }];
@@ -250,7 +347,7 @@ const AtualizarFlap = () => {
 
 
                         <label htmlFor="" className="tituloS">Aircraft Model</label>
-                        <select onChange={OnChangeAeronave} className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
+                        <select disabled onChange={OnChangeAeronave} className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
                             <option value="default" disabled>Select aircraft:</option>
                             {aeronaves.map(function (a) {
                                 console.log(a)
@@ -396,11 +493,13 @@ const AtualizarFlap = () => {
 
 
                 <div className='button'>
-                    <button type="submit" >Update</button>
+                    <button type="submit" onClick={handleAtualizarFlap}>Update</button>
                 </div>
             </form>
 
         </div>
     )
 }
+// onClick={handleAtualizarFlap}
+
 export default AtualizarFlap;

@@ -51,8 +51,8 @@ FlapsController.patch("/AtualizarFlaps", async (req, res) => {
             mensagem: "Por favor, preencha os dados para atualizar o cadastro."
         })
     } else {
-        var Id = dados.Id;
-        FlapsModel.findByPk(Id?.toString()).then(async (data) => {
+        var id = dados.id;
+        FlapsModel.findByPk(id?.toString()).then(async (data) => {
             if (data != null) {
                 await FlapsModel.update({
                     flap: dados.flap,
@@ -60,7 +60,7 @@ FlapsController.patch("/AtualizarFlaps", async (req, res) => {
 
                 }, {
                     where: {
-                        Id: dados.Id
+                        id: dados.id
                     }
                 })
 
@@ -81,8 +81,8 @@ FlapsController.patch("/AtualizarFlaps", async (req, res) => {
 })
 
 FlapsController.get("/BuscarFlaps", async (req, res) => {
-    var Id = req.query.Id;
-    FlapsModel.findByPk(Id?.toString()).then((data) => {
+    var id = req.query.id;
+    FlapsModel.findByPk(id?.toString()).then((data) => {
         res.json(data)
     })
 })
@@ -94,9 +94,9 @@ FlapsController.get("/ListarFlaps", async (req, res) => {
 
 })
 
-FlapsController.delete("/DeletarFlaps", async (req, res) => {
-    var Id = req.query.Id
-    await FlapsModel.destroy({ where: { Id: Id } }).then((data) => {
+FlapsController.post("/DeletarFlaps", async (req, res) => {
+    var id = req.query.id
+    await FlapsModel.destroy({ where: { id: id } }).then((data) => {
 
     })
 

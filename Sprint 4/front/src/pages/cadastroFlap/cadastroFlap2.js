@@ -5,10 +5,11 @@ import React from 'react';
 import Logout from '../../componentes/logout/logout';
 import InputCadastros from '../../componentes/inputCadastros/inputCadastro';
 import "./cadastroFlap.css"
+
 const Swal = require('sweetalert2')
 
 
-const CadastrarFlap = () => {
+const CadastrarFlap2 = () => {
     function validarSelect(e) {
         const model = document.getElementById("aircraft-model")
         if (model.value === "default") {
@@ -638,7 +639,7 @@ const CadastrarFlap = () => {
             })
             return true
         }
-
+        
         if (!validarCamposVaziosAlt()) {
             Swal.fire({
                 icon: 'error',
@@ -785,13 +786,12 @@ const CadastrarFlap = () => {
         }
 
 
-
         // e.preventDefault();
         var dadosFlap = [];
 
         for (var n = 1; n <= 6; n++) {
             var dados = {}
-
+            
             dados.aeronaves = document.getElementById('aircraft-model').value
             // dados.udm = document.getElementById('').value
             dados.flap = document.getElementById('nomeFlap').value
@@ -834,7 +834,6 @@ const CadastrarFlap = () => {
             }).then((result) => {
                 if (result.isConfirmed && data.ok) {
                     window.location.href = '/home';
-                    // window.location.href = '/CadastroFlap2';
                 }
             })
 
@@ -843,45 +842,38 @@ const CadastrarFlap = () => {
 
 
 
-    const OnChangeAeronave = () => {
-        if (document.getElementById('aircraft-model').value === 'default') {
-            return
-        }
-        fetch("/BuscarAeronave" + "?modelo_de_aeronave=" + document.getElementById('aircraft-model').value, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
+    // const OnChangeAeronave = () => {
+    //     if (document.getElementById('aircraft-model').value === 'default') {
+    //         return
+    //     }
+    //     fetch("/BuscarAeronave" + "?modelo_de_aeronave=" + document.getElementById('aircraft-model').value, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json;charset=utf-8'
+    //         },
 
-        })
-    }
-    var dados = [{
-        modelo_de_aeronave: "teste"
-    }];
-    const [aeronaves, setAronave] = useState(dados);
-    const ListarAeronaves = function () {
-        fetch("/ListarAeronave", {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
+    //     })
+    // }
+    // var dados = [{
+    //     modelo_de_aeronave: "teste"
+    // }];
+    // const [aeronaves, setAronave] = useState(dados);
+    // const ListarAeronaves = function () {
+    //     fetch("/ListarAeronave", {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json;charset=utf-8'
+    //         },
 
-        }).then((resposta) => resposta.json()).then((data) => {
-
-
-            setAronave(data)
-        });
-    }
-    useEffect(() => {
-        ListarAeronaves();
-    }, [])
+    //     }).then((resposta) => resposta.json()).then((data) => {
 
 
-        const [flap, setFlap] = useState('');
-
-    const SalvarDados = ()=> {
-        setFlap();
-    }
+    //         setAronave(data)
+    //     });
+    // }
+    // useEffect(() => {
+    //     ListarAeronaves();
+    // }, [])
 
     return (
 
@@ -897,26 +889,26 @@ const CadastrarFlap = () => {
 
 
                         <label htmlFor="" className="tituloS">Aircraft Model</label>
-                        <select onChange={OnChangeAeronave} className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
-                            <option value="default" disabled>Select aircraft:</option>
-                            {aeronaves.map(function (a) {
+                        {/* <select onChange={OnChangeAeronave} className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}> */}
+                        <select disabled className="medida" name="aircraft-model" id="aircraft-model" defaultValue={'default'}>
+                            <option value="" disabled></option>
+                            {/* {aeronaves.map(function (a) {
                                 console.log(a)
                                 return <option value={a.modelo_de_aeronave}> {a.modelo_de_aeronave}</option>
-                            })};
+                            })}; */}
                         </select>
 
                     </div>
                     </>
-                    <InputCadastros onChange={e => setFlap(e.target.value)} id="nomeFlap" type="string" placeholder="Flap">Flap </InputCadastros>
+                    <InputCadastros disabled   id="nomeFlap" type="string" placeholder="Flap" setFlap>Flap </InputCadastros>
 
                 </div>
 
 
 
-                <div className="Reversor-details">
-                    <input type="radio" name="tipo-usuario" id="dot-1" value="1" defaultChecked />
-                    {/* <input disabled type="radio" name="tipo-usuario" id="dot-2" value="2" /> */}
-                    <input type="radio" name="tipo-usuario" id="dot-2" value="2" />
+                <div  className="Reversor-details">
+                    <input disabled type="radio" name="tipo-usuario" id="dot-1" value="1" />
+                    <input type="radio" name="tipo-usuario" id="dot-2" value="2" defaultChecked />
                     <span className="Reversor-title">Type</span>
 
                     <div className="category">
@@ -1051,4 +1043,4 @@ const CadastrarFlap = () => {
         </div>
     )
 }
-export default CadastrarFlap;
+export default CadastrarFlap2;

@@ -60,15 +60,15 @@ FlapsController.patch("/AtualizarFlaps", (req, res) => __awaiter(void 0, void 0,
         });
     }
     else {
-        var Id = dados.Id;
-        FlapsModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => __awaiter(void 0, void 0, void 0, function* () {
+        var id = dados.id;
+        FlapsModel_1.default.findByPk(id === null || id === void 0 ? void 0 : id.toString()).then((data) => __awaiter(void 0, void 0, void 0, function* () {
             if (data != null) {
                 yield FlapsModel_1.default.update({
                     flap: dados.flap,
                     aeronave: dados.aeronave
                 }, {
                     where: {
-                        Id: dados.Id
+                        id: dados.id
                     }
                 });
                 res.json({
@@ -86,8 +86,8 @@ FlapsController.patch("/AtualizarFlaps", (req, res) => __awaiter(void 0, void 0,
     }
 }));
 FlapsController.get("/BuscarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var Id = req.query.Id;
-    FlapsModel_1.default.findByPk(Id === null || Id === void 0 ? void 0 : Id.toString()).then((data) => {
+    var id = req.query.id;
+    FlapsModel_1.default.findByPk(id === null || id === void 0 ? void 0 : id.toString()).then((data) => {
         res.json(data);
     });
 }));
@@ -96,9 +96,9 @@ FlapsController.get("/ListarFlaps", (req, res) => __awaiter(void 0, void 0, void
         res.json(data);
     });
 }));
-FlapsController.delete("/DeletarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var Id = req.query.Id;
-    yield FlapsModel_1.default.destroy({ where: { Id: Id } }).then((data) => {
+FlapsController.post("/DeletarFlaps", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var id = req.query.id;
+    yield FlapsModel_1.default.destroy({ where: { id: id } }).then((data) => {
     });
 }));
 exports.default = FlapsController;
