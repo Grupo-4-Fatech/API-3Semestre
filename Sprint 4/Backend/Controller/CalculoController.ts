@@ -30,6 +30,7 @@ CalculoController.post("/calcular" , async(req, res)=>{
 });
 
 
+
 var calcular = function(dados: any, valores:any , referencia:any):number{
    
   console.log("dadosssssssssssssssssssssssssss")

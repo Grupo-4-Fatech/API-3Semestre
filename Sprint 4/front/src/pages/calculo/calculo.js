@@ -115,7 +115,7 @@ var handleCalcular = function (e) {
     var dados = {
         UnitOfMeasurement: parseInt(document.getElementById('medida').value),
         Flap: parseInt(document.getElementById('slcFlap').value),
-        Ice: document.getElementById('slcIce').value === 1 ? false : true,
+        Ice: document.getElementById('slcIce').value, //=== 1 ? false : true,
         RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
         Peso: document.getElementById('Peso').value,
         Alt: document.getElementById('Alt').value,
@@ -167,10 +167,8 @@ const Calculo = () => {
         var numReversor = document.getElementById("Reversor");
         var numSlope = document.getElementById("InputSlope");
         const campos = [numAlt, numPeso, numReversor, numSlope, numWind]
-        console.log("campos" + campos);
         let Evalido = true
         for (var campo of campos) {
-            console.log(campo);
             if (campo.value < 0) {
                 campo.value = 0
                 Evalido = false
@@ -201,7 +199,6 @@ const Calculo = () => {
         const numSlope = document.getElementById("InputSlope");
         const numTemp = document.getElementById("Temp")
         const campos = [numAlt, numPeso, numReversor, numSlope, numWind, numTemp]
-        console.log("campos" + campos);
         let Evalido3 = true
         for (const campo of campos) {
             if (campo.value === "") {
@@ -385,7 +382,7 @@ const Calculo = () => {
         var dados = {
             UnitOfMeasurement: parseInt(document.getElementById('medida').value),
             Flap: parseInt(document.getElementById('slcFlap').value),
-            Ice: document.getElementById('slcIce').value == 1 ? false : true,
+            Ice: document.getElementById('slcIce').value, //== 1 ? false : true,
             RunwayCondicion: parseInt(document.getElementById('runway_condition').value),
             Peso: document.getElementById('Peso').value,
             Alt: document.getElementById('Alt').value,
@@ -398,6 +395,7 @@ const Calculo = () => {
             Modelo: document.getElementById('aircraft-model').value
 
         };
+        console.log(dados.Ice)
 
         fetch("/calcular", {
             method: 'POST',
