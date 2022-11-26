@@ -27,10 +27,13 @@ FlapController.post("/CadastrarFlap", (req, res) => __awaiter(void 0, void 0, vo
     }
     else {
         try {
-            var sucesso = yield FlapsModel_1.default.create({
-                flap: dadosFlap[0].flap,
-                aeronave: dadosFlap[0].aeronaves
-            });
+            var sucesso = true;
+            if (dadosFlap[0].ice == 1) {
+                yield FlapsModel_1.default.create({
+                    flap: dadosFlap[0].flap,
+                    aeronave: dadosFlap[0].aeronaves
+                });
+            }
             if (sucesso) {
                 dadosFlap.forEach((dados) => __awaiter(void 0, void 0, void 0, function* () {
                     console.log("entrou");
@@ -119,7 +122,10 @@ FlapController.patch("/AtualizarFlap", (req, res) => __awaiter(void 0, void 0, v
                     rev: dados.rev
                 }, {
                     where: {
-                        aeronaves: dados.aeronaves, flap: dados.flap, runway_condicion: dados.runway_condicion
+                        aeronaves: dados.aeronaves,
+                        flap: dados.flap,
+                        runway_condicion: dados.runway_condicion,
+                        ice: dados.ice
                     }
                 });
             }));
@@ -142,12 +148,18 @@ FlapController.get("/BuscarFlap", (req, res) => __awaiter(void 0, void 0, void 0
         res.json(data);
     });
 }));
+FlapController.get("/BuscarFlapAeronave", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var aeronave = req.query.aeronave;
+    FlapsModel_1.default.findAll({ where: { aeronave: aeronave } }).then((data) => {
+        res.json(data);
+    });
+}));
 FlapController.get("/BuscarFlapParametros", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var id = req.query.id;
     console.log(id);
     FlapsModel_1.default.findByPk(id === null || id === void 0 ? void 0 : id.toString()).then((data) => {
         console.log(data);
-        FlapModel_1.default.findAll({ where: { flap: data.flap, aeronaves: data.aeronave, ice: 1 } }).then((dados) => {
+        FlapModel_1.default.findAll({ where: { flap: data.flap, aeronaves: data.aeronave } }).then((dados) => {
             res.json(dados);
         });
     });

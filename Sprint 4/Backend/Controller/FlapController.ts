@@ -18,16 +18,20 @@ FlapController.post("/CadastrarFlap", async (req, res) => {
     } else {
         try {
 
-            var sucesso = await FlapsModel.create({
+            var sucesso = true; 
+            if (dadosFlap[0].ice ==1){
+                await FlapsModel.create({
 
-                flap: dadosFlap[0].flap,
-                aeronave: dadosFlap[0].aeronaves
-            })
+                    flap: dadosFlap[0].flap,
+                    aeronave: dadosFlap[0].aeronaves
+                })
+            }
             if (sucesso) {
                 dadosFlap.forEach(async (dados: any) => {
                     console.log("entrou");
 
                     await FlapModel.create({
+                        
                         aeronaves: dados.aeronaves,
                         udm: parseInt(dados.udm),
                         flap: dados.flap,
@@ -124,7 +128,10 @@ FlapController.patch("/AtualizarFlap", async (req, res) => {
 
                 }, {
                     where: {
-                        aeronaves: dados.aeronaves, flap: dados.flap, runway_condicion: dados.runway_condicion
+                        aeronaves: dados.aeronaves, 
+                        flap: dados.flap, 
+                        runway_condicion:  dados.runway_condicion,
+                        ice : dados.ice
                     }
                 })
 
@@ -153,12 +160,18 @@ FlapController.get("/BuscarFlap", async (req, res) => {
         res.json(data)
     })
 })
+FlapController.get("/BuscarFlapAeronave", async (req, res) => {
+    var aeronave = req.query.aeronave;
+    FlapsModel.findAll({where:{aeronave: aeronave}}).then((data: any) => {
+        res.json(data)
+    })
+})
 FlapController.get("/BuscarFlapParametros", async (req, res) => {
     var id = req.query.id;
     console.log(id)
     FlapsModel.findByPk(id?.toString()).then((data: any) => {
         console.log(data)
-        FlapModel.findAll({ where: { flap: data.flap, aeronaves: data.aeronave,ice: 1} }).then((dados) => {
+        FlapModel.findAll({ where: { flap: data.flap, aeronaves: data.aeronave} }).then((dados) => {
             res.json(dados)
         })
 

@@ -826,16 +826,41 @@ const CadastrarFlap = () => {
             },
             body: JSON.stringify(dadosFlap)
         }).then((resposta) => resposta.json()).then((data) => {
-
+            var mensagemSucesso = dadosFlap[0].ice == 1? 'Flap successfully registered.\n Please, now register flap without ice.': 'Flap successfully registered'
             console.log(data)
             Swal.fire({
-                title: data.ok ? 'Flap successfully registered' : "Flap already registered",
+                title: data.ok ? mensagemSucesso : "Flap already registered",
                 icon: data.ok ? 'success' : "erro",
             }).then((result) => {
+                if(dadosFlap[0].ice == 1 &&  data.ok){
+                    setComIce(false)
+                    setSmIce(true);
+                    for (var t = 1; t <= 6; t++) {
+                        
+                      
+                        // dados.ice = document.getElementById('').value
+                       
+                        document.getElementById('REF_' + t).value = 0
+                        // dados.ref = document.getElementById('REF_2').value
+        
+                        document.getElementById('weightBelow_' + t).value = 0
+                        document.getElementById('weightAbove_' + t).value = 0
+                        document.getElementById('Alt_' + t).value = 0
+                        document.getElementById('tempBelow_' + t).value = 0
+                        document.getElementById('tempAbove_' + t).value = 0
+                        document.getElementById('headWind_' + t).value = 0
+                        document.getElementById('tailWind_' + t).value = 0
+                        document.getElementById('slopUp_' + t).value = 0
+                        document.getElementById('slopDow_' + t).value =0
+                        document.getElementById('vap_' + t).value = 0
+                        document.getElementById('rev_' + t).value = 0
+                        
+                    }
+                }else{
                 if (result.isConfirmed && data.ok) {
                     window.location.href = '/home';
                     // window.location.href = '/CadastroFlap2';
-                }
+                }}
             })
 
         })
@@ -859,6 +884,8 @@ const CadastrarFlap = () => {
         modelo_de_aeronave: "teste"
     }];
     const [aeronaves, setAronave] = useState(dados);
+    const [comIce, setComIce] = useState(true);
+    const [semIce, setSmIce] = useState(false);
     const ListarAeronaves = function () {
         fetch("/ListarAeronave", {
             method: 'GET',
@@ -912,11 +939,11 @@ const CadastrarFlap = () => {
                 </div>
 
 
-
+                
                 <div className="Reversor-details">
-                    <input type="radio" name="tipo-usuario" id="dot-1" value="1" defaultChecked />
+                    <input type="radio" name="tipo-usuario" id="dot-1" value="1" checked={comIce} disabled/>
                     {/* <input disabled type="radio" name="tipo-usuario" id="dot-2" value="2" /> */}
-                    <input type="radio" name="tipo-usuario" id="dot-2" value="2" />
+                    <input type="radio" name="tipo-usuario" id="dot-2" value="2" checked={semIce} disabled />
                     <span className="Reversor-title">Type</span>
 
                     <div className="category">

@@ -60,6 +60,8 @@ const AtualizarFlap = () => {
             })
         })
     }
+    const [dadosParametrosIce, setDadosParametrosIce] = useState([]);
+    const [dadosParametrosSem, setDadosParametrosSem] = useState([]);
     useEffect(() => {
 
         var string = window.location.href;
@@ -71,10 +73,15 @@ const AtualizarFlap = () => {
             },
 
         }).then((resposta) => resposta.json()).then((dados) => {
-            console.log(dados)
+           
             var t = 1
 
-
+            var dadosIce = dados.filter(item => item.ice == 1)
+            var dadosSemIce = dados.filter(item => item.ice == 2)
+            console.log()
+            setDadosParametrosIce(dadosIce)
+            setDadosParametrosSem(dadosSemIce)
+            dados = dadosIce
             for (var n = 0; n < dados.length; n++) {
                 if (t == 7) {
                     t = 6
@@ -113,7 +120,75 @@ const AtualizarFlap = () => {
             }
         })
     }, []);
+ var onChangeIce = function (){
+    if (document.getElementById('dot-1').checked) {
+        let t = 1
+        let dados = dadosParametrosIce
+        for (var n = 0; n < dados.length; n++) {
+            if (t == 7) {
+                t = 6
+            }
 
+            console.log('com')
+            dados.sort((a, b) => {
+                return a.runway_condicion - b.runway_condicion
+            })
+          
+            // dados.ice = document.getElementById('').value
+         
+            document.getElementById('REF_' + t).value = dados[n].ref
+            // dados.ref = document.getElementById('REF_2').value
+
+            document.getElementById('weightBelow_' + t).value = dados[n].below_weight
+            document.getElementById('weightAbove_' + t).value = dados[n].above_weight
+            document.getElementById('Alt_' + t).value = dados[n].alt
+            document.getElementById('tempBelow_' + t).value = dados[n].below_isa
+            document.getElementById('tempAbove_' + t).value = dados[n].above_isa
+            document.getElementById('headWind_' + t).value = dados[n].head_wind
+            document.getElementById('tailWind_' + t).value = dados[n].tall_wind
+            document.getElementById('slopUp_' + t).value = dados[n].up_hill
+            document.getElementById('slopDow_' + t).value = dados[n].down_hill
+            document.getElementById('vap_' + t).value = dados[n].vap
+            document.getElementById('rev_' + t).value = dados[n].rev
+            
+            t++
+        }
+    } else{
+        console.log("sem")
+        let t = 1
+        let dados = dadosParametrosSem
+        console.log(dados)
+        for (var n = 0; n < dados.length; n++) {
+            if (t == 7) {
+                t = 6
+            }
+
+            console.log("sem")
+            dados.sort((a, b) => {
+                return a.runway_condicion - b.runway_condicion
+            })
+    
+            // dados.ice = document.getElementById('').value
+      
+            document.getElementById('REF_' + t).value = dados[n].ref
+            // dados.ref = document.getElementById('REF_2').value
+
+            document.getElementById('weightBelow_' + t).value = dados[n].below_weight
+            document.getElementById('weightAbove_' + t).value = dados[n].above_weight
+            document.getElementById('Alt_' + t).value = dados[n].alt
+            document.getElementById('tempBelow_' + t).value = dados[n].below_isa
+            document.getElementById('tempAbove_' + t).value = dados[n].above_isa
+            document.getElementById('headWind_' + t).value = dados[n].head_wind
+            document.getElementById('tailWind_' + t).value = dados[n].tall_wind
+            document.getElementById('slopUp_' + t).value = dados[n].up_hill
+            document.getElementById('slopDow_' + t).value = dados[n].down_hill
+            document.getElementById('vap_' + t).value = dados[n].vap
+            document.getElementById('rev_' + t).value = dados[n].rev
+            
+            t++
+        }
+    }
+ }
     function validarCampoVazioFlap(flap) {
         if (flap.value == null) {
             return false
@@ -357,15 +432,15 @@ const AtualizarFlap = () => {
 
                     </div>
                     </>
-                    <InputCadastros id="nomeFlap" type="string" placeholder="Flap">Flap </InputCadastros>
+                    <InputCadastros disabled id="nomeFlap" type="string" placeholder="Flap">Flap </InputCadastros>
 
                 </div>
 
 
 
                 <div className="Reversor-details">
-                    <input type="radio" name="tipo-usuario" id="dot-1" value="1" defaultChecked />
-                    <input type="radio" name="tipo-usuario" id="dot-2" value="2" />
+                    <input type="radio" onClick={onChangeIce} name="tipo-usuario" id="dot-1" value="1" defaultChecked />
+                    <input type="radio" onClick={onChangeIce} name="tipo-usuario" id="dot-2" value="2" />
                     <span className="Reversor-title">Type</span>
 
                     <div className="category">
