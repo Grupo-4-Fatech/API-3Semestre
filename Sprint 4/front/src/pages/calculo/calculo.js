@@ -466,13 +466,13 @@ const Calculo = () => {
             console.log(data)
             if (document.getElementById('medida').value == 2 && data.unidade_de_medida == 1) {
 
-                setPesoMaximo((data.peso_max * 2205))
-                setPesoMin((data.peso_min * 2205))
+                setPesoMaximo((data.peso_max * 2.205))
+                setPesoMin((data.peso_min * 2.205))
 
                 console.log(1)
             } else if (document.getElementById('medida').value == 1 && data.unidade_de_medida == 2) {
-                setPesoMaximo((data.peso_max / 2205))
-                setPesoMin((data.peso_min / 2205))
+                setPesoMaximo((data.peso_max / 2.205))
+                setPesoMin((data.peso_min / 2.205))
                 console.log(2)
             }
             else {
