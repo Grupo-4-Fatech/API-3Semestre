@@ -177,12 +177,12 @@ const AtualizarAeronave = () => {
 
         }
         if (e.target.value === '2') {
-            setTituloPeso('Weight Airplane (Kg)')
-            setTituloMaxWeight('Max Weight (Kg)')
-            setTituloMinWeight('Min Weight (Kg)')
-            setOwerWeight('OwerWeight (Kg)')
+            setTituloPeso('Weight Airplane (Lb)')
+            setTituloMaxWeight('Max Weight (Lb)')
+            setTituloMinWeight('Min Weight (Lb)')
+            setOwerWeight('OwerWeight (Lb)')
             setAltitude('Altitude (Ft)')
-            setTituloWeightRef ('Reference weight (Kg)')
+            setTituloWeightRef ('Reference weight (Lb)')
             setTituloTemperatureIsa('Temperature (ISA) (ºC)')
             setTituloWind('Wind (Kt)')
             setTituloReferenceTemperature('Reference temperature (ºC)')

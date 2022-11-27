@@ -459,7 +459,7 @@ const Calculo = () => {
         }
         if (e.target.value === '2') {
             OnChangeAeronave();
-            setTituloPeso('Weight (Kg)')
+            setTituloPeso('Weight (Lb)')
             setTituloAltitude('Altitude (Ft)')
             setTituloTemperature('Temperature (ºC)')
             setWind('wind (Kt)')
