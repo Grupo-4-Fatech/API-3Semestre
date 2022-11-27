@@ -52,23 +52,23 @@ var calcular = function(dados: any, valores:any , referencia:any):number{
     if(valores.UnitOfMeasurement == 1){
         
     }else{
-        valores.Peso = valores.Peso/2205;
+        valores.Peso = valores.Peso/2.205;
        
     }
     
     if(referencia.unidade_de_medida == 1){
        
     }else{
-        referencia.peso = referencia.peso/2205;
+        referencia.peso = referencia.peso/2.205;
         
     }
 
 
     //VALORES DE PESO
     if(valores.Peso > referencia.peso){
-        peso = peso + (valores.Peso - referencia.peso_referencia) * dados.above_weight;
+        peso = peso + (valores.Peso - referencia.peso) / referencia.peso_referencia * dados.above_weight;
     }else if(valores.Peso<referencia.peso){
-        peso = peso + (referencia.peso_referencia - valores.Peso ) * dados.below_weight;
+        peso = peso + (referencia.peso - valores.Peso ) / referencia.peso_referencia * dados.below_weight;
     }
     //ALTURA
     altura = (dados.alt/referencia.altitude) * valores.Alt;
@@ -118,9 +118,8 @@ var calcular = function(dados: any, valores:any , referencia:any):number{
     let resultado:number = valorReferencia + peso + altura + temp + wind + slope + rev
     
     // if(valores.UnitOfMeasurement == 2){
-    //     resultado = resultado*3.281
+    //     resultado = resultado / 3.281
     // }
-    
     
     return Math.floor(resultado);
 
