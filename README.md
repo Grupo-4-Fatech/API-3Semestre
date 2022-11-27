@@ -42,7 +42,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 - **Front-end:** HTML e CSS.
 - **Ferramentas:** Visual Studio Code, Canva, Git, Github, PowerPoint, MySQL, Microsoft Teams e Discord.
 
-![tecnologias1](https://user-images.githubusercontent.com/89141910/190279653-b5f94f54-0b5c-4d58-a517-4e501b87d351.png)
+![tecnologias (1)](https://user-images.githubusercontent.com/89141910/204116777-d4f50013-a27c-48dd-a9f4-179253ef9780.png)
+
 
 
 ## 💡 Metodologia
@@ -55,7 +56,8 @@ O projeto visa criar uma interface para que um piloto de aeronave possa calcular
 
 ## 🗒️ Backlog Priorizado
 
-![sprint backlog (1)](https://user-images.githubusercontent.com/89141910/200132445-9be7ee5e-593b-4973-83e5-b9080861a285.png)
+![sprint backlog (2)](https://user-images.githubusercontent.com/89141910/204116774-a5c881af-d627-4fe9-830c-704b8744802b.png)
+
 
 
 
